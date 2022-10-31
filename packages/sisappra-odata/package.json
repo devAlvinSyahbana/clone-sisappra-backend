@@ -1,0 +1,14 @@
+{
+  "name": "sisappra-odata",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "TIMING=1 eslint \"**/*.ts*\""
+  },
+  "dependencies": {
+    "fastify-plugin": "^4.0.0",
+    "odata-parser": "^1.4.1"
+  }
+}

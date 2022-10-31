@@ -1,6 +1,6 @@
 {
-  "name": "plugins-odata",
-  "version": "0.0.0",
+  "name": "sisappra-client",
+  "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.js",
   "license": "MIT",
@@ -9,9 +9,6 @@
   },
   "dependencies": {
     "fastify-plugin": "^4.0.0",
-    "odata-parser": "^1.4.1"
-  },
-  "devDependencies": {
-
+    "got": "^11.8.3"
   }
 }

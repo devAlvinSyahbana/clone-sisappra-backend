@@ -28,6 +28,11 @@ module.exports = async function (server, opts) {
         }
     }
 
+    // server.get('/jk', async function(request, reply) {
+    //     const d = await server.rest.masterdata().get('jenis-kegiatan').json()
+    //     return reply.send({d})
+    // })
+
     server.get('/', { schema: getSchema }, async function (request, reply) {
         return await server.odata.replyPaging(request, reply, DbSet())
     })

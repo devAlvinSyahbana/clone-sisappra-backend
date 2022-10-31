@@ -9,6 +9,11 @@ module.exports.options = {}
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
 
+  fastify.register(require("@fastify/cors"))
+  fastify.register(require("@fastify/multipart"))
+
+  fastify.register(require("sisappra-odata"))
+
   // OPEN API
   fastify.register(require("@fastify/swagger"), {
     routePrefix: '/oas',
