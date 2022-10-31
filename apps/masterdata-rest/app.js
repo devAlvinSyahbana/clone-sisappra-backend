@@ -2,12 +2,29 @@
 
 const path = require('path')
 const AutoLoad = require('@fastify/autoload')
+const allModels = require("./models/init-models");
 
 // Pass --options via CLI arguments in command to enable these options.
 module.exports.options = {}
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
+
+  fastify.register(require("sisappra-db"), {
+    sequelizeConfig: {
+      instance: 'db',
+      autoConnect: true,
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      username: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      database: process.env.DB_NAME,
+      dialect: process.env.DB_DIALECT,
+      caseModel: 'p',
+      caseProp: 'o'
+    },
+    allModels
+  })
 
   fastify.register(require("@fastify/cors"))
   fastify.register(require("@fastify/multipart"))

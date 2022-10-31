@@ -57,46 +57,7 @@ module.exports = async function (server, opts) {
         }
 
         let record = {
-            "pelaksana_bidang_wilayah": "BOGOR",
-            "tindak_lanjut": "Jakarta",
-            "administrasi": "Pekalongan",
-            "peringatan": "apa aja",
-            "penutupan_atau_penyegelan": null,
-            "pencabutan_izin": null,
-            "yang_lainnya": null,
-            "denda": null,
-            "keterangan": null,
-            "penghalauan": null,
-            "pembubaran": null,
-            "pengusiran": null,
-            "teguran_tertulis": null,
-            "penyegelan": null,
-            "penghentian_kegiatan": null,
-            "pembongkaran": null,
-            "ditertibkan": null,
-            "bongkar_sendiri": null,
-            "pemusnahan": null,
-            "pecabutan_izin": null,
-            "pembekuan_sementara_izin": null,
-            "razia": null,
-            "penjemputan": null,
-            "penangkapan": null,
-            "penyitaan": null,
-            "pembersihan": null,
-            "pencopotan_pelepasan_pencabutan": null,
-            "penyidikan": null,
-            "kerja_sosial": null,
-            "denda_administratif": null,
-            "terbit_izin": null,
-            "dikembalikan": null,
-            "belum_diterbitkan": null,
-            "lain_lain": null,
-            "tidak_ditemukan": null,
-            "pengadilan_yustisi": null,
-            "non_pengadilan": null,
-            "penghentian_kegiatan_sementara_1x24jam": null,
-            "penghentian_kegiatan_sementara_3x24jam": null,
-            "penghentian_kegiatan_sementara_7x24jam": null
+
         }
 
         server.entity.markCreated(record, "unknown")

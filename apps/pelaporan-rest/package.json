@@ -38,7 +38,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.23.2", 
     "sisappra-client": "*",
-    "sisappra-odata": "*"
+    "sisappra-odata": "*",
+    "sisappra-db": "*"
   },
   "devDependencies": {
     "sequelize-auto": "^0.8.8",
