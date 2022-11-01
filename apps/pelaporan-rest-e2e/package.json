@@ -1,0 +1,15 @@
+{
+  "name": "pelaporan-rest-e2e",
+  "version": "1.0.0",
+  "description": "e2e of pelaporan-rest",
+  "main": "index.js",
+  "scripts": {
+    "start": "cypress open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "afandy",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.11.0"
+  }
+}
