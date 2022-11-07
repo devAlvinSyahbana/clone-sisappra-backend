@@ -27,10 +27,41 @@ const dbConnector = async (server, options, next) => {
     })
 
     server.decorate('entity', {
-        markCreated: function (record, user) {
-            record.created_at = Date.now()
-            record.created_by = user
-        }
+        track: (record) => {
+            return {
+                markCreated: function (user) {
+                    record = {
+                        ...record,
+                        is_deleted: false,
+                        deleted_by: null,
+                        deleted_at: null,
+                        created_by: null,
+                        created_at: null,
+                        updated_by: null,
+                        updated_at: null
+                    }
+
+                    record.created_at = Date.now()
+                    record.created_by = user
+
+                    return record
+                },
+                markDeleted: (user) => {
+                    record.is_deleted = true
+                    record.deleted_at = Date.now()
+                    record.deleted_by = user
+
+                    return record
+                },
+                markModified: (user) => {
+                    record.updated_at = Date.now()
+                    record.updated_by = user
+
+                    return record
+                }
+            }
+        },
+
     })
 }
 
