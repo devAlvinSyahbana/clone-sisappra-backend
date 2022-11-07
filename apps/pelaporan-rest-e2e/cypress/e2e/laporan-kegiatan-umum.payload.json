@@ -5,23 +5,12 @@
   "kegiatan__tanggal": "2022-01-23",
   "kegiatan__jam": "8:00:00",
   "kegiatan__lokasi": "",
-  "kegiatan__asal_laporan_id": 3,
-  "kegiatan__jenis_pengamanan_id": 1,
-  "kegiatan__masalah": "",
-  "kegiatan__pemecahan_masalah": "",
-  "kegiatan__instansi_terkait": "",
 
   "tindak_lanjut__administrasi__jenis_pasal_id": 1,
   "tindak_lanjut__administrasi__jenis_penertiban": "",
   "tindak_lanjut__administrasi__jenis_pelanggaran": "",
   "tindak_lanjut__administrasi__perda_perkada": "",
   "tindak_lanjut__administrasi__penyelesaian_id": 2,
-  "tindak_lanjut__administrasi__penyelesaian_khusus_id": 2,
-
-  "tindak_lanjut__sidang__tanggal": "2022-11-01",
-  "tindak_lanjut__sidang__jumlah_pelanggar_hadir": 1,
-  "tindak_lanjut__sidang__jumlah_pelanggar_tidak_hadir": 1,
-  "tindak_lanjut__sidang__jumlah_pelanggar_verstek": 1,
 
   "tindak_lanjut__identitas_pelanggar__no_bap": "3232323",
   "tindak_lanjut__identitas_pelanggar__nama_penanggung_jawab": "3232323",
@@ -30,40 +19,13 @@
   "tindak_lanjut__identitas_pelanggar__nik": "3232323",
   "tindak_lanjut__identitas_pelanggar__alamat": "3232323",
   "tindak_lanjut__identitas_pelanggar__jenis_usaha_id": 2,
-  "tindak_lanjut__identitas_pelanggar__nama_pemilik": "buron",
 
   "tindak_lanjut__jenis_penindakan_id": 1,
   "tindak_lanjut__jumlah_pelanggar": 1,
-
-  "tindak_lanjut__denda__pengadilan": 50000,
   "tindak_lanjut__denda__non_pengadilan": 50000,
   "tindak_lanjut__denda__tanggal_setor": "2022-11-01",
   "tindak_lanjut__denda__nama_bank": "BCA",
   "tindak_lanjut__denda__no_validasi_bank": "23423423",
-
-  "tindak_lanjut__rekom_citata__jenis_pelanggaran_id": 1,
-  "tindak_lanjut__rekom_citata__no_sp": "23322332",
-  "tindak_lanjut__rekom_citata__tanggal_no_sp": "2022-01-23",
-  "tindak_lanjut__rekom_citata__no_segel": "3232323",
-  "tindak_lanjut__rekom_citata__tanggal_segel": "2022-01-23",
-  "tindak_lanjut__rekom_citata__no_spb": "3232323",
-  "tindak_lanjut__rekom_citata__tanggal_spb": "2022-01-23",
-  "tindak_lanjut__rekom_citata__no_rekomtek": "3232323",
-  "tindak_lanjut__rekom_citata__tanggal_rekomtek": "2022-01-23",
-  "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan": "2022-01-23",
-
-
-
-  "tindak_lanjut__jumlah_minol_merk": [
-    {
-      "merk": "WINE", "jumlah": 5
-    },
-    {
-      "merk": "BIR", "jumlah": 5
-    }
-  ],
-
-
   "dokumentasi": [
     {
       "file": "{URL_FILE}",

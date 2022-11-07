@@ -9,9 +9,9 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     is_deleted: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BOOLEAN,
       allowNull: true,
-      defaultValue: 0
+      defaultValue: false
     },
     deleted_by: {
       type: DataTypes.STRING(64),
@@ -38,163 +38,187 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
-    id_bidang_wilayah: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    kegiatan_id_jenis_kegiatan: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    kegiatan_jmlh_personil: {
-      type: DataTypes.SMALLINT,
-      allowNull: false
-    },
-    kegiatan_id_asal_laporan: {
+    kegiatan__jenis_kegiatan_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    kegiatan_id_jenis_pengamanan: {
+    kegiatan__jumlah_personil: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    kegiatan_masalah: {
-      type: DataTypes.STRING(128),
-      allowNull: true
-    },
-    kegiatan_pemecahan_masalah: {
-      type: DataTypes.STRING(128),
-      allowNull: true
-    },
-    kegiatan_instansi_terkait: {
-      type: DataTypes.STRING(128),
-      allowNull: true
-    },
-    kegiatan_uraian_kegiatan: {
-      type: DataTypes.STRING(128),
-      allowNull: true
-    },
-    tindak_lanjut_administrasi_id_jenis_pasal: {
+    kegiatan__uraian_kegiatan: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    tindak_lanjut_id_penyelesaian: {
-      type: DataTypes.INTEGER,
+    kegiatan__tanggal: {
+      type: DataTypes.DATEONLY,
       allowNull: true
     },
-    tindak_lanjut_id_proses_khusus: {
-      type: DataTypes.INTEGER,
+    kegiatan__jam: {
+      type: DataTypes.STRING(16),
       allowNull: true
     },
-    tindak_lanjut_identitas_nama_usaha_no_bap: {
+    kegiatan__lokasi: {
       type: DataTypes.STRING(64),
       allowNull: true
     },
-    tindak_lanjut_identitas_nama_usaha_nama_penanggung_jawab: {
+    kegiatan__asal_laporan_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    kegiatan__jenis_pengamanan_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    kegiatan__masalah: {
+      type: DataTypes.STRING(128),
+      allowNull: true
+    },
+    kegiatan__pemecahan_masalah: {
+      type: DataTypes.STRING(128),
+      allowNull: true
+    },
+    kegiatan__instansi_terkait: {
       type: DataTypes.STRING(64),
       allowNull: true
     },
-    tindak_lanjut_identitas_nama_usaha_nama_usaha_tempat: {
+    tindak_lanjut__administrasi__jenis_pasal_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__administrasi__jenis_penertiban: {
       type: DataTypes.STRING(64),
       allowNull: true
     },
-    tindak_lanjut_identitas_nama_usaha_nik_paspor: {
+    tindak_lanjut__administrasi__jenis_pelanggaran: {
       type: DataTypes.STRING(64),
       allowNull: true
     },
-    tindak_lanjut_identitas_nama_usaha_alamat: {
+    tindak_lanjut__administrasi__perda_perkada: {
+      type: DataTypes.STRING(64),
+      allowNull: true
+    },
+    tindak_lanjut__administrasi__penyelesaian_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__administrasi__penyelesaian_khusus_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__sidang__tanggal: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    tindak_lanjut__sidang__jumlah_pelanggar_hadir: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__sidang__jumlah_pelanggar_tidak_hadir: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__sidang__jumlah_pelanggar_verstek: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__identitas_pelanggar__no_bap: {
+      type: DataTypes.STRING(64),
+      allowNull: true
+    },
+    tindak_lanjut__identitas_pelanggar__nama_penanggung_jawab: {
+      type: DataTypes.STRING(64),
+      allowNull: true
+    },
+    tindak_lanjut__identitas_pelanggar__nama_tempat_usaha: {
+      type: DataTypes.STRING(64),
+      allowNull: true
+    },
+    tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    tindak_lanjut_id_jenis_usaha_tempat: {
+    tindak_lanjut__identitas_pelanggar__nik: {
+      type: DataTypes.STRING(32),
+      allowNull: true
+    },
+    tindak_lanjut__identitas_pelanggar__alamat: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    tindak_lanjut__identitas_pelanggar__jenis_usaha_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    tindak_lanjut_id_penindakan: {
+    tindak_lanjut__identitas_pelanggar__nama_pemilik: {
+      type: DataTypes.STRING(64),
+      allowNull: true
+    },
+    tindak_lanjut__jenis_penindakan_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    tindak_lanjut_jumlah_penindakan: {
-      type: DataTypes.SMALLINT,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_pelanggar: {
-      type: DataTypes.SMALLINT,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_denda_pengadilan: {
-      type: DataTypes.DECIMAL,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_denda_non_pengadilan: {
-      type: DataTypes.DECIMAL,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_denda_tanggal_setor: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_denda_nama_bank: {
-      type: DataTypes.STRING(64),
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_denda_no_validasi_bank: {
-      type: DataTypes.STRING(64),
-      allowNull: true
-    },
-    tindak_lanjut_tanggal_sidang: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_pelanggar_hadir_sidang: {
-      type: DataTypes.SMALLINT,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_pelanggar_tidak_hadir: {
-      type: DataTypes.SMALLINT,
-      allowNull: true
-    },
-    tindak_lanjut_jumlah_pelanggar_verstek: {
-      type: DataTypes.SMALLINT,
-      allowNull: true
-    },
-    tindak_lanjut_rekomendasi_citata_id_jenis_pelanggaran_bangunan: {
+    tindak_lanjut__jumlah_pelanggar: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_no_sp: {
-      type: DataTypes.STRING(64),
+    tindak_lanjut__denda__pengadilan: {
+      type: DataTypes.INTEGER,
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_tgl_sp: {
+    tindak_lanjut__denda__non_pengadilan: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__denda__tanggal_setor: {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_no_segel: {
+    tindak_lanjut__denda__nama_bank: {
       type: DataTypes.STRING(64),
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_tgl_segel: {
+    tindak_lanjut__denda__no_validasi_bank: {
+      type: DataTypes.STRING(16),
+      allowNull: true
+    },
+    tindak_lanjut__rekom_citata__jenis_pelanggaran_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tindak_lanjut__rekom_citata__no_sp: {
+      type: DataTypes.STRING(16),
+      allowNull: true
+    },
+    tindak_lanjut__rekom_citata__tanggal_no_sp: {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_no_spb: {
-      type: DataTypes.STRING(64),
+    tindak_lanjut__rekom_citata__no_segel: {
+      type: DataTypes.STRING(16),
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_tgl_spb: {
+    tindak_lanjut__rekom_citata__tanggal_segel: {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_no_rekomtek: {
-      type: DataTypes.STRING(64),
+    tindak_lanjut__rekom_citata__no_spb: {
+      type: DataTypes.STRING(16),
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_tgl_rekomtek: {
+    tindak_lanjut__rekom_citata__tanggal_spb: {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    tindak_lanjut_rekomendasi_citata_peninjau_lapangan: {
+    tindak_lanjut__rekom_citata__no_rekomtek: {
+      type: DataTypes.STRING(16),
+      allowNull: true
+    },
+    tindak_lanjut__rekom_citata__tanggal_rekomtek: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan: {
       type: DataTypes.DATEONLY,
       allowNull: true
     }
