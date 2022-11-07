@@ -1,0 +1,86 @@
+version: '3.5'
+
+services:
+  pelaporan:
+    build:
+      context: ../apps/pelaporan-rest
+      dockerfile: Dockerfile
+    image: afandy/sisappra-pelaporan:0.0.1
+    restart: always
+    ports:
+      - 6069:3000
+    links:
+      - db
+
+#  sarana-prasarana:
+#    build:
+#      context: ../apps/sarana-prasarana-rest
+#      dockerfile: Dockerfile
+#    image: afandy/sisappra-sarana-prasarana:0.0.1
+#    restart: always
+#    ports:
+#      - 6070:3000
+#    links:
+#      - db
+
+  master-data:
+    build:
+      context: ../apps/masterdata-rest
+      dockerfile: Dockerfile
+    image: afandy/sisappra-master-data:0.0.1
+    restart: always
+    ports:
+      - 6071:3000
+    links:
+      - db
+
+#  kepegawaian:
+#    build:
+#      context: ../apps/kepegawaian-rest
+#      dockerfile: Dockerfile
+#    image: afandy/sisappra-kepegawaian:0.0.1
+#    restart: always
+#    ports:
+#      - 6072:3000
+#    links:
+#      - db
+
+#  iam:
+#    build:
+#      context: ../apps/iam-rest
+#      dockerfile: Dockerfile
+#    image: afandy/sisappra-iam:0.0.1
+#    restart: always
+#    ports:
+#      - 6073:3000
+#    links:
+#      - db
+
+#  db:
+#    image: postgres:14
+#    environment:
+#      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Standard123}
+#      POSTGRES_DB: ${POSTGRES_DB:-dbsisappra}
+#      PGDATA: /data/postgres
+#    volumes:
+#      - postgres:/data/postgres
+#    ports:
+#      - "6432:5432"
+#    restart: unless-stopped
+
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_storage:/data
+    environment:
+      MINIO_ROOT_USER: masoud
+      MINIO_ROOT_PASSWORD: Strong#Pass#2022
+    command: server --console-address ":9001" /data
+
+volumes:
+  postgres:
+  minio_storage:
