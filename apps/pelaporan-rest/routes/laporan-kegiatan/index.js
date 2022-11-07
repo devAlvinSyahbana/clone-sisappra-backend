@@ -1,31 +1,13 @@
 'use strict'
 
 const {getSchema, postSchema, deleteSchema, putSchema} = require("./schema");
+const { LaporanKegiatan } = require("./laporan-kegiatan.domain");
 
 module.exports = async function (server, opts) {
     const DbSet = () => server.models.LaporanKegiatan
 
     const GetJenisKegiatanById = (id) => {
 
-    }
-
-    const ValidateJenisKegiatan = (request, jenisKegiatan) => {
-        switch (jenisKegiatan.nama) {
-            case "SIDANG TIPIRING":
-                return true;
-            case "PENERTIBAN BANGUNAN":
-                return true;
-            case "PENERTIBAN MINOL":
-                return true;
-            case "PENERTIBAN PPKM":
-                return true;
-            case "LAPORAN MASYARAKAT":
-                return true;
-            case "PENGAMANAN":
-                return true;
-            default:
-                return true;
-        }
     }
 
     // server.get('/jk', async function(request, reply) {
@@ -38,35 +20,32 @@ module.exports = async function (server, opts) {
     })
 
     server.post('/', {schema: postSchema, attachValidation: true}, async function (request, reply) {
-        if(!request.isMultipart()) {
-            return reply.code(403).send({code: 403, success: false, message: "have to support multipart/form-data"})
-        }
+        // if(!request.isMultipart()) {
+        //     return reply.code(403).send({code: 403, success: false, message: "have to support multipart/form-data"})
+        // }
 
         if (request.validationError) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
 
-        const jenisKegiatan = GetJenisKegiatanById(request.body.kegiatan_id_jenis_kegiatan)
-        if(!jenisKegiatan) {
-            return reply.code(400).send({code: 400, success: false, })
+        const laporan = new LaporanKegiatan(server)
+        await laporan.LoadForm(request.body, {})
+
+        const validationResult = laporan.Validate()
+        if (!validationResult.success) {
+
+            return reply.code(400).send({success: false, errors: validationResult.errors})
         }
 
-        if (!ValidateJenisKegiatan(request, )) {
+        let record = {}
 
-            return;
-        }
+        // server.entity.markCreated(record, "unknown")
 
-        let record = {
+        // const actCreated = await DbSet().create(record)
 
-        }
+        // const data = actCreated.dataValues
 
-        server.entity.markCreated(record, "unknown")
-
-        const actCreated = await DbSet().create(record)
-
-        const data = actCreated.dataValues
-
-        return reply.send({success: true, data: [data]})
+        return reply.send({success: true, data: []})
     })
 
     server.delete('/:id', {schema: deleteSchema}, async function (request, reply) {

@@ -1,5 +1,7 @@
 'use strict'
 
+const newLaporanKegiatan = require('./laporan-kegiatan.payload.json')
+
 describe('test api laporan-kegiatan', () => {
 
   it('success get laporan-kegiatan', () => {
@@ -17,34 +19,7 @@ describe('test api laporan-kegiatan', () => {
   })
 
   it('success create laporan-kegiatan', () => {
-    cy.request('POST', `${Cypress.env('apiUrl')}/laporan-kegiatan/`, {
-      "jenis_kegiatan_id": 0,
-      "jenis_personil": 0,
-      "uraian_kegiatan": "stringstri",
-      "tindak_lanjut_admin_jenis_pasal_id": 0,
-      "tindak_lanjut_admin_penertiban_id": 0,
-      "tindak_lanjut_admin_pelanggaran_id": 0,
-      "tindak_lanjut_admin_perda_perkada_id": 0,
-      "tindak_lanjut_penyelesaian_id": 0,
-      "tindak_lanjut_identitas_no_bap": "stringstri",
-      "tindak_lanjut_identitas_nama": "string",
-      "tindak_lanjut_identitas_nama_usaha": "stringstri",
-      "tindak_lanjut_identitas_alamat_usaha": "stringstri",
-      "tindak_lanjut_identitas_nik": "stringstri",
-      "tindak_lanjut_identitas_alamat": "stringstri",
-      "tindak_lanjut_identitas_jenis_usaha_id": 0,
-      "tindak_lanjut_penindakan_id": 0,
-      "tindak_lanjut_jumlah_pelanggar": 0,
-      "tindak_lanjut_denda_non_pengadilan": 0,
-      "tindak_lanjut_denda_matauang": "string",
-      "tindak_lanjut_denda_tgl_setor": "string",
-      "tindak_lanjut_denda_bank": "string",
-      "tindak_lanjut_denda_no_validasi": "string",
-      "dokumentasi_files": [
-        "string"
-      ],
-      "dokumentasi_keterangan": "string"
-    })
+    cy.request('POST', `${Cypress.env('apiUrl')}/laporan-kegiatan/`, newLaporanKegiatan)
       .should((response) => {
         expect(response.status).to.eq(200)
         // the server sometimes gets an extra comment posted from another machine

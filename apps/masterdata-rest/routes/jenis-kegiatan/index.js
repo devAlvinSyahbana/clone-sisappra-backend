@@ -30,7 +30,7 @@ module.exports = async function (server, opts) {
 
         let record = {}
 
-        server.entity.markCreated(record, "unknown")
+        server.entity.track(record).markCreated("unknown")
 
         const actCreated = await DbSet().create(record)
 
@@ -63,7 +63,7 @@ module.exports = async function (server, opts) {
             })
         }
         else {
-            record.is_deleted = 1
+            server.entity.track(record).markDeleted('unknown')
             await record.save()
         }
 
@@ -71,14 +71,14 @@ module.exports = async function (server, opts) {
     })
 
     server.put('/:id', {schema: putSchema, attachValidation: true}, async function (request, reply) {
-        const existCount = await DbSet().count({
+        const record = await DbSet().findOne({
             where: {
                 id: request.params.id,
                 ...server.dbfilters.notDeleted
             }
         })
 
-        if (existCount === 0)
+        if (record == null)
             return reply.status(400).send({
                 success: false,
                 message: `ID (${request.params.id}) not found`,
@@ -88,6 +88,8 @@ module.exports = async function (server, opts) {
         if (request.validationError) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
+
+        server.entity.track(record).markModified('unknown')
 
         return reply.send({success: true, data: []})
     })

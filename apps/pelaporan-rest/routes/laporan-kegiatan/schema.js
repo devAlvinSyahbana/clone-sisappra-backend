@@ -5,7 +5,7 @@ const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
 const shared = {
     type: 'object',
     definitions: {
-        laporanKegiatanDto: {
+        summaryLaporanKegiatanDto: {
             "type": "object",
             "properties": {
                 "id": {
@@ -280,7 +280,9 @@ const shared = {
                         "type": "object",
                         "properties": {
                             "file": {
-                                "type": "string"
+                                "type": "string",
+                                // validate that file contents match a UUID
+                                // "pattern": '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
                             },
                             "keterangan": {
                                 "type": "string"
@@ -457,7 +459,7 @@ const getSchema = {
     tags: ["laporan-kegiatan"],
     querystring: defaultPageQueryString,
     response: {
-        200: reply200(shared.definitions.laporanKegiatanDto)
+        200: reply200(shared.definitions.summaryLaporanKegiatanDto)
     }
 }
 
@@ -467,7 +469,7 @@ const postSchema = {
     operationId: "add_laporan_kegiatan",
     body: shared.definitions.laporanKegiatanNewForm,
     response: {
-        200: reply200(shared.definitions.laporanKegiatanDto),
+        200: reply200(shared.definitions.summaryLaporanKegiatanDto),
         400: reply400()
     }
 }
@@ -492,7 +494,7 @@ const putSchema = {
     },
     body: shared.definitions.laporanKegiatanUpdateForm,
     response: {
-        200: reply200(shared.definitions.laporanKegiatanDto),
+        200: reply200(shared.definitions.summaryLaporanKegiatanDto),
         400: reply400()
     }
 }

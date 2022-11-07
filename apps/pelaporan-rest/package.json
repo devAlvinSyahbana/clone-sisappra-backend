@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/tsg-dev1/api-sisappra-fastify-pelaporan.git"
+    "url": "git+ssh://git@gitlab.com/tsg-dev1/sisappra-backend.git"
   },
   "keywords": [],
   "author": "",

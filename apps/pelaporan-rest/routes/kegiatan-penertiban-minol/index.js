@@ -1,26 +1,17 @@
 'use strict'
 
-const {getSchema, postSchema, deleteSchema, putSchema, getComboSchema} = require("./schema");
+const {getSchema, postSchema, deleteSchema, putSchema} = require("./schema");
 
 module.exports = async function (server, opts) {
-    const DbSet = () => server.models.MasterJenisUsaha
+    const DbSet = () => server.models.LaporanKegiatan
 
-    server.get('/', {schema: getSchema}, async function (request, reply) {
+    const GetJenisKegiatanById = async (id) => {
+        const res = await server.rest.masterdata().get(`jenis-kegiatan/?$filter=id eq ${id}`).json()
+        if(res.data != null && res.data.length > 0) return res.data[0]
+    }
+
+    server.get('/', { schema: getSchema }, async function (request, reply) {
         return await server.odata.replyPaging(request, reply, DbSet())
-    })
-
-    server.get('/combobox', { schema: getComboSchema},  async function (request, reply) {
-        let query = server.odata.query(request.query)
-
-        // make columns value & text
-        query.attributes = [
-            [server.db.col('id'), 'value'],
-            [server.db.col('nama'), 'text']
-        ]
-
-        const data = await DbSet().findAll(query)
-
-        return reply.send({success: true, data: data})
     })
 
     server.post('/', {schema: postSchema, attachValidation: true}, async function (request, reply) {
@@ -28,17 +19,13 @@ module.exports = async function (server, opts) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
 
-        let record = {
-
-        }
+        let record = {}
 
         server.entity.track(record).markCreated("unknown")
 
-        const actCreated = await DbSet().create(record)
+        const result = await DbSet().create(record)
 
-        const data = actCreated.dataValues
-
-        return reply.send({success: true, data: [data]})
+        return reply.send({success: true, data: [result.dataValues]})
     })
 
     server.delete('/:id', {schema: deleteSchema}, async function (request, reply) {
@@ -49,7 +36,7 @@ module.exports = async function (server, opts) {
             }
         })
 
-        if (!record)
+        if (record == null)
             return reply.status(400).send({
                 success: false,
                 message: `ID (${request.params.id}) not found`,
@@ -80,7 +67,7 @@ module.exports = async function (server, opts) {
             }
         })
 
-        if (record == null)
+        if(record == null)
             return reply.status(400).send({success: false, message: `ID (${request.params.id}) not found`, statusCode: 400})
 
         if (request.validationError) {
@@ -89,7 +76,7 @@ module.exports = async function (server, opts) {
 
         server.entity.track(record).markModified('unknown')
 
+
         return reply.send({success: true, data: []})
     })
 }
-

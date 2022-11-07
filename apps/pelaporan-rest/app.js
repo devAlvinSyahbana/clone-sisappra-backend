@@ -27,7 +27,7 @@ module.exports = async function (fastify, opts) {
   })
 
   fastify.register(require("@fastify/cors"))
-  fastify.register(require("@fastify/multipart"))
+  fastify.register(require("@fastify/multipart"), { attachFieldsToBody: 'keyValues' })
 
   fastify.register(require("sisappra-client"), {
     masterdataBaseUrl: 'http://localhost:3001'

@@ -1,0 +1,39 @@
+{
+  "kegiatan__jenis_kegiatan_id": 1,
+  "kegiatan__jumlah_personil": 10,
+  "kegiatan__uraian_kegiatan": 1,
+  "kegiatan__tanggal": "2022-01-23",
+  "kegiatan__jam": "8:00:00",
+  "kegiatan__lokasi": "",
+
+  "tindak_lanjut__administrasi__jenis_pasal_id": 1,
+  "tindak_lanjut__administrasi__jenis_penertiban": "",
+  "tindak_lanjut__administrasi__jenis_pelanggaran": "",
+  "tindak_lanjut__administrasi__perda_perkada": "",
+  "tindak_lanjut__administrasi__penyelesaian_id": 2,
+
+  "tindak_lanjut__identitas_pelanggar__no_bap": "3232323",
+  "tindak_lanjut__identitas_pelanggar__nama_penanggung_jawab": "3232323",
+  "tindak_lanjut__identitas_pelanggar__nama_tempat_usaha": "3232323",
+  "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha": "3232323",
+  "tindak_lanjut__identitas_pelanggar__nik": "3232323",
+  "tindak_lanjut__identitas_pelanggar__alamat": "3232323",
+  "tindak_lanjut__identitas_pelanggar__jenis_usaha_id": 2,
+
+  "tindak_lanjut__jenis_penindakan_id": 1,
+  "tindak_lanjut__jumlah_minol_merk": [
+    {
+      "merk": "WINE", "jumlah": 5
+    },
+    {
+      "merk": "BIR", "jumlah": 5
+    }
+  ],
+
+  "dokumentasi": [
+    {
+      "file": "{URL_FILE}",
+      "keterangan": "Ini keterangan..."
+    }
+  ]
+}
