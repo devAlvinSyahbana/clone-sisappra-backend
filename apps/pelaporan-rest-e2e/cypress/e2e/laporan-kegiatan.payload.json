@@ -52,8 +52,6 @@
   "tindak_lanjut__rekom_citata__tanggal_rekomtek": "2022-01-23",
   "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan": "2022-01-23",
 
-
-
   "tindak_lanjut__jumlah_minol_merk": [
     {
       "merk": "WINE", "jumlah": 5
@@ -62,8 +60,6 @@
       "merk": "BIR", "jumlah": 5
     }
   ],
-
-
   "dokumentasi": [
     {
       "file": "{URL_FILE}",
