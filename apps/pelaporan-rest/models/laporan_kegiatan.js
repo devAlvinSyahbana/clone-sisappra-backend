@@ -9,9 +9,9 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     is_deleted: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.SMALLINT,
       allowNull: true,
-      defaultValue: false
+      defaultValue: 0
     },
     deleted_by: {
       type: DataTypes.STRING(64),
