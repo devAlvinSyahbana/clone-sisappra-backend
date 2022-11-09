@@ -87,17 +87,13 @@ module.exports = async function (server, opts) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
 
-        // let record = {
-        //
-        // }
-        //
-        // const actUpdated = await DbSet().update(record, {
-        //     where: {
-        //         id: request.params.id
-        //     }
-        // })
+        record.set(request.body)
 
-        return reply.send({success: true, data: []})
+        server.entity.track(record).markModified('unknown')
+
+        await record.save()
+
+        return reply.send({success: true, data: [record]})
     })
 }
 

@@ -9,6 +9,30 @@ const shared = {
             "title": "Laporan Kegiatan",
             "type": "object",
             "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "is_deleted": {
+                    "type": "number"
+                },
+                "deleted_at": {
+                    "type": "string"
+                },
+                "deleted_by": {
+                    "type": "string"
+                },
+                "created_by": {
+                    "type": "string"
+                },
+                "updated_by": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
                 "kegiatan__jenis_kegiatan_id": {
                     "type": "number"
                 },
@@ -185,6 +209,7 @@ const shared = {
                 }
             },
             "required": [
+                "id",
                 "kegiatan__jenis_kegiatan_id",
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
@@ -230,9 +255,7 @@ const shared = {
                 "tindak_lanjut__rekom_citata__tanggal_spb",
                 "tindak_lanjut__rekom_citata__no_rekomtek",
                 "tindak_lanjut__rekom_citata__tanggal_rekomtek",
-                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan",
-                "tindak_lanjut__jumlah_minol_merk",
-                "dokumentasi"
+                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan"
             ]
         },
         pelaporanKegiatanForm: {

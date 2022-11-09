@@ -32,7 +32,7 @@ const dbConnector = async (server, options, next) => {
                 markCreated: function (user) {
                     record = {
                         ...record,
-                        is_deleted: false,
+                        is_deleted: 0,
                         deleted_by: null,
                         deleted_at: null,
                         created_by: null,
@@ -47,7 +47,7 @@ const dbConnector = async (server, options, next) => {
                     return record
                 },
                 markDeleted: (user) => {
-                    record.is_deleted = true
+                    record.is_deleted = 1
                     record.deleted_at = Date.now()
                     record.deleted_by = user
 
