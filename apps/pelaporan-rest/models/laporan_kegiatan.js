@@ -47,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     kegiatan__uraian_kegiatan: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(128),
       allowNull: true
     },
     kegiatan__tanggal: {

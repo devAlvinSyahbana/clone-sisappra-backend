@@ -15,7 +15,7 @@ CREATE TABLE laporan_kegiatan (
 	updated_at timestamp NULL,
 	kegiatan__jenis_kegiatan_id int4,
     kegiatan__jumlah_personil int4,
-    kegiatan__uraian_kegiatan int4,
+    kegiatan__uraian_kegiatan varchar(128),
     kegiatan__tanggal date,
     kegiatan__jam varchar(16),
     kegiatan__lokasi varchar(64),
