@@ -6,8 +6,10 @@ describe('test api laporan-kegiatan', () => {
 
   const ResourceUrl = () => `${Cypress.env('apiUrl')}/kegiatan-umum`
 
+  const deleteHeader = { 'x-mode': 'TEST' };
+
   beforeEach(()=>{
-    cy.intercept(`*`, (req)=>{
+    cy.intercept(`${ResourceUrl()}`, (req)=>{
       req.headers['x-mode'] = 'TEST'
     }).as('testmode')
   })
@@ -40,7 +42,14 @@ describe('test api laporan-kegiatan', () => {
         expect(response.body.data).to.be.a('array')
         expect(response.body.data.length).to.gt(0)
 
-        cy.request('DELETE', `${ResourceUrl()}/${response.body.data[0].id}`)
+          cy.request({
+            method: 'DELETE',
+            url: `${ResourceUrl()}/${response.body.data[0].id}`,
+            headers: {
+              ...deleteHeader
+            },
+            failOnStatusCode: false
+          })
           .should((response) => {
             expect(response.status).to.eq(200)
             // the server sometimes gets an extra comment posted from another machine
@@ -59,7 +68,14 @@ describe('test api laporan-kegiatan', () => {
       expect(resCreated.body.data).to.be.a('array')
       expect(resCreated.body.data.length).to.gt(0)
 
-      cy.request('DELETE', `${ResourceUrl()}/${resCreated.body.data[0].id}`)
+      cy.request({
+        method: 'DELETE',
+        url: `${ResourceUrl()}/${resCreated.body.data[0].id}`,
+        headers: {
+          ...deleteHeader
+        },
+        failOnStatusCode: false
+      })
         .should((response) => {
           expect(response.status).to.eq(200)
           // the server sometimes gets an extra comment posted from another machine
@@ -90,7 +106,14 @@ describe('test api laporan-kegiatan', () => {
           expect(response.body.data).to.be.a('array')
           expect(response.body.data.length).to.gt(0)
 
-          cy.request('DELETE', `${ResourceUrl()}/${response.body.data[0].id}`)
+          cy.request({
+            method: 'DELETE',
+            url: `${ResourceUrl()}/${response.body.data[0].id}`,
+            headers: {
+              ...deleteHeader
+            },
+            failOnStatusCode: false
+          })
             .should((resDelete) => {
               expect(resDelete.status).to.eq(200)
               // the server sometimes gets an extra comment posted from another machine
@@ -101,7 +124,6 @@ describe('test api laporan-kegiatan', () => {
             })
         })
     })
-
   })
 
 })
