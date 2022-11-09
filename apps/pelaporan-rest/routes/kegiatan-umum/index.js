@@ -27,7 +27,7 @@ module.exports = async function(server, opts) {
     });
   };
 
-  const ValidateFormPelaporanKegiatan = async (form, allowedJK = [], notAllowedJK= []) => {
+  const ValidateForm = async (form, allowedJK = [], notAllowedJK= []) => {
     const errors = [];
     if (form.kegiatan__jenis_kegiatan_id <= 0)
       AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
@@ -88,7 +88,7 @@ module.exports = async function(server, opts) {
       return reply.code(400).send({ success: false, ...request.validationError });
     }
 
-    const errors = await ValidateFormPelaporanKegiatan(request.body, [], ["SIDANG TIPIRING", "PENERTIBAN BANGUNAN", "KEGIATAN PPKM","LAPORAN MASYARAKAT","PENERTIBAN MINUMAN BERALKOHOL","PENGAMANAN"]);
+    const errors = await ValidateForm(request.body, [], ["SIDANG TIPIRING", "PENERTIBAN BANGUNAN", "KEGIATAN PPKM","LAPORAN MASYARAKAT","PENERTIBAN MINUMAN BERALKOHOL","PENGAMANAN"]);
     if (errors.length > 0) {
       return reply.code(400).send({ success: false, statusCode: 400, validation: errors, message: "form invalid" });
     }
@@ -149,7 +149,7 @@ module.exports = async function(server, opts) {
       return reply.code(400).send({ success: false, ...request.validationError });
     }
 
-    const errors = await ValidateFormPelaporanKegiatan(server, request.body);
+    const errors = await ValidateForm(request.body);
     if (errors.length > 0) {
       return reply.code(400).send({ success: false, statusCode: 400, validation: errors, message: "form invalid" });
     }
