@@ -74,9 +74,12 @@ module.exports = async function (server, opts) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
 
-        server.entity.track(record).markModified('unknown')
+        record.set(request.body);
 
+        server.entity.track(record).markModified("unknown");
 
-        return reply.send({success: true, data: []})
+        await record.save();
+
+        return reply.send({ success: true, data: [record] });
     })
 }
