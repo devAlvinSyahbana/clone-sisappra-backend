@@ -1,12 +1,12 @@
 {
-  "kegiatan__jenis_kegiatan_id": 1,
+  "kegiatan__jenis_kegiatan_id": 6,
   "kegiatan__jumlah_personil": 10,
-  "kegiatan__uraian_kegiatan": 1,
+  "kegiatan__uraian_kegiatan": "",
   "kegiatan__tanggal": "2022-01-23",
-  "kegiatan__jam": "8:00:00",
+  "kegiatan__jam": "20:20:39+00:00",
   "kegiatan__lokasi": "",
 
-  "tindak_lanjut__administrasi__jenis_pasal_id": 1,
+  "tindak_lanjut__administrasi__jenis_pasal_id": 0,
   "tindak_lanjut__administrasi__jenis_penertiban": "",
   "tindak_lanjut__administrasi__jenis_pelanggaran": "",
   "tindak_lanjut__administrasi__perda_perkada": "",

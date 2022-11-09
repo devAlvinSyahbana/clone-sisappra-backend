@@ -1,14 +1,11 @@
 "use strict";
 
 const { getSchema, postSchema, deleteSchema, putSchema } = require("./schema");
+const { ValidateFormPelaporanKegiatan } = require("./pelaporan-kegiatan.shared");
+
 
 module.exports = async function(server, opts) {
   const DbSet = () => server.models.LaporanKegiatan;
-
-  const GetJenisKegiatanById = async (id) => {
-    const res = await server.rest.masterdata().get(`jenis-kegiatan/?$filter=id eq ${id}`).json();
-    if (res.data != null && res.data.length > 0) return res.data[0];
-  };
 
   server.get("/", { schema: getSchema }, async function(request, reply) {
     return await server.odata.replyPaging(request, reply, DbSet());
@@ -17,6 +14,11 @@ module.exports = async function(server, opts) {
   server.post("/", { schema: postSchema, attachValidation: true }, async function(request, reply) {
     if (request.validationError) {
       return reply.code(400).send({ success: false, ...request.validationError });
+    }
+
+    const errors = await ValidateFormPelaporanKegiatan(server, request.body, [], ["SIDANG TIPIRING", "PENERTIBAN BANGUNAN", "KEGIATAN PPKM","LAPORAN MASYARAKAT","PENERTIBAN MINUMAN BERALKOHOL","PENGAMANAN"]);
+    if (errors.length > 0) {
+      return reply.code(400).send({ success: false, statusCode: 400, validation: errors, message: "form invalid" });
     }
 
     let record = server.entity.track(request.body).markCreated("unknown");
@@ -65,18 +67,27 @@ module.exports = async function(server, opts) {
     });
 
     if (record == null)
-      return reply.status(400).send({ success: false, message: `ID (${request.params.id}) not found`, statusCode: 400 });
+      return reply.status(400).send({
+        success: false,
+        message: `ID (${request.params.id}) not found`,
+        statusCode: 400
+      });
 
     if (request.validationError) {
       return reply.code(400).send({ success: false, ...request.validationError });
     }
 
-    record.set(request.body)
+    const errors = await ValidateFormPelaporanKegiatan(server, request.body);
+    if (errors.length > 0) {
+      return reply.code(400).send({ success: false, statusCode: 400, validation: errors, message: "form invalid" });
+    }
 
-    server.entity.track(record).markModified('unknown')
+    record.set(request.body);
 
-    await record.save()
+    server.entity.track(record).markModified("unknown");
 
-    return reply.send({success: true, data: [record]})
+    await record.save();
+
+    return reply.send({ success: true, data: [record] });
   });
 };

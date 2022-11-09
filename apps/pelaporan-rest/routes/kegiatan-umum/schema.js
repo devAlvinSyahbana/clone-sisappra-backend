@@ -269,13 +269,15 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
                 "kegiatan__jam": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "time"
                 },
                 "kegiatan__lokasi": {
                     "type": "string"
@@ -326,7 +328,8 @@ const shared = {
                     "type": "number"
                 },
                 "tindak_lanjut__denda__tanggal_setor": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
                 "tindak_lanjut__denda__nama_bank": {
                     "type": "string"
