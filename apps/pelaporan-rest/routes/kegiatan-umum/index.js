@@ -17,6 +17,24 @@ module.exports = async function(server, opts) {
     else return null;
   };
 
+  const GetJenisPenyelesaian = async (id, jenisKegId = 0, jenisPenertiban= '*') => {
+    const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id} and jenis_kegiatan_id eq ${jenisKegId} and jenis_penertiban eq '${jenisPenertiban}'`).json();
+    if (res.data != null && res.data.length > 0) return res.data[0];
+    else return null;
+  };
+
+  const GetJenisUsaha = async (id) => {
+    const res = await server.rest.masterdata().get(`jenis-usaha/?$filter=id eq ${id}`).json();
+    if (res.data != null && res.data.length > 0) return res.data[0];
+    else return null;
+  };
+
+  const GetJenisPenindakan = async (id) => {
+    const res = await server.rest.masterdata().get(`jenis-penindakan/?$filter=id eq ${id}`).json();
+    if (res.data != null && res.data.length > 0) return res.data[0];
+    else return null;
+  };
+
   const AddModeErrorReference = (errors, prop) => {
     errors.push({
       "instancePath": `/${prop}`,
@@ -69,9 +87,35 @@ module.exports = async function(server, opts) {
 
       if (errors.length > 0) return errors;
 
-      const jenisPasal = await GetJenisPasalById(form.tindak_lanjut__administrasi__penyelesaian_id)
-      if(jenisPasal == null)
+      const jenisPenyelesaian = await GetJenisPenyelesaian(form.tindak_lanjut__administrasi__penyelesaian_id)
+      if(jenisPenyelesaian == null)
         AddModeErrorReference(errors, "tindak_lanjut__administrasi__penyelesaian_id");
+
+      if (errors.length > 0) return errors;
+    }
+
+    if(form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined) {
+      if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id <= 0)
+        AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
+
+      if (errors.length > 0) return errors;
+
+      const jenisUsaha = await GetJenisUsaha(form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id)
+      if(jenisUsaha == null)
+        AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
+
+      if (errors.length > 0) return errors;
+    }
+
+    if(form.tindak_lanjut__jenis_penindakan_id !== undefined) {
+      if (form.tindak_lanjut__jenis_penindakan_id <= 0)
+        AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
+
+      if (errors.length > 0) return errors;
+
+      const jenisPenindakan = await GetJenisPenindakan(form.tindak_lanjut__jenis_penindakan_id)
+      if(jenisPenindakan == null)
+        AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
 
       if (errors.length > 0) return errors;
     }
