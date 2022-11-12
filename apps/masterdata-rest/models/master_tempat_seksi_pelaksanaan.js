@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('MasterTempatSeksiPelaksanaan', {
     id: {
+      autoIncrement: true,
+      autoIncrementIdentity: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
@@ -43,6 +45,10 @@ module.exports = function(sequelize, DataTypes) {
     updated_by: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    id_tempat_pelaksanaan: {
+      type: DataTypes.INTEGER,
+      allowNull: true
     }
   }, {
     sequelize,
@@ -50,6 +56,15 @@ module.exports = function(sequelize, DataTypes) {
     schema: 'public',
     timestamps: false,
     freezeTableName: true,
-    createdAt: true
+    createdAt: true,
+    indexes: [
+      {
+        name: "master_tempat_seksi_pelaksanaan_pkey",
+        unique: true,
+        fields: [
+          { name: "id" },
+        ]
+      },
+    ]
   });
 };

@@ -9,6 +9,12 @@ const shared = {
                 "id": {
                     "type": "number"
                 },
+                "jenis_kegiatan_id": {
+                    "type": "number"
+                },
+                "jenis_penertiban": {
+                    "type": "string"
+                },
                 "nama": {
                     "type": "string"
                 },

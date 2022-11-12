@@ -43,6 +43,10 @@ module.exports = function(sequelize, DataTypes) {
     updated_by: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    kategori: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     sequelize,
