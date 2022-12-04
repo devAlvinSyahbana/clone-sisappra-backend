@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"fmt"
+	"github.com/aws/aws-sdk-go-v2/feature/s3/manager"
 	"net/http"
 	"strconv"
 	"strings"
@@ -211,13 +212,20 @@ func (i image) UploadImage(c *fiber.Ctx) error {
 
 	link := "localhost:9090/" + bucket + "/" + objectName
 
-	// S3 upload with glacier storage class
-	awsResult, err := i.awsService.S3PutObject(bucket, objectName, fileBuffer)
+	var (
+		awsResult *manager.UploadOutput
+		awsErr    string
+	)
 
-	awsErr := fmt.Sprintf("S3 Successfully Uploaded")
+	if i.awsService.Enabled() {
+		// S3 upload with glacier storage class
+		awsResult, err = i.awsService.S3PutObject(bucket, objectName, fileBuffer)
 
-	if err != nil {
-		awsErr = fmt.Sprintf("S3 Failed Uploaded %s", err.Error())
+		awsErr = fmt.Sprintf("S3 Successfully Uploaded")
+
+		if err != nil {
+			awsErr = fmt.Sprintf("S3 Failed Uploaded %s", err.Error())
+		}
 	}
 
 	return c.JSON(fiber.Map{

@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"io"
+	"strconv"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -22,6 +23,7 @@ type IAwsService interface {
 	GlacierVaultList() *glacier.ListVaultsOutput
 	GlacierUploadArchive(vaultName string, fileBuffer []byte) (*glacier.UploadArchiveOutput, error)
 	S3PutObject(bucketName string, objectName string, fileBuffer io.Reader) (*manager.UploadOutput, error)
+	Enabled() bool
 }
 
 type myAwsService struct {
@@ -62,4 +64,9 @@ func (as myAwsService) GlacierUploadArchive(vaultName string, fileBuffer []byte)
 		VaultName: &vaultName,
 		Body:      bytes.NewReader(fileBuffer),
 	})
+}
+
+func (as myAwsService) Enabled() bool {
+	res, _ := strconv.ParseBool(GetEnv("AWS_ENABLED"))
+	return res
 }
