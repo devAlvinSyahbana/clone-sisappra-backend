@@ -1,0 +1,44 @@
+version: "3.5"
+
+services:
+  golang:
+    build: .
+    container_name: cdn-golang
+    restart: always
+    ports:
+      - "9090:9090"
+    working_dir: /go/projects/imagick
+    volumes:
+      - ./:/go/projects/imagick
+    command: sh -c "go build -o MinioApi && ./MinioApi"
+    environment:
+      MINIO_ENDPOINT: "${MINIO_ENDPOINT}"
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD}"
+    depends_on:
+      - minio
+    networks:
+      - gominio-cdn-api
+
+  minio:
+    image: minio/minio
+    container_name: cdn-minio
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio:/var/lib/minio
+    environment:
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD}"
+    command: server --console-address ":9001" /var/lib/minio
+    networks:
+      - gominio-cdn-api
+
+networks:
+  gominio-cdn-api:
+    driver: bridge
+
+volumes:
+  minio:
