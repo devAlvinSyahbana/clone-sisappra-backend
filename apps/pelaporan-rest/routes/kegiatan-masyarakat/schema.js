@@ -389,7 +389,7 @@ const shared = {
 }
 
 const getSchema = {
-    description: "get laporan kegiatan",
+    description: "Get Laporan Kegiatan Masyarakat",
     tags: ["laporan-kegiatan"],
     querystring: defaultPageQueryString,
     response: {
@@ -398,9 +398,8 @@ const getSchema = {
 }
 
 const postSchema = {
-    "description": "Add Laporan Kegaitan",
+    "description": "Add Laporan Kegiatan Masyarakat",
     tags: ["laporan-kegiatan"],
-    operationId: "add_laporan_kegiatan",
     body: shared.definitions.pelaporanKegiatanForm,
     response: {
         200: reply200(shared.definitions.summaryLaporanKegiatanDto),
@@ -409,7 +408,7 @@ const postSchema = {
 }
 
 const deleteSchema = {
-    description: "Delete Laporan Kegiatan",
+    description: "Delete Laporan Kegiatan Masyarakat",
     tags: ["laporan-kegiatan"],
     params: {
         id: {type: "number"}
@@ -421,7 +420,7 @@ const deleteSchema = {
 }
 
 const putSchema = {
-    description: "Update Laporan Kegiatan",
+    description: "Update Laporan Kegiatan Masyarakat",
     tags: ["laporan-kegiatan"],
     params: {
         id: {type: "number"}
