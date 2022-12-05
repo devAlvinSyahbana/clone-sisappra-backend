@@ -18,7 +18,8 @@ module.exports = async function(server, opts) {
   };
 
   const GetJenisPenyelesaian = async (id, jenisKegId = 0, jenisPenertiban= '*') => {
-    const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id} and jenis_kegiatan_id eq ${jenisKegId} and jenis_penertiban eq '${jenisPenertiban}'`).json();
+    // const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id} and jenis_kegiatan_id eq ${jenisKegId} and jenis_penertiban eq '${jenisPenertiban}'`).json();
+    const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id}`).json();
     if (res.data != null && res.data.length > 0) return res.data[0];
     else return null;
   };
