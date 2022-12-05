@@ -1,6 +1,6 @@
 module GominioCdn
 
-		replace GominioCdn => ./
+replace GominioCdn => ./
 
 go 1.17
 
