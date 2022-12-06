@@ -29,16 +29,20 @@
     "@fastify/sensible": "^5.0.0",
     "@fastify/swagger": "^7.6.1",
     "dotenv": "^16.0.3",
+    "fast-csv": "^4.3.6",
     "fastify": "^4.0.0",
     "fastify-cli": "^5.4.2",
     "fastify-plugin": "^4.0.0",
     "fastify-sequelize": "^1.0.4",
+    "got": "^12.5.3",
+    "linq": "^3.2.4",
     "odata-parser": "^1.4.1",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
+    "request": "^2.88.2",
     "sequelize": "^6.23.2",
-    "sisappra-odata": "*",
-    "sisappra-db": "*"
+    "sisappra-db": "*",
+    "sisappra-odata": "*"
   },
   "devDependencies": {
     "sequelize-auto": "^0.8.8",

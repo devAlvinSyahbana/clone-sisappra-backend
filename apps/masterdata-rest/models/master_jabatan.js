@@ -67,7 +67,7 @@ module.exports = function(sequelize, DataTypes) {
     createdAt: true,
     indexes: [
       {
-        name: "master_jabatan_pkey",
+        name: "master_jabatan_coba_pkey",
         unique: true,
         fields: [
           { name: "id" },

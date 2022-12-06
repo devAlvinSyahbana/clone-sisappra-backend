@@ -1,60 +1,35 @@
-jenis_kegiatan_id;jenis_penertiban;nama
-0;*;Peringatan
-0;*;Penghalauan
-0;*;Pembubaran
-0;*;Pengusiran
-0;*;Teguran Tertulis
-0;*;Penyegelan
-0;*;Penghentian Kegiatan
-0;*;Pembongkaran
-0;*;Pemusnahan
-0;*;Penghentian Kegiatan Sementara 1x24 Jam
-0;*;Penghentian Kegiatan Sementara 3x24 Jam
-0;*;Penghentian Kegiatan Sementara 7x24 Jam
-0;*;Pencabutan izin
-0;*;Pembekuan Sementara Izin
-0;*;Razia
-0;*;Penjemputan
-0;*;Penangkapan
-0;*;Penyitaan
-0;*;Pembersihan
-0;*;Pencopotan/Pelepasan/Pencabutan
-0;*;Penyidikan
-0;*;Kerja Sosial
-0;*;Denda Administratif
-0;*;Bongkar Sendiri
-0;*;Terbit Izin
-0;*;Dikembalikan
-0;*;Belum Ditertibkan
-0;*;Lain-lain
-0;*;Tidak di Temukan Pelanggaran
-14;*;Ditertibkan
-14;*;Bongkar Sendiri
-14;*;Terbit Ijin
-14;*;Dikembalikan
-14;*;Belum Ditertibkan
-16;*;Teguran Lisan
-16;*;Peringatan Tertulis
-16;*;Penyegelan
-16;*;Penyitaan
-18;TERTIB PENGGUNAAN MASKER (PPKM);Teguran Tertulis
-18;TERTIB PENGGUNAAN MASKER (PPKM);Kerja Sosial
-18;TERTIB PENGGUNAAN MASKER (PPKM);Denda Administratif
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Teguran Tertulis
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Denda Administratif
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Pembekuan Sementara Izin
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Pencabutan izin
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Tidak di Temukan Pelanggaran
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Pembubaran
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Penghentian Kegiatan Sementara 1x24 Jam
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Penghentian Kegiatan Sementara 3x24 Jam
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Penghentian Kegiatan Sementara 7x24 Jam
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Denda Administratif
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Pembekuan Sementara Izin
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Pencabutan izin
-18;TERTIB WARUNG MAKAN, RUMAH MAKAN, KAFE ATAU RESTORAN (PPKM) ;Tidak di Temukan Pelanggaran
-18;TERTIB PEDAGANG KAKI LIMA (PPKM);Teguran Tertulis
-18;TERTIB PEDAGANG KAKI LIMA (PPKM);Pembubaran Kegiatan
-18;TERTIB PEDAGANG KAKI LIMA (PPKM);Tidak di Temukan Pelanggaran
-18;TERTIB AREA PUBLIK DAN TEMPAT LAINNYA (PPKM);Pembubaran
-18;TERTIB AREA PUBLIK DAN TEMPAT LAINNYA (PPKM);Teguran Tertulis
+nama
+Belum Ditertibkan
+Bongkar Sendiri
+Denda Administratif
+Dikembalikan
+Ditertibkan
+Kerja Sosial
+Lain-lain
+Pembekuan Sementara Izin
+Pembersihan
+Pembongkaran
+Pembubaran
+Pembubaran Kegiatan
+Pemusnahan
+Penangkapan
+Pencabutan izin
+Pencopotan/Pelepasan/Pencabutan
+Penghalauan
+Penghentian Kegiatan
+Penghentian Kegiatan Sementara 1x24 Jam
+Penghentian Kegiatan Sementara 3x24 Jam
+Penghentian Kegiatan Sementara 7x24 Jam
+Pengusiran
+Penjemputan
+Penyegelan
+Penyidikan
+Penyitaan
+Peringatan
+Peringatan Tertulis
+Razia
+Teguran Lisan
+Teguran Tertulis
+Terbit Ijin
+Terbit Izin
+Tidak di Temukan Pelanggaran

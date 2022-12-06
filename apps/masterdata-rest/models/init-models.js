@@ -1,4 +1,6 @@
 var DataTypes = require("sequelize").DataTypes;
+var _MapMasterPerdaJeniskegiatan = require("./map_master_perda_jeniskegiatan");
+var _MapMasterPerdaJenispenyelesaian = require("./map_master_perda_jenispenyelesaian");
 var _MasterAgama = require("./master_agama");
 var _MasterDiklat = require("./master_diklat");
 var _MasterEselon = require("./master_eselon");
@@ -31,6 +33,8 @@ var _MasterTempatPelaksanaan = require("./master_tempat_pelaksanaan");
 var _MasterTempatSeksiPelaksanaan = require("./master_tempat_seksi_pelaksanaan");
 
 function initModels(sequelize) {
+  var MapMasterPerdaJeniskegiatan = _MapMasterPerdaJeniskegiatan(sequelize, DataTypes);
+  var MapMasterPerdaJenispenyelesaian = _MapMasterPerdaJenispenyelesaian(sequelize, DataTypes);
   var MasterAgama = _MasterAgama(sequelize, DataTypes);
   var MasterDiklat = _MasterDiklat(sequelize, DataTypes);
   var MasterEselon = _MasterEselon(sequelize, DataTypes);
@@ -64,6 +68,8 @@ function initModels(sequelize) {
 
 
   return {
+    MapMasterPerdaJeniskegiatan,
+    MapMasterPerdaJenispenyelesaian,
     MasterAgama,
     MasterDiklat,
     MasterEselon,
