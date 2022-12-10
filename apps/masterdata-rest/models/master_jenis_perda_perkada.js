@@ -2,17 +2,11 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('MasterJenisPerdaPerkada', {
     id: {
+      autoIncrement: true,
+      autoIncrementIdentity: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
-    },
-    judul: {
-      type: DataTypes.STRING(128),
-      allowNull: false
-    },
-    deskripsi: {
-      type: DataTypes.STRING(128),
-      allowNull: true
     },
     is_deleted: {
       type: DataTypes.INTEGER,
@@ -49,6 +43,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       defaultValue: true
     },
+    judul: {
+      type: DataTypes.STRING(128),
+      allowNull: false
+    },
+    pasal: {
+      type: DataTypes.STRING(128),
+      allowNull: true
+    },
     jenis_penertiban: {
       type: DataTypes.STRING(256),
       allowNull: true
@@ -57,7 +59,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(512),
       allowNull: true
     },
-    pasal: {
+    deskripsi: {
       type: DataTypes.STRING(128),
       allowNull: true
     }
@@ -67,6 +69,15 @@ module.exports = function(sequelize, DataTypes) {
     schema: 'public',
     timestamps: false,
     freezeTableName: true,
-    createdAt: true
+    createdAt: true,
+    indexes: [
+      {
+        name: "master_jenis_perda_perkada_pkey",
+        unique: true,
+        fields: [
+          { name: "id" },
+        ]
+      },
+    ]
   });
 };

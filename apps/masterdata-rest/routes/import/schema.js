@@ -50,7 +50,7 @@ const formImportEntity = {
     },
     "entity": {
       "type": "string",
-      "enum": ["MapPerdaJenisPenyelesaian", "MapPerdaJenisKegiatan"]
+      "enum": ["MapPerdaJenisPenyelesaian", "MapPerdaJenisKegiatan", "MasterPerda"]
     }
   },
   "required": [
