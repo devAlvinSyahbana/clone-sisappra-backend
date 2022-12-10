@@ -1,125 +1,21 @@
 "use strict";
 
 const { getSchema, postSchema, deleteSchema, putSchema } = require("./schema");
+const { validateJenisKegiatan, validateJenisPasal, validateJenisPenyelesaian, validateJenisUsaha,
+  validateJenisPenindakan
+} = require("../shared.validations");
 
 module.exports = async function(server, opts) {
   const DbSet = () => server.models.LaporanKegiatan;
 
-  const GetJenisKegiatanById = async (id) => {
-    const res = await server.rest.masterdata().get(`jenis-kegiatan/?$filter=id eq ${id}`).json();
-    if (res.data != null && res.data.length > 0) return res.data[0];
-    else return null;
-  };
-
-  const GetJenisPasalById = async (id) => {
-    const res = await server.rest.masterdata().get(`jenis-perda-perkada/?$filter=id eq ${id}`).json();
-    if (res.data != null && res.data.length > 0) return res.data[0];
-    else return null;
-  };
-
-  const GetJenisPenyelesaian = async (id, jenisKegId = 0, jenisPenertiban= '*') => {
-    // const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id} and jenis_kegiatan_id eq ${jenisKegId} and jenis_penertiban eq '${jenisPenertiban}'`).json();
-    const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id}`).json();
-    if (res.data != null && res.data.length > 0) return res.data[0];
-    else return null;
-  };
-
-  const GetJenisUsaha = async (id) => {
-    const res = await server.rest.masterdata().get(`jenis-usaha/?$filter=id eq ${id}`).json();
-    if (res.data != null && res.data.length > 0) return res.data[0];
-    else return null;
-  };
-
-  const GetJenisPenindakan = async (id) => {
-    const res = await server.rest.masterdata().get(`jenis-penindakan/?$filter=id eq ${id}`).json();
-    if (res.data != null && res.data.length > 0) return res.data[0];
-    else return null;
-  };
-
-  const AddModeErrorReference = (errors, prop) => {
-    errors.push({
-      "instancePath": `/${prop}`,
-      "schemaPath": `#/properties/${prop}/reference`,
-      "keyword": "reference",
-      "params": {},
-      "message": `invalid reference of '${prop}'`
-    });
-  };
-
   const ValidateForm = async (form, allowedJK = [], notAllowedJK= []) => {
-    const errors = [];
-    if (form.kegiatan__jenis_kegiatan_id <= 0)
-      AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
+    let errors = [];
 
-    if (errors.length > 0) return errors;
-
-    const jenisKegiatan = await GetJenisKegiatanById(form.kegiatan__jenis_kegiatan_id);
-
-    if(allowedJK.length > 0) {
-      if (jenisKegiatan == null || !allowedJK.includes(jenisKegiatan.nama))
-        AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
-    }
-
-    if (errors.length > 0) return errors;
-
-    if(notAllowedJK.length > 0) {
-      if (jenisKegiatan == null || notAllowedJK.includes(jenisKegiatan.nama))
-        AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
-    }
-
-    if (errors.length > 0) return errors;
-
-    if(form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined) {
-      if (form.tindak_lanjut__administrasi__jenis_pasal_id <= 0)
-        AddModeErrorReference(errors, "tindak_lanjut__administrasi__jenis_pasal_id");
-
-      if (errors.length > 0) return errors;
-
-      const jenisPasal = await GetJenisPasalById(form.tindak_lanjut__administrasi__jenis_pasal_id)
-      if(jenisPasal == null)
-        AddModeErrorReference(errors, "tindak_lanjut__administrasi__jenis_pasal_id");
-
-      if (errors.length > 0) return errors;
-    }
-
-    if(form.tindak_lanjut__administrasi__penyelesaian_id !== undefined) {
-      if (form.tindak_lanjut__administrasi__penyelesaian_id <= 0)
-        AddModeErrorReference(errors, "tindak_lanjut__administrasi__penyelesaian_id");
-
-      if (errors.length > 0) return errors;
-
-      const jenisPenyelesaian = await GetJenisPenyelesaian(form.tindak_lanjut__administrasi__penyelesaian_id)
-      if(jenisPenyelesaian == null)
-        AddModeErrorReference(errors, "tindak_lanjut__administrasi__penyelesaian_id");
-
-      if (errors.length > 0) return errors;
-    }
-
-    if(form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined) {
-      if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id <= 0)
-        AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
-
-      if (errors.length > 0) return errors;
-
-      const jenisUsaha = await GetJenisUsaha(form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id)
-      if(jenisUsaha == null)
-        AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
-
-      if (errors.length > 0) return errors;
-    }
-
-    if(form.tindak_lanjut__jenis_penindakan_id !== undefined) {
-      if (form.tindak_lanjut__jenis_penindakan_id <= 0)
-        AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
-
-      if (errors.length > 0) return errors;
-
-      const jenisPenindakan = await GetJenisPenindakan(form.tindak_lanjut__jenis_penindakan_id)
-      if(jenisPenindakan == null)
-        AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
-
-      if (errors.length > 0) return errors;
-    }
+    await validateJenisKegiatan({form, errors, allowedJK, notAllowedJK, server})
+    await validateJenisPasal({form, errors, server})
+    await validateJenisPenyelesaian({form, errors, server})
+    await validateJenisUsaha({form, errors, server})
+    await validateJenisPenindakan({form, errors, server})
 
     return errors;
   };

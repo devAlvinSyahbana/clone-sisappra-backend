@@ -8,44 +8,39 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
+    nama: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     is_deleted: {
       type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: 0
     },
-    deleted_by: {
-      type: DataTypes.STRING(64),
-      allowNull: true
-    },
-    deleted_at: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    created_by: {
-      type: DataTypes.STRING(64),
-      allowNull: false
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
-    },
     updated_by: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING,
       allowNull: true
     },
     updated_at: {
       type: DataTypes.DATE,
       allowNull: true
     },
-    merek: {
-      type: DataTypes.STRING(64),
-      allowNull: false
+    created_by: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
-    jumlah_miniuman: {
-      type: DataTypes.SMALLINT,
+    created_at: {
+      type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: 0
+      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
+    },
+    deleted_by: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    deleted_at: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,
