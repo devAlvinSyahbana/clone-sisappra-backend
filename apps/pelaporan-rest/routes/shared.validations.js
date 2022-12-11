@@ -49,12 +49,13 @@ const validateJenisKegiatan = async ({server, form, errors, allowedJK, notAllowe
 
   const jenisKegiatan = await GetJenisKegiatanById(server, form.kegiatan__jenis_kegiatan_id);
 
+  if (jenisKegiatan == null)
+    AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
+
   if(allowedJK.length > 0) {
-    if (jenisKegiatan == null || !allowedJK.includes(jenisKegiatan.nama))
+    if (!allowedJK.includes(jenisKegiatan.nama))
       AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
   }
-
-  if (errors.length > 0) return errors;
 
   if(notAllowedJK.length > 0) {
     if (jenisKegiatan == null || notAllowedJK.includes(jenisKegiatan.nama))

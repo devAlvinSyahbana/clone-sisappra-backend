@@ -1,0 +1,33 @@
+{
+  "kejadian__tanggal": "2022-11-22",
+  "kejadian__waktu_start": "08:00:00",
+  "kejadian__waktu_end": "18:00:00",
+  "kejadian__kota_id": 5,
+  "kejadian__kecamatan_id": 4,
+  "kejadian__kelurahan_id": 5,
+  "kejadian__alamat": "jl. sudirman",
+  "kejadian__jenis_kegiatan_id": 3,
+  "kejadian__uraian_kejadian": "telah terjadi....",
+  "kejadian__jml_personil_satpolpp": 5,
+  "kejadian__jml_personil_instansilain": 5,
+  "tindak__jml_massa": 1000,
+  "tindak__tuntutan": ["harus...", "harus.233"],
+  "tindak__penanggung_jawab": ["adi", "joko"],
+  "tindak__jenis_bantuan_satpolpp": [3,5,10],
+  "tindak__jenis_bantuan_instansiterkait": [3,5,10],
+  "tindak__korban_jiwa": [
+    {
+      "id": 1,
+      "pria": 0,
+      "wanita": 0
+    }
+  ],
+  "tindak__dokumentasi": [
+    {
+      "file_uploadResult": {
+        "bucket": "temp",
+        "key": "temp/docs/assssdda.png"
+      }
+    }
+  ]
+}

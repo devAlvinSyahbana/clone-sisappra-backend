@@ -19,9 +19,7 @@ module.exports = async function (server, opts) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
 
-        let record = {}
-
-        server.entity.track(record).markCreated("unknown")
+        let record = server.entity.track({...request.body}).markCreated("unknown");
 
         const result = await DbSet().create(record)
 

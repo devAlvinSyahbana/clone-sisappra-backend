@@ -9,9 +9,9 @@ describe('test api laporan-kegiatan', () => {
   const deleteHeader = { 'x-mode': 'TEST' };
 
   beforeEach(()=>{
-    cy.intercept(`${ResourceUrl()}`, (req)=>{
-      req.headers['x-mode'] = 'TEST'
-    }).as('testmode')
+    // cy.intercept(`${ResourceUrl()}`, (req)=>{
+    //   req.headers['x-mode'] = 'TEST'
+    // }).as('testmode')
   })
 
   it('success get laporan-kegiatan', () => {

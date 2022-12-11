@@ -5,11 +5,6 @@ const {getSchema, postSchema, deleteSchema, putSchema} = require("./schema");
 module.exports = async function (server, opts) {
     const DbSet = () => server.models.LaporanKegiatan
 
-    const GetJenisKegiatanById = async (id) => {
-        const res = await server.rest.masterdata().get(`jenis-kegiatan/?$filter=id eq ${id}`).json()
-        if(res.data != null && res.data.length > 0) return res.data[0]
-    }
-
     server.get('/', { schema: getSchema }, async function (request, reply) {
         return await server.odata.replyPaging(request, reply, DbSet())
     })
@@ -19,9 +14,7 @@ module.exports = async function (server, opts) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
 
-        let record = {}
-
-        server.entity.track(record).markCreated("unknown")
+        let record = server.entity.track({...request.body}).markCreated("unknown")
 
         const result = await DbSet().create(record)
 

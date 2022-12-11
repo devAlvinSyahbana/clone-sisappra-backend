@@ -1,0 +1,26 @@
+{
+  "reklame__tanggal_pengawasan": "2022-11-22",
+  "reklame__waktu_pengawasan_start": "08:00:00",
+  "reklame__waktu_pengawasan_end": "18:00:00",
+  "reklame__kota_id": 5,
+  "reklame__kecamatan_id": 4,
+  "reklame__kelurahan_id": 5,
+  "reklame__alamat": "jl. sudirman",
+  "tindak__posisi_reklame": "",
+  "tindak__jenis_reklame_id": 3,
+  "tindak__status_reklame_id": 3,
+  "tindak__konten_iklan": "ssd sdf sdsd",
+  "tindak__latitude": "23423423423",
+  "tindak__longitude": "323423432",
+  "tindak__pemilik_reklame": "dede sup",
+  "tindak__pemilik_konstruksi": "pt jaya ss",
+  "tindak__ukuran": "2342332",
+  "tindak__dokumentasi": [
+    {
+      "file_uploadResult": {
+        "bucket": "temp",
+        "key": "temp/docs/assssdda.png"
+      }
+    }
+  ]
+}
