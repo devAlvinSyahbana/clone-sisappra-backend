@@ -259,130 +259,137 @@ const shared = {
             ]
         },
         pelaporanKejadianForm: {
-            "title": "Pelporan Form Kejadian",
+            "title": "Pelaporan Kejadian UnjukRasa Form",
             "type": "object",
             "properties": {
-                "kegiatan__jenis_kegiatan_id": {
+                "kejadian__tanggal": {
+                    "type": "string"
+                },
+                "kejadian__waktu_start": {
+                    "type": "string"
+                },
+                "kejadian__waktu_end": {
+                    "type": "string"
+                },
+                "kejadian__kota_id": {
                     "type": "number"
                 },
-                "kegiatan__jumlah_personil": {
+                "kejadian__kecamatan_id": {
                     "type": "number"
                 },
-                "kegiatan__uraian_kegiatan": {
+                "kejadian__kelurahan_id": {
                     "type": "number"
                 },
-                "kegiatan__tanggal": {
+                "kejadian__alamat": {
                     "type": "string"
                 },
-                "kegiatan__jam": {
-                    "type": "string"
-                },
-                "kegiatan__lokasi": {
-                    "type": "string"
-                },
-                "kegiatan__asal_laporan_id": {
+                "kejadian__jenis_kegiatan_id": {
                     "type": "number"
                 },
-                "tindak_lanjut__administrasi__jenis_pasal_id": {
+                "kejadian__uraian_kejadian": {
+                    "type": "string"
+                },
+                "kejadian__jml_personil_satpolpp": {
                     "type": "number"
                 },
-                "tindak_lanjut__administrasi__jenis_penertiban": {
-                    "type": "string"
-                },
-                "tindak_lanjut__administrasi__jenis_pelanggaran": {
-                    "type": "string"
-                },
-                "tindak_lanjut__administrasi__perda_perkada": {
-                    "type": "string"
-                },
-                "tindak_lanjut__administrasi__penyelesaian_id": {
+                "kejadian__jml_personil_instansilain": {
                     "type": "number"
                 },
-                "tindak_lanjut__identitas_pelanggar__no_bap": {
-                    "type": "string"
-                },
-                "tindak_lanjut__identitas_pelanggar__nama_penanggung_jawab": {
-                    "type": "string"
-                },
-                "tindak_lanjut__identitas_pelanggar__nama_tempat_usaha": {
-                    "type": "string"
-                },
-                "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha": {
-                    "type": "string"
-                },
-                "tindak_lanjut__identitas_pelanggar__nik": {
-                    "type": "string"
-                },
-                "tindak_lanjut__identitas_pelanggar__alamat": {
-                    "type": "string"
-                },
-                "tindak_lanjut__identitas_pelanggar__jenis_usaha_id": {
+                "tindak__jml_massa": {
                     "type": "number"
                 },
-                "tindak_lanjut__jenis_penindakan_id": {
-                    "type": "number"
+                "tindak__tuntutan": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
-                "tindak_lanjut__jumlah_pelanggar": {
-                    "type": "number"
+                "tindak__penanggung_jawab": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
-                "tindak_lanjut__denda__non_pengadilan": {
-                    "type": "number"
+                "tindak__jenis_bantuan_satpolpp": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
                 },
-                "tindak_lanjut__denda__tanggal_setor": {
-                    "type": "string"
+                "tindak__jenis_bantuan_instansiterkait": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
                 },
-                "tindak_lanjut__denda__nama_bank": {
-                    "type": "string"
-                },
-                "tindak_lanjut__denda__no_validasi_bank": {
-                    "type": "string"
-                },
-                "dokumentasi": {
+                "tindak__korban_jiwa": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "file": {
-                                "type": "string"
+                            "id": {
+                                "type": "number"
                             },
-                            "keterangan": {
-                                "type": "string"
+                            "pria": {
+                                "type": "number"
+                            },
+                            "wanita": {
+                                "type": "number"
                             }
                         },
                         "required": [
-                            "file",
-                            "keterangan"
+                            "id",
+                            "pria",
+                            "wanita"
+                        ]
+                    }
+                },
+                "tindak__dokumentasi": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "file_uploadResult": {
+                                "type": "object",
+                                "properties": {
+                                    "bucket": {
+                                        "type": "string"
+                                    },
+                                    "key": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "bucket",
+                                    "key"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "file_uploadResult"
                         ]
                     }
                 }
             },
             "required": [
-                "kegiatan__jenis_kegiatan_id",
-                "kegiatan__jumlah_personil",
-                "kegiatan__uraian_kegiatan",
-                "kegiatan__tanggal",
-                "kegiatan__jam",
-                "kegiatan__lokasi",
-                "kegiatan__asal_laporan_id",
-                "tindak_lanjut__administrasi__jenis_pasal_id",
-                "tindak_lanjut__administrasi__jenis_penertiban",
-                "tindak_lanjut__administrasi__jenis_pelanggaran",
-                "tindak_lanjut__administrasi__perda_perkada",
-                "tindak_lanjut__administrasi__penyelesaian_id",
-                "tindak_lanjut__identitas_pelanggar__no_bap",
-                "tindak_lanjut__identitas_pelanggar__nama_penanggung_jawab",
-                "tindak_lanjut__identitas_pelanggar__nama_tempat_usaha",
-                "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha",
-                "tindak_lanjut__identitas_pelanggar__nik",
-                "tindak_lanjut__identitas_pelanggar__alamat",
-                "tindak_lanjut__identitas_pelanggar__jenis_usaha_id",
-                "tindak_lanjut__jenis_penindakan_id",
-                "tindak_lanjut__jumlah_pelanggar",
-                "tindak_lanjut__denda__non_pengadilan",
-                "tindak_lanjut__denda__tanggal_setor",
-                "tindak_lanjut__denda__nama_bank",
-                "tindak_lanjut__denda__no_validasi_bank",
-                "dokumentasi"
+                "kejadian__tanggal",
+                "kejadian__waktu_start",
+                "kejadian__waktu_end",
+                "kejadian__kota_id",
+                "kejadian__kecamatan_id",
+                "kejadian__kelurahan_id",
+                "kejadian__alamat",
+                "kejadian__jenis_kegiatan_id",
+                "kejadian__uraian_kejadian",
+                "kejadian__jml_personil_satpolpp",
+                "kejadian__jml_personil_instansilain",
+                "tindak__jml_massa",
+                "tindak__tuntutan",
+                "tindak__penanggung_jawab",
+                "tindak__jenis_bantuan_satpolpp",
+                "tindak__jenis_bantuan_instansiterkait",
+                "tindak__korban_jiwa",
+                "tindak__dokumentasi"
             ]
         }
     }
