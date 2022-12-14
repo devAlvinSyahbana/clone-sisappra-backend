@@ -1,4 +1,5 @@
 # Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
+
 This project was bootstrapped with Fastify-CLI.
 
 ## Available Scripts
@@ -31,7 +32,8 @@ npx sequelize-auto -o "./models" -d dbsisappra -h 167.71.208.184 -u postgres -x 
 -t laporan_kegiatan \
 -t laporan_kegiatan_penindakan_minuman_alkohol \
 -t laporan_kegiatan_dokumentasi \
--t laporan_kejadian
+-t laporan_kejadian \
+-t laporan_kejadian_kekerasan_pada_perempuan_dan_anak
 ```
 
 ## Learn More
