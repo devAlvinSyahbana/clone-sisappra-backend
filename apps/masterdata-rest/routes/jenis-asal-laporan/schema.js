@@ -12,9 +12,6 @@ const shared = {
                 "nama": {
                     "type": "string"
                 },
-                "kode": {
-                    "type": "string"
-                },
                 "is_deleted": {
                     "type": "number"
                 },
