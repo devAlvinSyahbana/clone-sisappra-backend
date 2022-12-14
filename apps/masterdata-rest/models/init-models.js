@@ -8,6 +8,7 @@ var _MasterGlobalDistricts = require("./master_global_districts");
 var _MasterGlobalProvinces = require("./master_global_provinces");
 var _MasterGolongan = require("./master_golongan");
 var _MasterJabatan = require("./master_jabatan");
+var _MasterJenisAsalLaporan = require("./master_jenis_asal_laporan");
 var _MasterJenisBantuan = require("./master_jenis_bantuan");
 var _MasterJenisKegiatan = require("./master_jenis_kegiatan");
 var _MasterJenisKejadian = require("./master_jenis_kejadian");
@@ -16,6 +17,7 @@ var _MasterJenisKorbanJiwa = require("./master_jenis_korban_jiwa");
 var _MasterJenisKorbanMaterial = require("./master_jenis_korban_material");
 var _MasterJenisPelanggaran = require("./master_jenis_pelanggaran");
 var _MasterJenisPenertiban = require("./master_jenis_penertiban");
+var _MasterJenisPengamanan = require("./master_jenis_pengamanan");
 var _MasterJenisPenindakan = require("./master_jenis_penindakan");
 var _MasterJenisPenyelesaian = require("./master_jenis_penyelesaian");
 var _MasterJenisPerdaPerkada = require("./master_jenis_perda_perkada");
@@ -42,6 +44,7 @@ function initModels(sequelize) {
   var MasterGlobalProvinces = _MasterGlobalProvinces(sequelize, DataTypes);
   var MasterGolongan = _MasterGolongan(sequelize, DataTypes);
   var MasterJabatan = _MasterJabatan(sequelize, DataTypes);
+  var MasterJenisAsalLaporan = _MasterJenisAsalLaporan(sequelize, DataTypes);
   var MasterJenisBantuan = _MasterJenisBantuan(sequelize, DataTypes);
   var MasterJenisKegiatan = _MasterJenisKegiatan(sequelize, DataTypes);
   var MasterJenisKejadian = _MasterJenisKejadian(sequelize, DataTypes);
@@ -50,6 +53,7 @@ function initModels(sequelize) {
   var MasterJenisKorbanMaterial = _MasterJenisKorbanMaterial(sequelize, DataTypes);
   var MasterJenisPelanggaran = _MasterJenisPelanggaran(sequelize, DataTypes);
   var MasterJenisPenertiban = _MasterJenisPenertiban(sequelize, DataTypes);
+  var MasterJenisPengamanan = _MasterJenisPengamanan(sequelize, DataTypes);
   var MasterJenisPenindakan = _MasterJenisPenindakan(sequelize, DataTypes);
   var MasterJenisPenyelesaian = _MasterJenisPenyelesaian(sequelize, DataTypes);
   var MasterJenisPerdaPerkada = _MasterJenisPerdaPerkada(sequelize, DataTypes);
@@ -77,6 +81,7 @@ function initModels(sequelize) {
     MasterGlobalProvinces,
     MasterGolongan,
     MasterJabatan,
+    MasterJenisAsalLaporan,
     MasterJenisBantuan,
     MasterJenisKegiatan,
     MasterJenisKejadian,
@@ -85,6 +90,7 @@ function initModels(sequelize) {
     MasterJenisKorbanMaterial,
     MasterJenisPelanggaran,
     MasterJenisPenertiban,
+    MasterJenisPengamanan,
     MasterJenisPenindakan,
     MasterJenisPenyelesaian,
     MasterJenisPerdaPerkada,
