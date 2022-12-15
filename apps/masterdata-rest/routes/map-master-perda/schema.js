@@ -15,6 +15,9 @@ const shared = {
                 "jenis_kegiatan_id": {
                     "type": "number"
                 },
+                "jenis_penyelesaian_id": {
+                    "type": "number"
+                },
                 "is_deleted": {
                     "type": "number"
                 },

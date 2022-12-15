@@ -1,6 +1,6 @@
 'use strict'
 
-const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
+const { reply200, reply400, defaultPageQueryString } = require("../std.schema");
 
 const shared = {
     type: 'object',
@@ -40,7 +40,7 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
                     "type": "string"
@@ -410,7 +410,7 @@ const deleteSchema = {
     description: "Delete Laporan Kegiatan Lainnya",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     response: {
         200: reply200(),
@@ -422,7 +422,7 @@ const putSchema = {
     description: "Update Laporan Kegiatan Lainnya",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     body: shared.definitions.pelaporanKegiatanForm,
     response: {
@@ -431,4 +431,4 @@ const putSchema = {
     }
 }
 
-module.exports = {getSchema, postSchema, deleteSchema, putSchema}
+module.exports = { getSchema, postSchema, deleteSchema, putSchema }
