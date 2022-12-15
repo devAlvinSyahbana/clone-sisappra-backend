@@ -1,21 +1,37 @@
 "use strict";
 
-const { getSchema, postSchema, deleteSchema, putSchema } = require("./schema");
+const {
+  getSchema,
+  postSchema,
+  deleteSchema,
+  putSchema,
+  getComboSchema,
+} = require("./schema");
 
 module.exports = async function (server, opts) {
-  const DbSet = () => server.models.LaporanPengawasan;
-
-  const GetLaporanPengawasanById = async (id) => {
-    const res = await server.rest
-      .masterdata()
-      .get(`laporan-pengawasan/?$filter=id eq ${id}`)
-      .json();
-    if (res.data != null && res.data.length > 0) return res.data[0];
-  };
+  const DbSet = () => server.models.MasterKecamatan;
 
   server.get("/", { schema: getSchema }, async function (request, reply) {
     return await server.odata.replyPaging(request, reply, DbSet());
   });
+
+  server.get(
+    "/combobox",
+    { schema: getComboSchema },
+    async function (request, reply) {
+      let query = server.odata.query(request.query);
+
+      // make columns value & text
+      query.attributes = [
+        [server.db.col("id"), "value"],
+        [server.db.col("nama"), "text"],
+      ];
+
+      const data = await DbSet().findAll(query);
+
+      return reply.send({ success: true, data: data });
+    }
+  );
 
   server.post(
     "/",
@@ -27,11 +43,15 @@ module.exports = async function (server, opts) {
           .send({ success: false, ...request.validationError });
       }
 
-      let record = server.entity.track(request.body).markCreated("unknown");
+      let record = { ...request.body };
 
-      const result = await DbSet().create(record);
+      server.entity.track(record).markCreated("unknown");
 
-      return reply.send({ success: true, data: [result.dataValues] });
+      const actCreated = await DbSet().create(record);
+
+      const data = actCreated.dataValues;
+
+      return reply.send({ success: true, data: [data] });
     }
   );
 
@@ -46,7 +66,7 @@ module.exports = async function (server, opts) {
         },
       });
 
-      if (record == null)
+      if (!record)
         return reply.status(400).send({
           success: false,
           message: `ID (${request.params.id}) not found`,

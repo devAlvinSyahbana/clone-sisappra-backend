@@ -3,10 +3,10 @@
 const {getSchema, postSchema, deleteSchema, putSchema} = require("./schema");
 
 module.exports = async function (server, opts) {
-    const DbSet = () => server.models.LaporanKegiatan
+    const DbSet = () => server.models.LaporanTamuDaerah
 
     const GetJenisKegiatanById = async (id) => {
-        const res = await server.rest.masterdata().get(`jenis-kegiatan/?$filter=id eq ${id}`).json()
+        const res = await server.rest.masterdata().get(`laporan-tamudaerah/?$filter=id eq ${id}`).json()
         if(res.data != null && res.data.length > 0) return res.data[0]
     }
 
