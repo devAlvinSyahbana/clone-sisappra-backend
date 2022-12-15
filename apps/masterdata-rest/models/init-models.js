@@ -31,6 +31,7 @@ var _MasterPangkat = require("./master_pangkat");
 var _MasterPendidikan = require("./master_pendidikan");
 var _MasterSkpd = require("./master_skpd");
 var _MasterStatusKenaikanPangkat = require("./master_status_kenaikan_pangkat");
+var _MasterStatusReklame = require("./master_status_reklame");
 var _MasterSumberInformasi = require("./master_sumber_informasi");
 var _MasterTempatPelaksanaan = require("./master_tempat_pelaksanaan");
 var _MasterTempatSeksiPelaksanaan = require("./master_tempat_seksi_pelaksanaan");
@@ -68,6 +69,7 @@ function initModels(sequelize) {
   var MasterPendidikan = _MasterPendidikan(sequelize, DataTypes);
   var MasterSkpd = _MasterSkpd(sequelize, DataTypes);
   var MasterStatusKenaikanPangkat = _MasterStatusKenaikanPangkat(sequelize, DataTypes);
+  var MasterStatusReklame = _MasterStatusReklame(sequelize, DataTypes);
   var MasterSumberInformasi = _MasterSumberInformasi(sequelize, DataTypes);
   var MasterTempatPelaksanaan = _MasterTempatPelaksanaan(sequelize, DataTypes);
   var MasterTempatSeksiPelaksanaan = _MasterTempatSeksiPelaksanaan(sequelize, DataTypes);
@@ -106,6 +108,7 @@ function initModels(sequelize) {
     MasterPendidikan,
     MasterSkpd,
     MasterStatusKenaikanPangkat,
+    MasterStatusReklame,
     MasterSumberInformasi,
     MasterTempatPelaksanaan,
     MasterTempatSeksiPelaksanaan,
