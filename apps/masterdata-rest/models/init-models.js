@@ -23,6 +23,7 @@ var _MasterJenisPenindakan = require("./master_jenis_penindakan");
 var _MasterJenisPenyelesaian = require("./master_jenis_penyelesaian");
 var _MasterJenisPerdaPerkada = require("./master_jenis_perda_perkada");
 var _MasterJenisPertolongan = require("./master_jenis_pertolongan");
+var _MasterJenisReklame = require("./master_jenis_reklame");
 var _MasterJenisUsaha = require("./master_jenis_usaha");
 var _MasterKecamatan = require("./master_kecamatan");
 var _MasterKelurahan = require("./master_kelurahan");
@@ -61,6 +62,7 @@ function initModels(sequelize) {
   var MasterJenisPenyelesaian = _MasterJenisPenyelesaian(sequelize, DataTypes);
   var MasterJenisPerdaPerkada = _MasterJenisPerdaPerkada(sequelize, DataTypes);
   var MasterJenisPertolongan = _MasterJenisPertolongan(sequelize, DataTypes);
+  var MasterJenisReklame = _MasterJenisReklame(sequelize, DataTypes);
   var MasterJenisUsaha = _MasterJenisUsaha(sequelize, DataTypes);
   var MasterKecamatan = _MasterKecamatan(sequelize, DataTypes);
   var MasterKelurahan = _MasterKelurahan(sequelize, DataTypes);
@@ -100,6 +102,7 @@ function initModels(sequelize) {
     MasterJenisPenyelesaian,
     MasterJenisPerdaPerkada,
     MasterJenisPertolongan,
+    MasterJenisReklame,
     MasterJenisUsaha,
     MasterKecamatan,
     MasterKelurahan,
