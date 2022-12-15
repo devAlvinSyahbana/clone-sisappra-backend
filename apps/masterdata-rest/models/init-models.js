@@ -13,6 +13,7 @@ var _MasterJenisBantuan = require("./master_jenis_bantuan");
 var _MasterJenisKegiatan = require("./master_jenis_kegiatan");
 var _MasterJenisKejadian = require("./master_jenis_kejadian");
 var _MasterJenisKekerasan = require("./master_jenis_kekerasan");
+var _MasterJenisKendali = require("./master_jenis_kendali");
 var _MasterJenisKorbanJiwa = require("./master_jenis_korban_jiwa");
 var _MasterJenisKorbanMaterial = require("./master_jenis_korban_material");
 var _MasterJenisPelanggaran = require("./master_jenis_pelanggaran");
@@ -49,6 +50,7 @@ function initModels(sequelize) {
   var MasterJenisKegiatan = _MasterJenisKegiatan(sequelize, DataTypes);
   var MasterJenisKejadian = _MasterJenisKejadian(sequelize, DataTypes);
   var MasterJenisKekerasan = _MasterJenisKekerasan(sequelize, DataTypes);
+  var MasterJenisKendali = _MasterJenisKendali(sequelize, DataTypes);
   var MasterJenisKorbanJiwa = _MasterJenisKorbanJiwa(sequelize, DataTypes);
   var MasterJenisKorbanMaterial = _MasterJenisKorbanMaterial(sequelize, DataTypes);
   var MasterJenisPelanggaran = _MasterJenisPelanggaran(sequelize, DataTypes);
@@ -86,6 +88,7 @@ function initModels(sequelize) {
     MasterJenisKegiatan,
     MasterJenisKejadian,
     MasterJenisKekerasan,
+    MasterJenisKendali,
     MasterJenisKorbanJiwa,
     MasterJenisKorbanMaterial,
     MasterJenisPelanggaran,
