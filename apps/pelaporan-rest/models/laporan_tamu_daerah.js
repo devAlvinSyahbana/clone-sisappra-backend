@@ -6,31 +6,31 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     waktu_mulai_kunjungan: {
-      type: DataTypes.DATE,
+     type: DataTypes.STRING(16),
       allowNull: true
     },
     waktu_selesai_kunjungan: {
-      type: DataTypes.DATE,
+     type: DataTypes.STRING(16),
       allowNull: true
     },
     asal_instansi: {
-      type: DataTypes.TEXT,
+       type: DataTypes.STRING(16),
       allowNull: true
     },
     jml_pengunjung: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     maksud_dan_tujuan: {
-      type: DataTypes.TEXT,
+       type: DataTypes.STRING(16),
       allowNull: true
     },
     pejabat_penerima_kunjungan: {
-      type: DataTypes.TEXT,
+       type: DataTypes.STRING(16),
       allowNull: true
     },
     tempat_kunjungan: {
-      type: DataTypes.TEXT,
+       type: DataTypes.STRING(16),
       allowNull: true
     },
     is_deleted: {
