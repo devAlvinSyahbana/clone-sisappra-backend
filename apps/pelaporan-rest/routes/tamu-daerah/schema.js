@@ -46,7 +46,7 @@ const shared = {
                     "type": "string"
                 },
                 "jml_pengunjung": {
-                    "type": "string"
+                    "type": "number"
                 },
                 "maksud_dan_tujuan": {
                     "type": "string"
@@ -91,7 +91,7 @@ const shared = {
                     "type": "string"
                 },
                 "jml_pengunjung": {
-                    "type": "string"
+                    "type": "number"
                 },
                 "maksud_dan_tujuan": {
                     "type": "string"

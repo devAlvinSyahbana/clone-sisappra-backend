@@ -38,6 +38,7 @@ npx sequelize-auto -o "./models" -d dbsisappra -h 167.71.208.184 -u postgres -x 
 -t "master_golongan" \
 -t "master_jabatan" \
 -t "master_jenis_bantuan" \
+-t "master_jenis_kendali" \
 -t "master_jenis_kegiatan" \
 -t "master_jenis_kejadian" \
 -t "master_jenis_kekerasan" \
@@ -64,6 +65,8 @@ npx sequelize-auto -o "./models" -d dbsisappra -h 167.71.208.184 -u postgres -x 
 -t "map_master_perda_jeniskegiatan" \
 -t "master_jenis_asal_laporan" \
 -t "master_jenis_pengamanan" \
+-t "master_status_reklame" \
+-t "master_jenis_reklame" \
 -t "master_jenis_kejadian"
 ```
 
