@@ -273,11 +273,11 @@ const shared = {
                 },
                 "kegiatan__tanggal": {
                     "type": "string",
-                    "format": "date"
+                    // "format": "date"
                 },
                 "kegiatan__jam": {
                     "type": "string",
-                    "format": "time"
+                    // "format": "time"
                 },
                 "kegiatan__lokasi": {
                     "type": "string"
@@ -329,7 +329,7 @@ const shared = {
                 },
                 "tindak_lanjut__denda__tanggal_setor": {
                     "type": "string",
-                    "format": "date"
+                    // "format": "date"
                 },
                 "tindak_lanjut__denda__nama_bank": {
                     "type": "string"
