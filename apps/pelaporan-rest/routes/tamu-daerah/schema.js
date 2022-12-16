@@ -79,13 +79,16 @@ const shared = {
             "type": "object",
             "properties": {
                 "tanggal_kunjungan": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
                 "waktu_mulai_kunjungan": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "time"
                 },
                 "waktu_selesai_kunjungan": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "time"
                 },
                 "asal_instansi": {
                     "type": "string"
@@ -102,12 +105,8 @@ const shared = {
                 "tempat_kunjungan": {
                     "type": "string"
                 },
-                "id": {
-                    "type": "number"
-                  },
             },
             "required": [
-                "id",
                 "tanggal_kunjungan",
                 "waktu_mulai_kunjungan",
                 "waktu_selesai_kunjungan",
