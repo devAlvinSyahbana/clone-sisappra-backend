@@ -54,7 +54,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    kegiatan__jam: {
+    kegiatan__jam_start: {
+      type: DataTypes.STRING(16),
+      allowNull: true
+    },
+    kegiatan__jam_end: {
       type: DataTypes.STRING(16),
       allowNull: true
     },

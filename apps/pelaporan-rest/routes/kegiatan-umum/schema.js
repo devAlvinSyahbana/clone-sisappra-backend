@@ -45,7 +45,10 @@ const shared = {
                 "kegiatan__tanggal": {
                     "type": "string"
                 },
-                "kegiatan__jam": {
+                "kegiatan__jam_start": {
+                    "type": "string"
+                },
+                "kegiatan__jam_end": {
                     "type": "string"
                 },
                 "kegiatan__lokasi": {
@@ -214,7 +217,8 @@ const shared = {
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "kegiatan__asal_laporan_id",
                 "kegiatan__jenis_pengamanan_id",
@@ -273,11 +277,15 @@ const shared = {
                 },
                 "kegiatan__tanggal": {
                     "type": "string",
-                    // "format": "date"
+                    "format": "date"
                 },
-                "kegiatan__jam": {
+                "kegiatan__jam_start": {
                     "type": "string",
-                    // "format": "time"
+                    "format": "time"
+                },
+                "kegiatan__jam_end": {
+                    "type": "string",
+                    "format": "time"
                 },
                 "kegiatan__lokasi": {
                     "type": "string"
@@ -329,7 +337,7 @@ const shared = {
                 },
                 "tindak_lanjut__denda__tanggal_setor": {
                     "type": "string",
-                    // "format": "date"
+                    "format": "date"
                 },
                 "tindak_lanjut__denda__nama_bank": {
                     "type": "string"
@@ -361,7 +369,8 @@ const shared = {
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
                 "tindak_lanjut__administrasi__jenis_penertiban",
