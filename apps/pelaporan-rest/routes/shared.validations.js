@@ -12,7 +12,7 @@ const GetJenisPasalById = async (server, id) => {
   else return null;
 };
 
-const GetJenisPenyelesaian = async (server, id, jenisKegId = 0, jenisPenertiban= '*') => {
+const GetJenisPenyelesaian = async (server, id, jenisKegId = 0, jenisPenertiban = '*') => {
   // const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id} and jenis_kegiatan_id eq ${jenisKegId} and jenis_penertiban eq '${jenisPenertiban}'`).json();
   const res = await server.rest.masterdata().get(`jenis-penyelesaian/?$filter=id eq ${id}`).json();
   if (res.data != null && res.data.length > 0) return res.data[0];
@@ -41,7 +41,7 @@ const AddModeErrorReference = (errors, prop) => {
   });
 };
 
-const validateJenisKegiatan = async ({server, form, errors, allowedJK, notAllowedJK}) => {
+const validateJenisKegiatan = async ({ server, form, errors, allowedJK, notAllowedJK }) => {
   if (form.kegiatan__jenis_kegiatan_id <= 0)
     AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
 
@@ -52,77 +52,77 @@ const validateJenisKegiatan = async ({server, form, errors, allowedJK, notAllowe
   if (jenisKegiatan == null)
     AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
 
-  if(allowedJK.length > 0) {
+  if (allowedJK.length > 0) {
     if (!allowedJK.includes(jenisKegiatan.nama))
       AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
   }
 
-  if(notAllowedJK.length > 0) {
+  if (notAllowedJK.length > 0) {
     if (jenisKegiatan == null || notAllowedJK.includes(jenisKegiatan.nama))
       AddModeErrorReference(errors, "kegiatan__jenis_kegiatan_id");
   }
 
   return errors;
 }
-
-const validateJenisPasal = async ({server, form, errors})  => {
-  if(form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined) {
+const validateJenisPasal = async ({ server, form, errors }) => {
+  console.log('TES', !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15))
+  if (form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__administrasi__jenis_pasal_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__jenis_pasal_id");
 
     if (errors.length > 0) return errors;
 
     const jenisPasal = await GetJenisPasalById(server, form.tindak_lanjut__administrasi__jenis_pasal_id)
-    if(jenisPasal == null)
+    if (jenisPasal == null)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__jenis_pasal_id");
 
     if (errors.length > 0) return errors;
   }
 }
 
-const validateJenisPenyelesaian = async ({server, form, errors}) => {
-  if(form.tindak_lanjut__administrasi__penyelesaian_id !== undefined) {
+const validateJenisPenyelesaian = async ({ server, form, errors }) => {
+  if (form.tindak_lanjut__administrasi__penyelesaian_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__administrasi__penyelesaian_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__penyelesaian_id");
 
     if (errors.length > 0) return errors;
 
     const jenisPenyelesaian = await GetJenisPenyelesaian(server, form.tindak_lanjut__administrasi__penyelesaian_id)
-    if(jenisPenyelesaian == null)
+    if (jenisPenyelesaian == null)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__penyelesaian_id");
 
     if (errors.length > 0) return errors;
   }
 }
 
-const validateJenisUsaha = async ({server, form, errors}) => {
-  if(form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined) {
+const validateJenisUsaha = async ({ server, form, errors }) => {
+  if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
 
     if (errors.length > 0) return errors;
 
     const jenisUsaha = await GetJenisUsaha(server, form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id)
-    if(jenisUsaha == null)
+    if (jenisUsaha == null)
       AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
 
     if (errors.length > 0) return errors;
   }
 }
 
-const validateJenisPenindakan = async ({server, form, errors}) => {
-  if(form.tindak_lanjut__jenis_penindakan_id !== undefined) {
+const validateJenisPenindakan = async ({ server, form, errors }) => {
+  if (form.tindak_lanjut__jenis_penindakan_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__jenis_penindakan_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
 
     if (errors.length > 0) return errors;
 
     const jenisPenindakan = await GetJenisPenindakan(server, form.tindak_lanjut__jenis_penindakan_id)
-    if(jenisPenindakan == null)
+    if (jenisPenindakan == null)
       AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
 
     if (errors.length > 0) return errors;
   }
 }
 
-module.exports = {GetJenisUsaha, GetJenisPenindakan, AddModeErrorReference, validateJenisKegiatan, validateJenisPasal, validateJenisPenyelesaian, validateJenisUsaha, validateJenisPenindakan}
+module.exports = { GetJenisUsaha, GetJenisPenindakan, AddModeErrorReference, validateJenisKegiatan, validateJenisPasal, validateJenisPenyelesaian, validateJenisUsaha, validateJenisPenindakan }
