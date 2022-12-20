@@ -16,10 +16,8 @@ module.exports = function (sequelize, DataTypes) {
       },
       kode: {
         type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: function () {
-          return "KOBA" + this.id;
-        },
+        allowNull: true,
+        defaultValue: "KOBA" || this.id
       },
       is_deleted: {
         type: DataTypes.INTEGER,
@@ -58,7 +56,6 @@ module.exports = function (sequelize, DataTypes) {
       schema: "public",
       timestamps: false,
       freezeTableName: true,
-      createdAt: true,
     }
-  );
-};
+  )
+}
