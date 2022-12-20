@@ -1,5 +1,11 @@
 'use strict'
 
+const NoPasalPenyelesaian = ['APEL', 'RAPAT', 'PENGATURAN LALU LINTAS', 'PENGAWALAN', 'SOSIALISASI P4GN(NARKOBA)', 'SOSIALISASI PERDA / PERKADA']
+
+const NoTindakLanjut = ['APEL', 'RAPAT']
+
+const NoPenindakan = ['PENERTIBAN BANGUNAN', 'SIDANG TIPIRING']
+
 const GetJenisKegiatanById = async (server, id) => {
   const res = await server.rest.masterdata().get(`jenis-kegiatan/?$filter=id eq ${id}`).json();
   if (res.data != null && res.data.length > 0) return res.data[0];
@@ -65,7 +71,9 @@ const validateJenisKegiatan = async ({ server, form, errors, allowedJK, notAllow
   return errors;
 }
 const validateJenisPasal = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  const jenisKegiatan = await GetJenisKegiatanById(server, form.kegiatan__jenis_kegiatan_id);
+
+  if (form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined && !NoPasalPenyelesaian.includes(jenisKegiatan.nama)) {
     if (form.tindak_lanjut__administrasi__jenis_pasal_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__jenis_pasal_id");
 
@@ -80,7 +88,9 @@ const validateJenisPasal = async ({ server, form, errors }) => {
 }
 
 const validateJenisPenyelesaian = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__administrasi__penyelesaian_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  const jenisKegiatan = await GetJenisKegiatanById(server, form.kegiatan__jenis_kegiatan_id);
+
+  if (form.tindak_lanjut__administrasi__penyelesaian_id !== undefined && !NoPasalPenyelesaian.includes(jenisKegiatan.nama)) {
     if (form.tindak_lanjut__administrasi__penyelesaian_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__penyelesaian_id");
 
@@ -95,7 +105,9 @@ const validateJenisPenyelesaian = async ({ server, form, errors }) => {
 }
 
 const validateJenisUsaha = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  const jenisKegiatan = await GetJenisKegiatanById(server, form.kegiatan__jenis_kegiatan_id);
+
+  if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined && !NoTindakLanjut.includes(jenisKegiatan.nama)) {
     if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
 
@@ -110,7 +122,9 @@ const validateJenisUsaha = async ({ server, form, errors }) => {
 }
 
 const validateJenisPenindakan = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__jenis_penindakan_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  const jenisKegiatan = await GetJenisKegiatanById(server, form.kegiatan__jenis_kegiatan_id);
+
+  if (form.tindak_lanjut__jenis_penindakan_id !== undefined && !NoTindakLanjut.includes(jenisKegiatan.nama) && !NoPenindakan.includes(jenisKegiatan.nama)) {
     if (form.tindak_lanjut__jenis_penindakan_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
 
