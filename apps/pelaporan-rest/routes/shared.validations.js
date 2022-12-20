@@ -65,7 +65,7 @@ const validateJenisKegiatan = async ({ server, form, errors, allowedJK, notAllow
   return errors;
 }
 const validateJenisPasal = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  if (form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__administrasi__jenis_pasal_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__jenis_pasal_id");
 
@@ -80,7 +80,7 @@ const validateJenisPasal = async ({ server, form, errors }) => {
 }
 
 const validateJenisPenyelesaian = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__administrasi__penyelesaian_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  if (form.tindak_lanjut__administrasi__penyelesaian_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__administrasi__penyelesaian_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__penyelesaian_id");
 
@@ -95,7 +95,7 @@ const validateJenisPenyelesaian = async ({ server, form, errors }) => {
 }
 
 const validateJenisUsaha = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__identitas_pelanggar__jenis_usaha_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__identitas_pelanggar__jenis_usaha_id");
 
@@ -110,7 +110,7 @@ const validateJenisUsaha = async ({ server, form, errors }) => {
 }
 
 const validateJenisPenindakan = async ({ server, form, errors }) => {
-  if (form.tindak_lanjut__jenis_penindakan_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
+  if (form.tindak_lanjut__jenis_penindakan_id !== undefined && !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__jenis_penindakan_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__jenis_penindakan_id");
 
