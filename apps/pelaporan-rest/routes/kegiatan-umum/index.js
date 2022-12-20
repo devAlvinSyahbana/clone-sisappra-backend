@@ -5,43 +5,43 @@ const { validateJenisKegiatan, validateJenisPasal, validateJenisPenyelesaian, va
   validateJenisPenindakan
 } = require("../shared.validations");
 
-module.exports = async function(server, opts) {
+module.exports = async function (server, opts) {
   const DbSet = () => server.models.LaporanKegiatan;
 
-  const ValidateForm = async (form, allowedJK = [], notAllowedJK= []) => {
+  const ValidateForm = async (form, allowedJK = [], notAllowedJK = []) => {
     let errors = [];
 
-    await validateJenisKegiatan({form, errors, allowedJK, notAllowedJK, server})
-    await validateJenisPasal({form, errors, server})
-    await validateJenisPenyelesaian({form, errors, server})
-    await validateJenisUsaha({form, errors, server})
-    await validateJenisPenindakan({form, errors, server})
+    await validateJenisKegiatan({ form, errors, allowedJK, notAllowedJK, server })
+    await validateJenisPasal({ form, errors, server })
+    await validateJenisPenyelesaian({ form, errors, server })
+    await validateJenisUsaha({ form, errors, server })
+    await validateJenisPenindakan({ form, errors, server })
 
     return errors;
   };
 
-  server.get("/", { schema: getSchema }, async function(request, reply) {
+  server.get("/", { schema: getSchema }, async function (request, reply) {
     return await server.odata.replyPaging(request, reply, DbSet());
   });
 
-  server.post("/", { schema: postSchema, attachValidation: true }, async function(request, reply) {
+  server.post("/", { schema: postSchema, attachValidation: true }, async function (request, reply) {
     if (request.validationError) {
       return reply.code(400).send({ success: false, ...request.validationError });
     }
 
-    const errors = await ValidateForm(request.body, [], ["SIDANG TIPIRING", "PENERTIBAN BANGUNAN", "KEGIATAN PPKM","LAPORAN MASYARAKAT","PENERTIBAN MINUMAN BERALKOHOL","PENGAMANAN"]);
+    const errors = await ValidateForm(request.body, [], ["SIDANG TIPIRING", "PENERTIBAN BANGUNAN", "KEGIATAN PPKM", "LAPORAN MASYARAKAT", "PENERTIBAN MINUMAN BERALKOHOL", "PENGAMANAN"]);
     if (errors.length > 0) {
       return reply.code(400).send({ success: false, statusCode: 400, validation: errors, message: "form invalid" });
     }
 
-    let record = server.entity.track({...request.body}).markCreated("unknown");
+    let record = server.entity.track({ ...request.body }).markCreated(request.body.created_by);
 
     const result = await DbSet().create(record);
 
     return reply.send({ success: true, data: [result.dataValues] });
   });
 
-  server.delete("/:id", { schema: deleteSchema }, async function(request, reply) {
+  server.delete("/:id", { schema: deleteSchema }, async function (request, reply) {
     const record = await DbSet().findOne({
       where: {
         id: request.params.id,
@@ -71,7 +71,7 @@ module.exports = async function(server, opts) {
     return reply.send({ success: true });
   });
 
-  server.put("/:id", { schema: putSchema, attachValidation: true }, async function(request, reply) {
+  server.put("/:id", { schema: putSchema, attachValidation: true }, async function (request, reply) {
     const record = await DbSet().findOne({
       where: {
         id: request.params.id,

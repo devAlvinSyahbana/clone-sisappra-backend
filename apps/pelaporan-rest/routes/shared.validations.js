@@ -65,7 +65,6 @@ const validateJenisKegiatan = async ({ server, form, errors, allowedJK, notAllow
   return errors;
 }
 const validateJenisPasal = async ({ server, form, errors }) => {
-  console.log('TES', !(form.kegiatan__jenis_kegiatan_id === 13 || form.kegiatan__jenis_kegiatan_id === 15))
   if (form.tindak_lanjut__administrasi__jenis_pasal_id !== undefined && !(form.kegiatan__jenis_kegiatan_id !== 13 || form.kegiatan__jenis_kegiatan_id === 15)) {
     if (form.tindak_lanjut__administrasi__jenis_pasal_id <= 0)
       AddModeErrorReference(errors, "tindak_lanjut__administrasi__jenis_pasal_id");
