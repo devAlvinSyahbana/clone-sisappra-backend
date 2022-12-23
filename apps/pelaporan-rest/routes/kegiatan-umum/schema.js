@@ -1,6 +1,6 @@
 'use strict'
 
-const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
+const { reply200, reply400, defaultPageQueryString } = require("../std.schema");
 
 const shared = {
     type: 'object',
@@ -40,7 +40,7 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
                     "type": "string"
@@ -228,10 +228,13 @@ const shared = {
             },
             "required": [
                 "id",
+                "created_by",
                 "kegiatan__jenis_kegiatan_id",
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "kegiatan__asal_laporan_id",
                 "kegiatan__jenis_pengamanan_id",
@@ -281,6 +284,9 @@ const shared = {
             "title": "Pelaporan Form Kegiatan Umum",
             "type": "object",
             "properties": {
+                "created_by": {
+                    "type": "string"
+                },
                 "kegiatan__jenis_kegiatan_id": {
                     "type": "number"
                 },
@@ -294,7 +300,11 @@ const shared = {
                     "type": "string",
                     "format": "date"
                 },
-                "kegiatan__jam": {
+                "kegiatan__jam_start": {
+                    "type": "string",
+                    "format": "time"
+                },
+                "kegiatan__jam_end": {
                     "type": "string",
                     "format": "time"
                 },
@@ -348,7 +358,6 @@ const shared = {
                 },
                 "tindak_lanjut__denda__tanggal_setor": {
                     "type": "string",
-                    "format": "date"
                 },
                 "tindak_lanjut__denda__nama_bank": {
                     "type": "string"
@@ -391,11 +400,13 @@ const shared = {
                 }
             },
             "required": [
+                "created_by",
                 "kegiatan__jenis_kegiatan_id",
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
                 "tindak_lanjut__administrasi__jenis_penertiban",
@@ -444,7 +455,7 @@ const deleteSchema = {
     description: "Delete Laporan Kegiatan Lainnya",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     response: {
         200: reply200(),
@@ -456,7 +467,7 @@ const putSchema = {
     description: "Update Laporan Kegiatan Lainnya",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     body: shared.definitions.pelaporanKegiatanForm,
     response: {
@@ -465,4 +476,4 @@ const putSchema = {
     }
 }
 
-module.exports = {getSchema, postSchema, deleteSchema, putSchema}
+module.exports = { getSchema, postSchema, deleteSchema, putSchema }

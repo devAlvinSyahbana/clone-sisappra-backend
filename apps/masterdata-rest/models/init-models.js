@@ -8,18 +8,22 @@ var _MasterGlobalDistricts = require("./master_global_districts");
 var _MasterGlobalProvinces = require("./master_global_provinces");
 var _MasterGolongan = require("./master_golongan");
 var _MasterJabatan = require("./master_jabatan");
+var _MasterJenisAsalLaporan = require("./master_jenis_asal_laporan");
 var _MasterJenisBantuan = require("./master_jenis_bantuan");
 var _MasterJenisKegiatan = require("./master_jenis_kegiatan");
 var _MasterJenisKejadian = require("./master_jenis_kejadian");
 var _MasterJenisKekerasan = require("./master_jenis_kekerasan");
+var _MasterJenisKendali = require("./master_jenis_kendali");
 var _MasterJenisKorbanJiwa = require("./master_jenis_korban_jiwa");
 var _MasterJenisKorbanMaterial = require("./master_jenis_korban_material");
 var _MasterJenisPelanggaran = require("./master_jenis_pelanggaran");
 var _MasterJenisPenertiban = require("./master_jenis_penertiban");
+var _MasterJenisPengamanan = require("./master_jenis_pengamanan");
 var _MasterJenisPenindakan = require("./master_jenis_penindakan");
 var _MasterJenisPenyelesaian = require("./master_jenis_penyelesaian");
 var _MasterJenisPerdaPerkada = require("./master_jenis_perda_perkada");
 var _MasterJenisPertolongan = require("./master_jenis_pertolongan");
+var _MasterJenisReklame = require("./master_jenis_reklame");
 var _MasterJenisUsaha = require("./master_jenis_usaha");
 var _MasterKecamatan = require("./master_kecamatan");
 var _MasterKelurahan = require("./master_kelurahan");
@@ -28,6 +32,7 @@ var _MasterPangkat = require("./master_pangkat");
 var _MasterPendidikan = require("./master_pendidikan");
 var _MasterSkpd = require("./master_skpd");
 var _MasterStatusKenaikanPangkat = require("./master_status_kenaikan_pangkat");
+var _MasterStatusReklame = require("./master_status_reklame");
 var _MasterSumberInformasi = require("./master_sumber_informasi");
 var _MasterTempatPelaksanaan = require("./master_tempat_pelaksanaan");
 var _MasterTempatSeksiPelaksanaan = require("./master_tempat_seksi_pelaksanaan");
@@ -42,18 +47,22 @@ function initModels(sequelize) {
   var MasterGlobalProvinces = _MasterGlobalProvinces(sequelize, DataTypes);
   var MasterGolongan = _MasterGolongan(sequelize, DataTypes);
   var MasterJabatan = _MasterJabatan(sequelize, DataTypes);
+  var MasterJenisAsalLaporan = _MasterJenisAsalLaporan(sequelize, DataTypes);
   var MasterJenisBantuan = _MasterJenisBantuan(sequelize, DataTypes);
   var MasterJenisKegiatan = _MasterJenisKegiatan(sequelize, DataTypes);
   var MasterJenisKejadian = _MasterJenisKejadian(sequelize, DataTypes);
   var MasterJenisKekerasan = _MasterJenisKekerasan(sequelize, DataTypes);
+  var MasterJenisKendali = _MasterJenisKendali(sequelize, DataTypes);
   var MasterJenisKorbanJiwa = _MasterJenisKorbanJiwa(sequelize, DataTypes);
   var MasterJenisKorbanMaterial = _MasterJenisKorbanMaterial(sequelize, DataTypes);
   var MasterJenisPelanggaran = _MasterJenisPelanggaran(sequelize, DataTypes);
   var MasterJenisPenertiban = _MasterJenisPenertiban(sequelize, DataTypes);
+  var MasterJenisPengamanan = _MasterJenisPengamanan(sequelize, DataTypes);
   var MasterJenisPenindakan = _MasterJenisPenindakan(sequelize, DataTypes);
   var MasterJenisPenyelesaian = _MasterJenisPenyelesaian(sequelize, DataTypes);
   var MasterJenisPerdaPerkada = _MasterJenisPerdaPerkada(sequelize, DataTypes);
   var MasterJenisPertolongan = _MasterJenisPertolongan(sequelize, DataTypes);
+  var MasterJenisReklame = _MasterJenisReklame(sequelize, DataTypes);
   var MasterJenisUsaha = _MasterJenisUsaha(sequelize, DataTypes);
   var MasterKecamatan = _MasterKecamatan(sequelize, DataTypes);
   var MasterKelurahan = _MasterKelurahan(sequelize, DataTypes);
@@ -62,6 +71,7 @@ function initModels(sequelize) {
   var MasterPendidikan = _MasterPendidikan(sequelize, DataTypes);
   var MasterSkpd = _MasterSkpd(sequelize, DataTypes);
   var MasterStatusKenaikanPangkat = _MasterStatusKenaikanPangkat(sequelize, DataTypes);
+  var MasterStatusReklame = _MasterStatusReklame(sequelize, DataTypes);
   var MasterSumberInformasi = _MasterSumberInformasi(sequelize, DataTypes);
   var MasterTempatPelaksanaan = _MasterTempatPelaksanaan(sequelize, DataTypes);
   var MasterTempatSeksiPelaksanaan = _MasterTempatSeksiPelaksanaan(sequelize, DataTypes);
@@ -77,18 +87,22 @@ function initModels(sequelize) {
     MasterGlobalProvinces,
     MasterGolongan,
     MasterJabatan,
+    MasterJenisAsalLaporan,
     MasterJenisBantuan,
     MasterJenisKegiatan,
     MasterJenisKejadian,
     MasterJenisKekerasan,
+    MasterJenisKendali,
     MasterJenisKorbanJiwa,
     MasterJenisKorbanMaterial,
     MasterJenisPelanggaran,
     MasterJenisPenertiban,
+    MasterJenisPengamanan,
     MasterJenisPenindakan,
     MasterJenisPenyelesaian,
     MasterJenisPerdaPerkada,
     MasterJenisPertolongan,
+    MasterJenisReklame,
     MasterJenisUsaha,
     MasterKecamatan,
     MasterKelurahan,
@@ -97,6 +111,7 @@ function initModels(sequelize) {
     MasterPendidikan,
     MasterSkpd,
     MasterStatusKenaikanPangkat,
+    MasterStatusReklame,
     MasterSumberInformasi,
     MasterTempatPelaksanaan,
     MasterTempatSeksiPelaksanaan,
