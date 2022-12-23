@@ -45,7 +45,10 @@ const shared = {
                 "kegiatan__tanggal": {
                     "type": "string"
                 },
-                "kegiatan__jam": {
+                "kegiatan__jam_start": {
+                    "type": "string"
+                },
+                "kegiatan__jam_end": {
                     "type": "string"
                 },
                 "kegiatan__lokasi": {
@@ -194,15 +197,30 @@ const shared = {
                     "items": {
                         "type": "object",
                         "properties": {
-                            "file": {
-                                "type": "string"
+                            "file_uploadResult": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
                             },
                             "keterangan": {
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "file",
+                            "file_uploadResult",
                             "keterangan"
                         ]
                     }
@@ -214,11 +232,12 @@ const shared = {
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
                 "kegiatan__lokasi",
                 "kegiatan__asal_laporan_id",
                 "kegiatan__jenis_pengamanan_id",
                 "kegiatan__masalah",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__pemecahan_masalah",
                 "kegiatan__instansi_terkait",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
@@ -342,15 +361,30 @@ const shared = {
                     "items": {
                         "type": "object",
                         "properties": {
-                            "file": {
-                                "type": "string"
+                            "file_uploadResult": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
                             },
                             "keterangan": {
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "file",
+                            "file_uploadResult",
                             "keterangan"
                         ]
                     }
