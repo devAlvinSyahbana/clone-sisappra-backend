@@ -4,8 +4,6 @@ module.exports = function (sequelize, DataTypes) {
     "MasterKota",
     {
       id: {
-        autoIncrement: true,
-        autoIncrementIdentity: true,
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -16,8 +14,8 @@ module.exports = function (sequelize, DataTypes) {
       },
       kode: {
         type: DataTypes.STRING,
-        allowNull: true,
-        defaultValue: "KOBA" || this.id
+        allowNull: false,
+        defaultValue: Sequelize.Sequelize.fn("set_kobaid_default"),
       },
       is_deleted: {
         type: DataTypes.INTEGER,
@@ -54,8 +52,10 @@ module.exports = function (sequelize, DataTypes) {
       sequelize,
       tableName: "master_kota",
       schema: "public",
+      hasTrigger: true,
       timestamps: false,
       freezeTableName: true,
+      createdAt: true,
     }
-  )
-}
+  );
+};

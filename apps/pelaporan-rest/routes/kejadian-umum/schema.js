@@ -279,20 +279,23 @@ const shared = {
                         "type": "object",
                         "properties": {
                             "file_uploadResult": {
-                                "type": "object",
-                                "properties": {
-                                    "bucket": {
-                                        "type": "string"
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
                                     },
-                                    "key": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "bucket",
-                                    "key"
-                                ]
-                            }
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
+                            },
                         },
                         "required": [
                             "file_uploadResult"

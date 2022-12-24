@@ -91,11 +91,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     tindak_lanjut__administrasi__jenis_penertiban: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     tindak_lanjut__administrasi__jenis_pelanggaran: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     tindak_lanjut__administrasi__perda_perkada: {
@@ -225,6 +225,16 @@ module.exports = function(sequelize, DataTypes) {
     tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan: {
       type: DataTypes.DATEONLY,
       allowNull: true
+    },
+    dokumentasi: {
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
+    },
+    tindak_lanjut__jumlah_minol_merk: {
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
     }
   }, {
     sequelize,
