@@ -239,8 +239,6 @@ const shared = {
                 "kegiatan__asal_laporan_id",
                 "kegiatan__jenis_pengamanan_id",
                 "kegiatan__masalah",
-                "kegiatan__jam_start",
-                "kegiatan__jam_end",
                 "kegiatan__pemecahan_masalah",
                 "kegiatan__instansi_terkait",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
