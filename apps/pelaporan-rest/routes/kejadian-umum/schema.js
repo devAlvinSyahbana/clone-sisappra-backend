@@ -54,7 +54,7 @@ const shared = {
                 "kejadian__alamat": {
                     "type": "string"
                 },
-                "kejadian__jenis_kegiatan_id": {
+                "kejadian__jenis_kejadian_id": {
                     "type": "number"
                 },
                 "kejadian__uraian_kejadian": {
@@ -168,7 +168,7 @@ const shared = {
                 "kejadian__kecamatan_id",
                 "kejadian__kelurahan_id",
                 "kejadian__alamat",
-                "kejadian__jenis_kegiatan_id",
+                "kejadian__jenis_kejadian_id",
                 "kejadian__uraian_kejadian",
                 "kejadian__jml_personil_satpolpp",
                 "kejadian__jml_personil_instansilain",
@@ -209,7 +209,7 @@ const shared = {
                 "kejadian__alamat": {
                     "type": "string"
                 },
-                "kejadian__jenis_kegiatan_id": {
+                "kejadian__jenis_kejadian_id": {
                     "type": "number"
                 },
                 "kejadian__uraian_kejadian": {
@@ -311,7 +311,7 @@ const shared = {
                 "kejadian__kecamatan_id",
                 "kejadian__kelurahan_id",
                 "kejadian__alamat",
-                "kejadian__jenis_kegiatan_id",
+                "kejadian__jenis_kejadian_id",
                 "kejadian__uraian_kejadian",
                 "kejadian__jml_personil_satpolpp",
                 "kejadian__jml_personil_instansilain",
