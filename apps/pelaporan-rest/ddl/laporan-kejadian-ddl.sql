@@ -20,7 +20,7 @@ CREATE TABLE laporan_kejadian (
     kejadian__kecamatan_id int4,
     kejadian__kelurahan_id int4,
     kejadian__alamat varchar(64),
-    kejadian__jenis_kegiatan_id int4,
+    kejadian__jenis_kejadian_id int4,
     kejadian__uraian_kejadian varchar(255),
     kejadian__jml_personil_satpolpp int4,
     kejadian__jml_personil_instansilain int4,
