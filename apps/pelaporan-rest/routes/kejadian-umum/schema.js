@@ -154,23 +154,26 @@ const shared = {
                         "type": "object",
                         "properties": {
                             "file_uploadResult": {
-                                "type": "object",
-                                "properties": {
-                                    "bucket": {
-                                        "type": "string"
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
                                     },
-                                    "key": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "bucket",
-                                    "key"
-                                ]
-                            }
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
+                            },
                         },
                         "required": [
-                            "file_uploadResult"
+                            "file_uploadResult",
                         ]
                     }
                 }
@@ -204,7 +207,8 @@ const shared = {
             "type": "object",
             "properties": {
                 "kejadian__tanggal": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
                 "kejadian__waktu_start": {
                     "type": "string"
@@ -313,7 +317,8 @@ const shared = {
                             },
                         },
                         "required": [
-                            "file_uploadResult"
+                            "file_uploadResult",
+                   
                         ]
                     }
                 }

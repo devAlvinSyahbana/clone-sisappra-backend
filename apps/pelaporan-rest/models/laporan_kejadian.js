@@ -143,24 +143,29 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     tindak__jenis_bantuan_satpolpp: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
     },
     tindak__jenis_bantuan_instansiterkait: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
     },
     tindak__korban_jiwa: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
     },
     tindak__korban_material: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
     },
     tindak__dokumentasi: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
     }
   }, {
     sequelize,
