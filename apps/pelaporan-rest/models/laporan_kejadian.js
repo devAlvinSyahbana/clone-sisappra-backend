@@ -66,7 +66,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(64),
       allowNull: true
     },
-    kejadian__jenis_kegiatan_id: {
+    kejadian__jenis_kejadian_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
@@ -99,6 +99,26 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     kejadian__lokasi_dapur_umum: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    kejadian__jumlah_massa: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    kejadian__sumber_informasi_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    kejadian__jenis_kekerasan_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    kejadian__tuntutan: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    kejadian__penanggung_jawab_unras: {
       type: DataTypes.STRING(255),
       allowNull: true
     },

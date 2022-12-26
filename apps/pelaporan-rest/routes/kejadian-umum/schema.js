@@ -54,7 +54,7 @@ const shared = {
                 "kejadian__alamat": {
                     "type": "string"
                 },
-                "kejadian__jenis_kegiatan_id": {
+                "kejadian__jenis_kejadian_id": {
                     "type": "number"
                 },
                 "kejadian__uraian_kejadian": {
@@ -80,6 +80,21 @@ const shared = {
                 },
                 "kejadian__lokasi_dapur_umum": {
                     "type": "string"
+                },
+                "kejadian__jumlah_massa": {
+                    "type": "number"
+                },
+                "kejadian__tuntutan": {
+                    "type": "string"
+                },
+                "kejadian__penanggung_jawab_unras": {
+                    "type": "string"
+                },
+                "kejadian__sumber_informasi_id": {
+                    "type": "number"
+                },
+                "kejadian__jenis_kekerasan_id": {
+                    "type": "number"
                 },
                 "tindak__jenis_bantuan_satpolpp": {
                     "type": "array",
@@ -168,7 +183,7 @@ const shared = {
                 "kejadian__kecamatan_id",
                 "kejadian__kelurahan_id",
                 "kejadian__alamat",
-                "kejadian__jenis_kegiatan_id",
+                "kejadian__jenis_kejadian_id",
                 "kejadian__uraian_kejadian",
                 "kejadian__jml_personil_satpolpp",
                 "kejadian__jml_personil_instansilain",
@@ -209,7 +224,7 @@ const shared = {
                 "kejadian__alamat": {
                     "type": "string"
                 },
-                "kejadian__jenis_kegiatan_id": {
+                "kejadian__jenis_kejadian_id": {
                     "type": "number"
                 },
                 "kejadian__uraian_kejadian": {
@@ -311,7 +326,7 @@ const shared = {
                 "kejadian__kecamatan_id",
                 "kejadian__kelurahan_id",
                 "kejadian__alamat",
-                "kejadian__jenis_kegiatan_id",
+                "kejadian__jenis_kejadian_id",
                 "kejadian__uraian_kejadian",
                 "kejadian__jml_personil_satpolpp",
                 "kejadian__jml_personil_instansilain",
