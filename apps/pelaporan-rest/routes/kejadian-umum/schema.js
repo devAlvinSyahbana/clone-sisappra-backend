@@ -81,6 +81,21 @@ const shared = {
                 "kejadian__lokasi_dapur_umum": {
                     "type": "string"
                 },
+                "kejadian__jumlah_massa": {
+                    "type": "number"
+                },
+                "kejadian__tuntutan": {
+                    "type": "string"
+                },
+                "kejadian__penanggung_jawab_unras": {
+                    "type": "string"
+                },
+                "kejadian__sumber_informasi_id": {
+                    "type": "number"
+                },
+                "kejadian__jenis_kekerasan_id": {
+                    "type": "number"
+                },
                 "tindak__jenis_bantuan_satpolpp": {
                     "type": "array",
                     "items": {
