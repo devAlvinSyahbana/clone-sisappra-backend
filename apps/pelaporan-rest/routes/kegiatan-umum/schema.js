@@ -282,9 +282,6 @@ const shared = {
             "title": "Pelaporan Form Kegiatan Umum",
             "type": "object",
             "properties": {
-                "created_by": {
-                    "type": "string"
-                },
                 "kegiatan__jenis_kegiatan_id": {
                     "type": "number"
                 },
@@ -398,7 +395,6 @@ const shared = {
                 }
             },
             "required": [
-                "created_by",
                 "kegiatan__jenis_kegiatan_id",
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
