@@ -125,7 +125,7 @@ const shared = {
         "status_reklame",
         "kecamtan",
         "kelurahan",
-        "dokumentasi",
+        "tindak_dokumentasi",
       ],
     },
     pelaporanReklameForm: {
@@ -182,19 +182,28 @@ const shared = {
         posisi_reklame: {
           type: "string",
         },
-        dokumentasi: {
-          type: array,
+        tindak_dokumentasi: {
+          type: "array",
           items: {
-            type: object,
+            type: "object",
             properties: {
-              file: {
-                type: string,
-              },
-              keterangan: {
-                type: string,
+              file_uploadResult: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    bucket: {
+                      type: "string",
+                    },
+                    key: {
+                      type: "string",
+                    },
+                  },
+                  required: ["bucket", "key"],
+                },
               },
             },
-            required: [file, keterangan],
+            required: ["file_uploadResult"],
           },
         },
       },
@@ -211,7 +220,7 @@ const shared = {
         "kota",
         "kecamtan",
         "kelurahan",
-        "dokumentasi",
+        "tindak_dokumentasi",
       ],
     },
   },
