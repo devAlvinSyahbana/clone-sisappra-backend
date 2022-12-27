@@ -67,7 +67,8 @@ npx sequelize-auto -o "./models" -d dbsisappra -h 167.71.208.184 -u postgres -x 
 -t "master_jenis_pengamanan" \
 -t "master_status_reklame" \
 -t "master_jenis_reklame" \
--t "master_jenis_kejadian"
+-t "master_jenis_kejadian" \
+-t "master_jenis_proses_khusus"
 ```
 
 ## Learn More

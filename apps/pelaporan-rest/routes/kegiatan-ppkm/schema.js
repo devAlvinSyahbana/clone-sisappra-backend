@@ -1,6 +1,6 @@
 'use strict'
 
-const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
+const { reply200, reply400, defaultPageQueryString } = require("../std.schema");
 
 const shared = {
     type: 'object',
@@ -40,7 +40,7 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
                     "type": "string"
@@ -194,15 +194,30 @@ const shared = {
                     "items": {
                         "type": "object",
                         "properties": {
-                            "file": {
-                                "type": "string"
+                            "file_uploadResult": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
                             },
                             "keterangan": {
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "file",
+                            "file_uploadResult",
                             "keterangan"
                         ]
                     }
@@ -214,7 +229,8 @@ const shared = {
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "kegiatan__asal_laporan_id",
                 "kegiatan__jenis_pengamanan_id",
@@ -269,13 +285,19 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
-                "kegiatan__jam": {
-                    "type": "string"
+                "kegiatan__jam_start": {
+                    "type": "string",
+                    "format": "time"
+                },
+                "kegiatan__jam_end": {
+                    "type": "string",
+                    "format": "time"
                 },
                 "kegiatan__lokasi": {
                     "type": "string"
@@ -339,15 +361,30 @@ const shared = {
                     "items": {
                         "type": "object",
                         "properties": {
-                            "file": {
-                                "type": "string"
+                            "file_uploadResult": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
                             },
                             "keterangan": {
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "file",
+                            "file_uploadResult",
                             "keterangan"
                         ]
                     }
@@ -358,7 +395,8 @@ const shared = {
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
                 "tindak_lanjut__administrasi__jenis_penertiban",
@@ -407,7 +445,7 @@ const deleteSchema = {
     description: "Delete Laporan Kegiatan PPKM",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     response: {
         200: reply200(),
@@ -419,7 +457,7 @@ const putSchema = {
     description: "Update Laporan Kegiatan PPKM",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     body: shared.definitions.pelaporanKegiatanForm,
     response: {
@@ -428,4 +466,4 @@ const putSchema = {
     }
 }
 
-module.exports = {getSchema, postSchema, deleteSchema, putSchema}
+module.exports = { getSchema, postSchema, deleteSchema, putSchema }

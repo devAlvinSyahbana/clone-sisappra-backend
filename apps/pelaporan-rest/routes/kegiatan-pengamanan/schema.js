@@ -46,10 +46,10 @@ const shared = {
                     "type": "string"
                 },
                 "kegiatan__jam_start": {
-                    "type": "string",
+                    "type": "string"
                 },
                 "kegiatan__jam_end": {
-                    "type": "string",
+                    "type": "string"
                 },
                 "kegiatan__lokasi": {
                     "type": "string"
@@ -264,17 +264,7 @@ const shared = {
                 "tindak_lanjut__denda__non_pengadilan",
                 "tindak_lanjut__denda__tanggal_setor",
                 "tindak_lanjut__denda__nama_bank",
-                "tindak_lanjut__denda__no_validasi_bank",
-                "tindak_lanjut__rekom_citata__jenis_pelanggaran_id",
-                "tindak_lanjut__rekom_citata__no_sp",
-                "tindak_lanjut__rekom_citata__tanggal_no_sp",
-                "tindak_lanjut__rekom_citata__no_segel",
-                "tindak_lanjut__rekom_citata__tanggal_segel",
-                "tindak_lanjut__rekom_citata__no_spb",
-                "tindak_lanjut__rekom_citata__tanggal_spb",
-                "tindak_lanjut__rekom_citata__no_rekomtek",
-                "tindak_lanjut__rekom_citata__tanggal_rekomtek",
-                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan"
+                "tindak_lanjut__denda__no_validasi_bank"
             ]
         },
         pelaporanKegiatanForm: {
