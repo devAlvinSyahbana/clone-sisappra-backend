@@ -58,10 +58,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    status: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     ukuran: {
       type: DataTypes.STRING,
       allowNull: true
