@@ -44,7 +44,7 @@ const getSchema = {
     tags: ["jenis-proses-khusus"],
     querystring: defaultPageQueryString,
     response: {
-        200: reply200(shared.definitions.jenisAsalLaporanDto)
+        200: reply200(shared.definitions.jenisProsesKhususDto)
     }
 }
 
@@ -74,7 +74,7 @@ const postSchema = {
     tags: ["jenis-proses-khusus"],
     body: {},
     response: {
-        200: reply200(shared.definitions.jenisAsalLaporanDto),
+        200: reply200(shared.definitions.jenisProsesKhususDto),
         400: reply400()
     }
 }
@@ -99,7 +99,7 @@ const putSchema = {
     },
     body: {},
     response: {
-        200: reply200(shared.definitions.jenisAsalLaporanDto),
+        200: reply200(shared.definitions.jenisProsesKhususDto),
         400: reply400()
     }
 }
