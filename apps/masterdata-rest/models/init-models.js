@@ -17,6 +17,7 @@ var _MasterJenisKendali = require("./master_jenis_kendali");
 var _MasterJenisKorbanJiwa = require("./master_jenis_korban_jiwa");
 var _MasterJenisKorbanMaterial = require("./master_jenis_korban_material");
 var _MasterJenisPelanggaran = require("./master_jenis_pelanggaran");
+var _MasterJenisPelanggaranBangunan = require("./master_jenis_pelanggaran_bangunan");
 var _MasterJenisPenertiban = require("./master_jenis_penertiban");
 var _MasterJenisPengamanan = require("./master_jenis_pengamanan");
 var _MasterJenisPenindakan = require("./master_jenis_penindakan");
@@ -57,6 +58,7 @@ function initModels(sequelize) {
   var MasterJenisKorbanJiwa = _MasterJenisKorbanJiwa(sequelize, DataTypes);
   var MasterJenisKorbanMaterial = _MasterJenisKorbanMaterial(sequelize, DataTypes);
   var MasterJenisPelanggaran = _MasterJenisPelanggaran(sequelize, DataTypes);
+  var MasterJenisPelanggaranBangunan = _MasterJenisPelanggaranBangunan(sequelize, DataTypes);
   var MasterJenisPenertiban = _MasterJenisPenertiban(sequelize, DataTypes);
   var MasterJenisPengamanan = _MasterJenisPengamanan(sequelize, DataTypes);
   var MasterJenisPenindakan = _MasterJenisPenindakan(sequelize, DataTypes);
@@ -98,6 +100,7 @@ function initModels(sequelize) {
     MasterJenisKorbanJiwa,
     MasterJenisKorbanMaterial,
     MasterJenisPelanggaran,
+    MasterJenisPelanggaranBangunan,
     MasterJenisPenertiban,
     MasterJenisPengamanan,
     MasterJenisPenindakan,
