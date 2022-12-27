@@ -1,6 +1,6 @@
 'use strict'
 
-const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
+const { reply200, reply400, defaultPageQueryString } = require("../std.schema");
 
 const shared = {
     type: 'object',
@@ -40,12 +40,15 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
                     "type": "string"
                 },
-                "kegiatan__jam": {
+                "kegiatan__jam_start": {
+                    "type": "string"
+                },
+                "kegiatan__jam_end": {
                     "type": "string"
                 },
                 "kegiatan__lokasi": {
@@ -118,6 +121,9 @@ const shared = {
                     "type": "number"
                 },
                 "tindak_lanjut__identitas_pelanggar__nama_pemilik": {
+                    "type": "string"
+                },
+                "tindak_lanjut__identitas_pelanggar__luas_bongkaran": {
                     "type": "string"
                 },
                 "tindak_lanjut__jenis_penindakan_id": {
@@ -225,11 +231,13 @@ const shared = {
             },
             "required": [
                 "id",
+                "created_by",
                 "kegiatan__jenis_kegiatan_id",
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "kegiatan__asal_laporan_id",
                 "kegiatan__jenis_pengamanan_id",
@@ -254,6 +262,7 @@ const shared = {
                 "tindak_lanjut__identitas_pelanggar__alamat",
                 "tindak_lanjut__identitas_pelanggar__jenis_usaha_id",
                 "tindak_lanjut__identitas_pelanggar__nama_pemilik",
+                "tindak_lanjut__identitas_pelanggar__luas_bongkaran",
                 "tindak_lanjut__jenis_penindakan_id",
                 "tindak_lanjut__jumlah_pelanggar",
                 "tindak_lanjut__denda__pengadilan",
@@ -270,7 +279,9 @@ const shared = {
                 "tindak_lanjut__rekom_citata__tanggal_spb",
                 "tindak_lanjut__rekom_citata__no_rekomtek",
                 "tindak_lanjut__rekom_citata__tanggal_rekomtek",
-                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan"
+                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan",
+                "tindak_lanjut__jumlah_minol_merk",
+                "dokumentasi"
             ]
         },
         pelaporanKegiatanForm: {
@@ -284,13 +295,19 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
-                "kegiatan__jam": {
-                    "type": "string"
+                "kegiatan__jam_start": {
+                    "type": "string",
+                    "format": "time"
+                },
+                "kegiatan__jam_end": {
+                    "type": "string",
+                    "format": "time"
                 },
                 "kegiatan__lokasi": {
                     "type": "string"
@@ -313,20 +330,20 @@ const shared = {
                 "tindak_lanjut__identitas_pelanggar__nama_pemilik": {
                     "type": "string"
                 },
-                "tindak_lanjut__identitas_pelanggar__nama_tempat_usaha": {
-                    "type": "string"
-                },
-                "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha": {
-                    "type": "string"
-                },
                 "tindak_lanjut__identitas_pelanggar__nik": {
                     "type": "string"
                 },
                 "tindak_lanjut__identitas_pelanggar__alamat": {
                     "type": "string"
                 },
+                "tindak_lanjut__identitas_pelanggar__luas_bongkaran": {
+                    "type": "number"
+                },
                 "tindak_lanjut__identitas_pelanggar__jenis_usaha_id": {
                     "type": "number"
+                },
+                "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha": {
+                    "type": "string"
                 },
                 "tindak_lanjut__rekom_citata__jenis_pelanggaran_id": {
                     "type": "number"
@@ -382,7 +399,8 @@ const shared = {
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
                 "tindak_lanjut__administrasi__jenis_penertiban",
@@ -390,11 +408,11 @@ const shared = {
                 "tindak_lanjut__administrasi__perda_perkada",
                 "tindak_lanjut__administrasi__penyelesaian_id",
                 "tindak_lanjut__identitas_pelanggar__nama_pemilik",
-                "tindak_lanjut__identitas_pelanggar__nama_tempat_usaha",
-                "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha",
                 "tindak_lanjut__identitas_pelanggar__nik",
                 "tindak_lanjut__identitas_pelanggar__alamat",
+                "tindak_lanjut__identitas_pelanggar__luas_bongkaran",
                 "tindak_lanjut__identitas_pelanggar__jenis_usaha_id",
+                "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha",
                 "tindak_lanjut__rekom_citata__jenis_pelanggaran_id",
                 "tindak_lanjut__rekom_citata__no_sp",
                 "tindak_lanjut__rekom_citata__tanggal_no_sp",
@@ -434,7 +452,7 @@ const deleteSchema = {
     description: "Delete Laporan Kegiatan Bangunan",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     response: {
         200: reply200(),
@@ -446,7 +464,7 @@ const putSchema = {
     description: "Update Laporan Kegiatan Bangunan",
     tags: ["laporan-kegiatan"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     body: shared.definitions.pelaporanKegiatanForm,
     response: {
@@ -455,4 +473,4 @@ const putSchema = {
     }
 }
 
-module.exports = {getSchema, postSchema, deleteSchema, putSchema}
+module.exports = { getSchema, postSchema, deleteSchema, putSchema }
