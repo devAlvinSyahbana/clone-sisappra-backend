@@ -123,6 +123,9 @@ const shared = {
                 "tindak_lanjut__identitas_pelanggar__nama_pemilik": {
                     "type": "string"
                 },
+                "tindak_lanjut__identitas_pelanggar__luas_bongkaran": {
+                    "type": "string"
+                },
                 "tindak_lanjut__jenis_penindakan_id": {
                     "type": "number"
                 },
@@ -259,6 +262,7 @@ const shared = {
                 "tindak_lanjut__identitas_pelanggar__alamat",
                 "tindak_lanjut__identitas_pelanggar__jenis_usaha_id",
                 "tindak_lanjut__identitas_pelanggar__nama_pemilik",
+                "tindak_lanjut__identitas_pelanggar__luas_bongkaran",
                 "tindak_lanjut__jenis_penindakan_id",
                 "tindak_lanjut__jumlah_pelanggar",
                 "tindak_lanjut__denda__pengadilan",
@@ -275,7 +279,9 @@ const shared = {
                 "tindak_lanjut__rekom_citata__tanggal_spb",
                 "tindak_lanjut__rekom_citata__no_rekomtek",
                 "tindak_lanjut__rekom_citata__tanggal_rekomtek",
-                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan"
+                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan",
+                "tindak_lanjut__jumlah_minol_merk",
+                "dokumentasi"
             ]
         },
         pelaporanKegiatanForm: {
