@@ -39,10 +39,10 @@ CREATE TABLE laporan_kejadian (
     tindak__tuntutan varchar(255),
     tindak__sumber_info varchar(255),
     tindak__jenis_kekerasan varchar(255),
-    tindak__jenis_bantuan_satpolpp varchar(255),
-    tindak__jenis_bantuan_instansiterkait varchar(255),
-    tindak__korban_jiwa varchar(255),
-    tindak__korban_material varchar(255),
-    tindak__dokumentasi varchar(255),
+    tindak__jenis_bantuan_satpolpp json,
+    tindak__jenis_bantuan_instansiterkait json,
+    tindak__korban_jiwa json,
+    tindak__korban_material json,
+    tindak__dokumentasi json,
     CONSTRAINT laporan_kejadian_pkey PRIMARY KEY (id)
 	);

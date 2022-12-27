@@ -38,14 +38,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    nrk: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    nama: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     tgl_pengecekan: {
       type: DataTypes.DATEONLY,
       allowNull: true
@@ -85,6 +77,35 @@ module.exports = function(sequelize, DataTypes) {
     konten_iklan: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    kota: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    kecamatan: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    kelurahan: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    waktu_pengawasan: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    status_reklame: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    jenis_reklame: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    tindak_dokumentasi: {
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: []
     }
   }, {
     sequelize,
