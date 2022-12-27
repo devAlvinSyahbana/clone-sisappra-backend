@@ -228,6 +228,7 @@ const shared = {
             },
             "required": [
                 "id",
+                "created_by",
                 "kegiatan__jenis_kegiatan_id",
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",

@@ -45,7 +45,10 @@ const shared = {
                 "kegiatan__tanggal": {
                     "type": "string"
                 },
-                "kegiatan__jam": {
+                "kegiatan__jam_start": {
+                    "type": "string"
+                },
+                "kegiatan__jam_end": {
                     "type": "string"
                 },
                 "kegiatan__lokasi": {
@@ -225,6 +228,7 @@ const shared = {
             },
             "required": [
                 "id",
+                "created_by",
                 "kegiatan__jenis_kegiatan_id",
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",

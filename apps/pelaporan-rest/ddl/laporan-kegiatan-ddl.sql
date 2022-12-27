@@ -43,6 +43,7 @@ CREATE TABLE laporan_kegiatan (
     tindak_lanjut__identitas_pelanggar__alamat varchar(255),
     tindak_lanjut__identitas_pelanggar__jenis_usaha_id int4,
     tindak_lanjut__identitas_pelanggar__nama_pemilik varchar(64),
+    tindak_lanjut__identitas_pelanggar__luas_bongkaran int4,
     tindak_lanjut__jenis_penindakan_id int4,
     tindak_lanjut__jumlah_pelanggar int4,
     tindak_lanjut__denda__pengadilan int4,
@@ -60,5 +61,7 @@ CREATE TABLE laporan_kegiatan (
     tindak_lanjut__rekom_citata__no_rekomtek varchar(16),
     tindak_lanjut__rekom_citata__tanggal_rekomtek date,
     tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan date,
+    tindak_lanjut__jumlah_minol_merk json NULL DEFAULT '[]' ::json,
+    dokumentasi json NULL DEFAULT '[]' ::json,
 	CONSTRAINT laporan_kegiatan_pkey PRIMARY KEY (id)
 );
