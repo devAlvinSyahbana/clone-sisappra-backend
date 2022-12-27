@@ -380,15 +380,30 @@ const shared = {
                     "items": {
                         "type": "object",
                         "properties": {
-                            "file": {
-                                "type": "string"
+                            "file_uploadResult": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
                             },
                             "keterangan": {
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "file",
+                            "file_uploadResult",
                             "keterangan"
                         ]
                     }
@@ -415,14 +430,14 @@ const shared = {
                 "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha",
                 "tindak_lanjut__rekom_citata__jenis_pelanggaran_id",
                 "tindak_lanjut__rekom_citata__no_sp",
-                "tindak_lanjut__rekom_citata__tanggal_no_sp",
+                // "tindak_lanjut__rekom_citata__tanggal_no_sp",
                 "tindak_lanjut__rekom_citata__no_segel",
-                "tindak_lanjut__rekom_citata__tanggal_segel",
+                // "tindak_lanjut__rekom_citata__tanggal_segel",
                 "tindak_lanjut__rekom_citata__no_spb",
-                "tindak_lanjut__rekom_citata__tanggal_spb",
+                // "tindak_lanjut__rekom_citata__tanggal_spb",
                 "tindak_lanjut__rekom_citata__no_rekomtek",
-                "tindak_lanjut__rekom_citata__tanggal_rekomtek",
-                "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan",
+                // "tindak_lanjut__rekom_citata__tanggal_rekomtek",
+                // "tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan",
                 "dokumentasi"
             ]
         }
