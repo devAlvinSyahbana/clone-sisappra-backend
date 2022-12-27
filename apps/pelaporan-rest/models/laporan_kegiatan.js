@@ -158,6 +158,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(64),
       allowNull: true
     },
+    tindak_lanjut__identitas_pelanggar__luas_bongkaran: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     tindak_lanjut__jenis_penindakan_id: {
       type: DataTypes.INTEGER,
       allowNull: true
@@ -226,12 +230,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    dokumentasi: {
+    tindak_lanjut__jumlah_minol_merk: {
       type: DataTypes.JSON,
       allowNull: true,
       defaultValue: []
     },
-    tindak_lanjut__jumlah_minol_merk: {
+    dokumentasi: {
       type: DataTypes.JSON,
       allowNull: true,
       defaultValue: []
