@@ -295,13 +295,19 @@ const shared = {
                     "type": "number"
                 },
                 "kegiatan__uraian_kegiatan": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "kegiatan__tanggal": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
-                "kegiatan__jam": {
-                    "type": "string"
+                "kegiatan__jam_start": {
+                    "type": "string",
+                    "format": "time"
+                },
+                "kegiatan__jam_end": {
+                    "type": "string",
+                    "format": "time"
                 },
                 "kegiatan__lokasi": {
                     "type": "string"
@@ -339,9 +345,9 @@ const shared = {
                 "tindak_lanjut__identitas_pelanggar__alamat": {
                     "type": "string"
                 },
-                "tindak_lanjut__identitas_pelanggar__jenis_usaha_id": {
-                    "type": "number"
-                },
+                // "tindak_lanjut__identitas_pelanggar__jenis_usaha_id": {
+                //     "type": "number"
+                // },
                 "tindak_lanjut__jenis_penindakan_id": {
                     "type": "number"
                 },
@@ -402,7 +408,8 @@ const shared = {
                 "kegiatan__jumlah_personil",
                 "kegiatan__uraian_kegiatan",
                 "kegiatan__tanggal",
-                "kegiatan__jam",
+                "kegiatan__jam_start",
+                "kegiatan__jam_end",
                 "kegiatan__lokasi",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
                 "tindak_lanjut__administrasi__jenis_penertiban",
@@ -415,7 +422,7 @@ const shared = {
                 "tindak_lanjut__identitas_pelanggar__alamat_tempat_usaha",
                 "tindak_lanjut__identitas_pelanggar__nik",
                 "tindak_lanjut__identitas_pelanggar__alamat",
-                "tindak_lanjut__identitas_pelanggar__jenis_usaha_id",
+                // "tindak_lanjut__identitas_pelanggar__jenis_usaha_id",
                 "tindak_lanjut__jenis_penindakan_id",
                 "tindak_lanjut__jumlah_minol_merk",
                 "dokumentasi"
