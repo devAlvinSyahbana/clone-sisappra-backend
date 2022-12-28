@@ -5,8 +5,8 @@ const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
 const shared = {
     type: 'object',
     definitions: {
-        summaryLaporanKejadianDto: {
-            "title": "Laporan Kejadian Dto",
+        summaryLaporanKejadianKekerasanPerakDto: {
+            "title": "Laporan Kejadian Kekerasan Perak Dto",
             "type": "object",
             "properties": {
                 "id": {
@@ -204,8 +204,8 @@ const shared = {
                 "tindak__dokumentasi"
             ]
         },
-        pelaporanKejadianForm: {
-            "title": "Laporan Kejadian Umum Form",
+        pelaporanKejadianKekerasanPerakForm: {
+            "title": "Laporan Kejadian Kekerasan Perak Form",
             "type": "object",
             "properties": {
                 "kejadian__tanggal": {
@@ -348,26 +348,26 @@ const shared = {
 }
 
 const getSchema = {
-    description: "Get Laporan Kejadian",
+    description: "Get Laporan Kejadian Kekerasan Perak",
     tags: ["laporan-kejadian"],
     querystring: defaultPageQueryString,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto)
+        200: reply200(shared.definitions.summaryLaporanKejadianKekerasanPerakDto)
     }
 }
 
 const postSchema = {
-    "description": "Add Laporan Kejadian",
+    "description": "Add Laporan Kejadian Kekerasan Perak",
     tags: ["laporan-kejadian"],
-    body: shared.definitions.pelaporanKejadianForm,
+    body: shared.definitions.pelaporanKejadianKekerasanPerakForm,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto),
+        200: reply200(shared.definitions.summaryLaporanKejadianKekerasanPerakDto),
         400: reply400()
     }
 }
 
 const deleteSchema = {
-    description: "Delete Laporan Kejadian",
+    description: "Delete Laporan Kejadian Kekerasan Perak",
     tags: ["laporan-kejadian"],
     params: {
         id: {type: "number"}
@@ -379,14 +379,14 @@ const deleteSchema = {
 }
 
 const putSchema = {
-    description: "Update Laporan Kejadian",
+    description: "Update Laporan Kejadian Kekerasan Perak",
     tags: ["laporan-kejadian"],
     params: {
         id: {type: "number"}
     },
-    body: shared.definitions.pelaporanKejadianForm,
+    body: shared.definitions.pelaporanKejadianKekerasanPerakForm,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto),
+        200: reply200(shared.definitions.summaryLaporanKejadianKekerasanPerakDto),
         400: reply400()
     }
 }

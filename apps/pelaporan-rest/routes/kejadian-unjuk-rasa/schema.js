@@ -5,8 +5,8 @@ const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
 const shared = {
     type: 'object',
     definitions: {
-        summaryLaporanKejadianDto: {
-            "title": "Laporan Kejadian Dto",
+        summaryLaporanKejadianUnjukRasaDto: {
+            "title": "Laporan Kejadian Unjuk Rasa Dto",
             "type": "object",
             "properties": {
                 "id": {
@@ -54,7 +54,7 @@ const shared = {
                 "kejadian__alamat": {
                     "type": "string"
                 },
-                "kejadian__jenis_kegiatan_id": {
+                "kejadian__jenis_kejadian_id": {
                     "type": "number"
                 },
                 "kejadian__uraian_kejadian": {
@@ -80,6 +80,21 @@ const shared = {
                 },
                 "kejadian__lokasi_dapur_umum": {
                     "type": "string"
+                },
+                "kejadian__jumlah_massa": {
+                    "type": "number"
+                },
+                "kejadian__tuntutan": {
+                    "type": "string"
+                },
+                "kejadian__penanggung_jawab_unras": {
+                    "type": "string"
+                },
+                "kejadian__sumber_informasi_id": {
+                    "type": "number"
+                },
+                "kejadian__jenis_kekerasan_id": {
+                    "type": "number"
                 },
                 "tindak__jenis_bantuan_satpolpp": {
                     "type": "array",
@@ -139,28 +154,33 @@ const shared = {
                         "type": "object",
                         "properties": {
                             "file_uploadResult": {
-                                "type": "object",
-                                "properties": {
-                                    "bucket": {
-                                        "type": "string"
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
                                     },
-                                    "key": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "bucket",
-                                    "key"
-                                ]
-                            }
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
+                            },
                         },
                         "required": [
-                            "file_uploadResult"
+                            "file_uploadResult",
                         ]
                     }
                 }
             },
             "required": [
+                "id",
+                "created_by",
                 "kejadian__tanggal",
                 "kejadian__waktu_start",
                 "kejadian__waktu_end",
@@ -168,7 +188,7 @@ const shared = {
                 "kejadian__kecamatan_id",
                 "kejadian__kelurahan_id",
                 "kejadian__alamat",
-                "kejadian__jenis_kegiatan_id",
+                "kejadian__jenis_kejadian_id",
                 "kejadian__uraian_kejadian",
                 "kejadian__jml_personil_satpolpp",
                 "kejadian__jml_personil_instansilain",
@@ -184,12 +204,13 @@ const shared = {
                 "tindak__dokumentasi"
             ]
         },
-        pelaporanKejadianForm: {
-            "title": "Pelaporan Form Kejadian Kekerasan PERAK",
+        pelaporanKejadianUnjukRasaForm: {
+            "title": "Laporan Kejadian Unjuk Rasa Form",
             "type": "object",
             "properties": {
                 "kejadian__tanggal": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
                 "kejadian__waktu_start": {
                     "type": "string"
@@ -209,7 +230,7 @@ const shared = {
                 "kejadian__alamat": {
                     "type": "string"
                 },
-                "kejadian__jenis_kegiatan_id": {
+                "kejadian__jenis_kejadian_id": {
                     "type": "number"
                 },
                 "kejadian__uraian_kejadian": {
@@ -220,18 +241,6 @@ const shared = {
                 },
                 "kejadian__jml_personil_instansilain": {
                     "type": "number"
-                },
-                "tindak__sumber_info": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
-                },
-                "tindak__jenis_kekerasan": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
                 },
                 "tindak__jenis_bantuan_satpolpp": {
                     "type": "array",
@@ -267,29 +276,51 @@ const shared = {
                         ]
                     }
                 },
+                "tindak__korban_material": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "jml": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "jml"
+                        ]
+                    }
+                },
                 "tindak__dokumentasi": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
                             "file_uploadResult": {
-                                "type": "object",
-                                "properties": {
-                                    "bucket": {
-                                        "type": "string"
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
                                     },
-                                    "key": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "bucket",
-                                    "key"
-                                ]
-                            }
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
+                            },
                         },
                         "required": [
-                            "file_uploadResult"
+                            "file_uploadResult",
+                   
                         ]
                     }
                 }
@@ -302,15 +333,14 @@ const shared = {
                 "kejadian__kecamatan_id",
                 "kejadian__kelurahan_id",
                 "kejadian__alamat",
-                "kejadian__jenis_kegiatan_id",
+                "kejadian__jenis_kejadian_id",
                 "kejadian__uraian_kejadian",
                 "kejadian__jml_personil_satpolpp",
                 "kejadian__jml_personil_instansilain",
-                "tindak__sumber_info",
-                "tindak__jenis_kekerasan",
                 "tindak__jenis_bantuan_satpolpp",
                 "tindak__jenis_bantuan_instansiterkait",
                 "tindak__korban_jiwa",
+                "tindak__korban_material",
                 "tindak__dokumentasi"
             ]
         }
@@ -318,26 +348,26 @@ const shared = {
 }
 
 const getSchema = {
-    description: "Get Laporan Kejadian",
+    description: "Get Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
     querystring: defaultPageQueryString,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto)
+        200: reply200(shared.definitions.summaryLaporanKejadianUnjukRasaDto)
     }
 }
 
 const postSchema = {
-    "description": "Add Laporan Kejadian",
+    "description": "Add Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
-    body: shared.definitions.pelaporanKejadianForm,
+    body: shared.definitions.pelaporanKejadianUnjukRasaForm,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto),
+        200: reply200(shared.definitions.summaryLaporanKejadianUnjukRasaDto),
         400: reply400()
     }
 }
 
 const deleteSchema = {
-    description: "Delete Laporan Kejadian",
+    description: "Delete Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
     params: {
         id: {type: "number"}
@@ -349,14 +379,14 @@ const deleteSchema = {
 }
 
 const putSchema = {
-    description: "Update Laporan Kejadian",
+    description: "Update Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
     params: {
         id: {type: "number"}
     },
-    body: shared.definitions.pelaporanKejadianForm,
+    body: shared.definitions.pelaporanKejadianUnjukRasaForm,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto),
+        200: reply200(shared.definitions.summaryLaporanKejadianUnjukRasaDto),
         400: reply400()
     }
 }
