@@ -368,15 +368,30 @@ const shared = {
                     "items": {
                         "type": "object",
                         "properties": {
-                            "file": {
-                                "type": "string"
+                            "file_uploadResult": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bucket": {
+                                            "type": "string"
+                                        },
+                                        "key": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "bucket",
+                                        "key"
+                                    ]
+                                }
                             },
                             "keterangan": {
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "file",
+                            "file_uploadResult",
                             "keterangan"
                         ]
                     }
