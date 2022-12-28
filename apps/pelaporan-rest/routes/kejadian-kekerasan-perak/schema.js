@@ -242,6 +242,36 @@ const shared = {
                 "kejadian__jml_personil_instansilain": {
                     "type": "number"
                 },
+                "kejadian__ketinggian_air": {
+                    "type": "number"
+                },
+                "kejadian__pengungsi": {
+                    "type": "number"
+                },
+                "kejadian__pengungsi_kk": {
+                    "type": "number"
+                },
+                "kejadian__lokasi_penampungan": {
+                    "type": "string"
+                },
+                "kejadian__lokasi_dapur_umum": {
+                    "type": "string"
+                },
+                "kejadian__jumlah_massa": {
+                    "type": "number"
+                },
+                "kejadian__tuntutan": {
+                    "type": "string"
+                },
+                "kejadian__penanggung_jawab_unras": {
+                    "type": "string"
+                },
+                "kejadian__sumber_informasi_id": {
+                    "type": "number"
+                },
+                "kejadian__jenis_kekerasan_id": {
+                    "type": "number"
+                },
                 "tindak__jenis_bantuan_satpolpp": {
                     "type": "array",
                     "items": {
@@ -320,7 +350,6 @@ const shared = {
                         },
                         "required": [
                             "file_uploadResult",
-                   
                         ]
                     }
                 }
@@ -337,6 +366,11 @@ const shared = {
                 "kejadian__uraian_kejadian",
                 "kejadian__jml_personil_satpolpp",
                 "kejadian__jml_personil_instansilain",
+                "kejadian__ketinggian_air",
+                "kejadian__pengungsi",
+                "kejadian__pengungsi_kk",
+                "kejadian__lokasi_penampungan",
+                "kejadian__lokasi_dapur_umum",
                 "tindak__jenis_bantuan_satpolpp",
                 "tindak__jenis_bantuan_instansiterkait",
                 "tindak__korban_jiwa",
