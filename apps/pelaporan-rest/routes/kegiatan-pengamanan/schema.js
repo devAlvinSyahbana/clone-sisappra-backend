@@ -438,7 +438,7 @@ const shared = {
                 "tindak_lanjut__jenis_penindakan_id",
                 "tindak_lanjut__jumlah_pelanggar",
                 "tindak_lanjut__denda__non_pengadilan",
-                "tindak_lanjut__denda__tanggal_setor",
+                // "tindak_lanjut__denda__tanggal_setor",
                 "tindak_lanjut__denda__nama_bank",
                 "tindak_lanjut__denda__no_validasi_bank",
                 "dokumentasi"
