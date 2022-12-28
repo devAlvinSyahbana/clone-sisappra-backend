@@ -63,7 +63,6 @@ const shared = {
         konten_iklan: {
           type: "string",
         },
-
         kota: {
           type: "number",
         },
@@ -74,7 +73,7 @@ const shared = {
           type: "number",
         },
         tgl_pengecekan: {
-          type: "date",
+          type: "string"
         },
         posisi_reklame: {
           type: "string",
@@ -160,7 +159,8 @@ const shared = {
           type: "string",
         },
         tgl_pengecekan: {
-          type: "date",
+          type: "string",
+          format: 'date'
         },
 
         kota: {
