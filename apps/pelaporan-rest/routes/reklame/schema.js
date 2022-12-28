@@ -46,7 +46,7 @@ const shared = {
           type: "number",
         },
         ukuran: {
-          type: "number",
+          type: "string",
         },
         pemilik_reklame: {
           type: "string",
@@ -73,9 +73,6 @@ const shared = {
           type: "number",
         },
         tgl_pengecekan: {
-          type: "string"
-        },
-        posisi_reklame: {
           type: "string",
         },
         tindak_dokumentasi: {
@@ -105,7 +102,6 @@ const shared = {
       },
       required: [
         "id",
-        "posisi_reklame",
         "share_location",
         "alamat",
         "lokasi_tiang",
@@ -115,7 +111,6 @@ const shared = {
         "konstruksi_reklame",
         "konten_iklan",
         "tgl_pengecekan",
-        "waktu_pengesahan",
         "kota",
         "jenis_reklame",
         "status_reklame",
@@ -141,7 +136,7 @@ const shared = {
           type: "number",
         },
         ukuran: {
-          type: "number",
+          type: "string",
         },
         pemilik_reklame: {
           type: "string",
@@ -160,9 +155,7 @@ const shared = {
         },
         tgl_pengecekan: {
           type: "string",
-          format: 'date'
         },
-
         kota: {
           type: "number",
         },
@@ -171,9 +164,6 @@ const shared = {
         },
         kelurahan: {
           type: "number",
-        },
-        posisi_reklame: {
-          type: "string",
         },
         tindak_dokumentasi: {
           type: "array",
@@ -215,6 +205,7 @@ const shared = {
         "tindak_dokumentasi",
         "status_reklame",
         "jenis_reklame",
+        "tgl_pengecekan",
       ],
     },
   },
