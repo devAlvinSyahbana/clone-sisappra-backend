@@ -66,6 +66,9 @@ const shared = {
         kota: {
           type: "number",
         },
+        waktu_pengawasan: {
+          type: "string",
+        },
         kecamatan: {
           type: "number",
         },
@@ -116,6 +119,7 @@ const shared = {
         "status_reklame",
         "kecamatan",
         "kelurahan",
+        "waktu_pengawasan",
         "tindak_dokumentasi",
       ],
     },
@@ -149,6 +153,9 @@ const shared = {
         },
         status_reklame: {
           type: "number",
+        },
+        waktu_pengawasan: {
+          type: "string",
         },
         konten_iklan: {
           type: "string",
@@ -206,6 +213,7 @@ const shared = {
         "status_reklame",
         "jenis_reklame",
         "tgl_pengecekan",
+        "waktu_pengawasan",
       ],
     },
   },
