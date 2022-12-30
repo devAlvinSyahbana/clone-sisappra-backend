@@ -5,8 +5,8 @@ const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
 const shared = {
     type: 'object',
     definitions: {
-        summaryLaporanKejadianDto: {
-            "title": "Laporan Kejadian Dto",
+        summaryLaporanKejadianUnjukRasaDto: {
+            "title": "Laporan Kejadian Unjuk Rasa Dto",
             "type": "object",
             "properties": {
                 "id": {
@@ -204,8 +204,8 @@ const shared = {
                 "tindak__dokumentasi"
             ]
         },
-        pelaporanKejadianForm: {
-            "title": "Laporan Kejadian Umum Form",
+        pelaporanKejadianUnjukRasaForm: {
+            "title": "Laporan Kejadian Unjuk Rasa Form",
             "type": "object",
             "properties": {
                 "kejadian__tanggal": {
@@ -382,26 +382,26 @@ const shared = {
 }
 
 const getSchema = {
-    description: "Get Laporan Kejadian",
+    description: "Get Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
     querystring: defaultPageQueryString,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto)
+        200: reply200(shared.definitions.summaryLaporanKejadianUnjukRasaDto)
     }
 }
 
 const postSchema = {
-    "description": "Add Laporan Kejadian",
+    "description": "Add Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
-    body: shared.definitions.pelaporanKejadianForm,
+    body: shared.definitions.pelaporanKejadianUnjukRasaForm,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto),
+        200: reply200(shared.definitions.summaryLaporanKejadianUnjukRasaDto),
         400: reply400()
     }
 }
 
 const deleteSchema = {
-    description: "Delete Laporan Kejadian",
+    description: "Delete Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
     params: {
         id: {type: "number"}
@@ -413,14 +413,14 @@ const deleteSchema = {
 }
 
 const putSchema = {
-    description: "Update Laporan Kejadian",
+    description: "Update Laporan Kejadian Unjuk Rasa",
     tags: ["laporan-kejadian"],
     params: {
         id: {type: "number"}
     },
-    body: shared.definitions.pelaporanKejadianForm,
+    body: shared.definitions.pelaporanKejadianUnjukRasaForm,
     response: {
-        200: reply200(shared.definitions.summaryLaporanKejadianDto),
+        200: reply200(shared.definitions.summaryLaporanKejadianUnjukRasaDto),
         400: reply400()
     }
 }
