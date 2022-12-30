@@ -298,7 +298,8 @@ const shared = {
                     "type": "string"
                 },
                 "kegiatan__tanggal": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                 },
                 "kegiatan__jam_start": {
                     "type": "string",
