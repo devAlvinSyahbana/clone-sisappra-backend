@@ -3,7 +3,7 @@ const fsequelize = require('fastify-sequelize');
 
 const dbConnector = async (server, options, next) => {
 
-    const {sequelizeConfig, allModels} = options
+    const { sequelizeConfig, allModels } = options
 
     server.register(fsequelize, sequelizeConfig).ready(async () => {
 
