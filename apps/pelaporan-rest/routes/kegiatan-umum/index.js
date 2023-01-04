@@ -64,7 +64,7 @@ module.exports = async function (server, opts) {
         }
       });
     } else {
-      server.entity.track(record).markDeleted(request.body.created_by);
+      server.entity.track(record).markDeleted(request.body.deleted_by);
       await record.save();
     }
 
@@ -97,7 +97,7 @@ module.exports = async function (server, opts) {
 
     record.set(request.body);
 
-    server.entity.track(record).markModified(request.body.created_by);
+    server.entity.track(record).markModified(request.body.updated_by);
 
     await record.save();
 

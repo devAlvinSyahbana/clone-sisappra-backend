@@ -112,8 +112,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     tindak_lanjut__sidang__tanggal: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: "9999-09-09"
+      allowNull: true
     },
     tindak_lanjut__sidang__jumlah_pelanggar_hadir: {
       type: DataTypes.INTEGER,
@@ -181,8 +180,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     tindak_lanjut__denda__tanggal_setor: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: "9999-09-09"
+      allowNull: true
     },
     tindak_lanjut__denda__nama_bank: {
       type: DataTypes.STRING(64),
@@ -202,8 +200,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     tindak_lanjut__rekom_citata__tanggal_no_sp: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: "9999-09-09"
+      allowNull: true
     },
     tindak_lanjut__rekom_citata__no_segel: {
       type: DataTypes.STRING(16),
@@ -211,8 +208,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     tindak_lanjut__rekom_citata__tanggal_segel: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: "9999-09-09"
+      allowNull: true
     },
     tindak_lanjut__rekom_citata__no_spb: {
       type: DataTypes.STRING(16),
@@ -220,8 +216,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     tindak_lanjut__rekom_citata__tanggal_spb: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: "9999-09-09"
+      allowNull: true
     },
     tindak_lanjut__rekom_citata__no_rekomtek: {
       type: DataTypes.STRING(16),
@@ -229,13 +224,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     tindak_lanjut__rekom_citata__tanggal_rekomtek: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: "9999-09-09"
+      allowNull: true
     },
     tindak_lanjut__rekom_citata__tanggal_peninjauan_lapangan: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: "9999-09-09"
+      allowNull: true
     },
     tindak_lanjut__jumlah_minol_merk: {
       type: DataTypes.JSON,
