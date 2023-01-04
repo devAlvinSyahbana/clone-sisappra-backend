@@ -102,6 +102,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.JSON,
       allowNull: true,
       defaultValue: []
+    },
+    longtitude: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     sequelize,

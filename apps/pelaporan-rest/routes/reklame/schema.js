@@ -48,6 +48,9 @@ const shared = {
         ukuran: {
           type: "string",
         },
+        longtitude: {
+          type: "string",
+        },
         pemilik_reklame: {
           type: "string",
         },
@@ -128,6 +131,9 @@ const shared = {
       type: "object",
       properties: {
         share_location: {
+          type: "string",
+        },
+        longtitude: {
           type: "string",
         },
         alamat: {
