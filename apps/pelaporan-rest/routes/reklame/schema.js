@@ -205,6 +205,18 @@ const shared = {
         "waktu_pengawasan",
       ],
     },
+    deleteId: {
+      "title": "Laporan TamuDaerah",
+      "type": "object",
+      "properties": {
+        "deleted_by": {
+          "type": "string"
+        },
+      },
+      "required": [
+        "deleted_by",
+      ]
+    },
   },
 };
 
@@ -233,10 +245,11 @@ const deleteSchema = {
   params: {
     id: { type: "number" },
   },
+  body: shared.definitions.deleteId,
   response: {
-    200: reply200(),
-    400: reply400(),
-  },
+    200: reply200(shared.definitions.deleteId),
+    400: reply400()
+  }
 };
 
 const putSchema = {
