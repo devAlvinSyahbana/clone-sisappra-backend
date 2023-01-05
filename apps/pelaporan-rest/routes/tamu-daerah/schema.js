@@ -1,6 +1,6 @@
 'use strict'
 
-const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
+const { reply200, reply400, defaultPageQueryString } = require("../std.schema");
 
 const shared = {
     type: 'object',
@@ -59,20 +59,10 @@ const shared = {
                 },
                 "id": {
                     "type": "number"
-                  },
-               
+                },
+
             },
-            "required": [
-                "id",
-                "tanggal_kunjungan",
-                "waktu_mulai_kunjungan",
-                "waktu_selesai_kunjungan",
-                "asal_instansi",
-                "jml_pengunjung",
-                "maksud_dan_tujuan",
-                "pejabat_penerima_kunjungan",
-                "tempat_kunjungan",
-            ]
+            "required": []
         },
         pelaporanTamuDaerahForm: {
             "title": "Pelporan Form TamuDaerah",
@@ -116,7 +106,19 @@ const shared = {
                 "pejabat_penerima_kunjungan",
                 "tempat_kunjungan",
             ]
-        }
+        },
+        deleteId: {
+            "title": "Laporan TamuDaerah",
+            "type": "object",
+            "properties": {
+                "deleted_by": {
+                    "type": "string"
+                },
+            },
+            "required": [
+                "deleted_by",
+            ]
+        },
     }
 }
 
@@ -143,10 +145,11 @@ const deleteSchema = {
     description: "Delete Laporan TamuDaerah",
     tags: ["laporan-tamudaerah"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
+    body: shared.definitions.deleteId,
     response: {
-        200: reply200(),
+        200: reply200(shared.definitions.deleteId),
         400: reply400()
     }
 }
@@ -155,7 +158,7 @@ const putSchema = {
     description: "Update Laporan TamuDaerah",
     tags: ["laporan-tamudaerah"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     body: shared.definitions.pelaporanTamuDaerahForm,
     response: {
@@ -164,4 +167,4 @@ const putSchema = {
     }
 }
 
-module.exports = {getSchema, postSchema, deleteSchema, putSchema}
+module.exports = { getSchema, postSchema, deleteSchema, putSchema }
