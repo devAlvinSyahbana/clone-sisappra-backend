@@ -1,12 +1,12 @@
 'use strict'
 
-const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
+const { reply200, reply400, defaultPageQueryString } = require("../std.schema");
 
 const shared = {
     type: 'object',
     definitions: {
-        summaryLaporanKejadianBanjirDto: {
-            "title": "Laporan Kejadian Banjir Dto",
+        summaryLaporanKejadianDto: {
+            "title": "Laporan Kejadian Dto",
             "type": "object",
             "properties": {
                 "id": {
@@ -178,31 +178,7 @@ const shared = {
                     }
                 }
             },
-            "required": [
-                "id",
-                "created_by",
-                "kejadian__tanggal",
-                "kejadian__waktu_start",
-                "kejadian__waktu_end",
-                "kejadian__kota_id",
-                "kejadian__kecamatan_id",
-                "kejadian__kelurahan_id",
-                "kejadian__alamat",
-                "kejadian__jenis_kejadian_id",
-                "kejadian__uraian_kejadian",
-                "kejadian__jml_personil_satpolpp",
-                "kejadian__jml_personil_instansilain",
-                "kejadian__ketinggian_air",
-                "kejadian__pengungsi",
-                "kejadian__pengungsi_kk",
-                "kejadian__lokasi_penampungan",
-                "kejadian__lokasi_dapur_umum",
-                "tindak__jenis_bantuan_satpolpp",
-                "tindak__jenis_bantuan_instansiterkait",
-                "tindak__korban_jiwa",
-                "tindak__korban_material",
-                "tindak__dokumentasi"
-            ]
+            "required": []
         },
         pelaporanKejadianBanjirForm: {
             "title": "Laporan Kejadian Banjir Form",
@@ -404,7 +380,7 @@ const deleteSchema = {
     description: "Delete Laporan Kejadian Banjir",
     tags: ["laporan-kejadian"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     response: {
         200: reply200(),
@@ -416,7 +392,7 @@ const putSchema = {
     description: "Update Laporan Kejadian Banjir",
     tags: ["laporan-kejadian"],
     params: {
-        id: {type: "number"}
+        id: { type: "number" }
     },
     body: shared.definitions.pelaporanKejadianBanjirForm,
     response: {
@@ -425,4 +401,4 @@ const putSchema = {
     }
 }
 
-module.exports = {getSchema, postSchema, deleteSchema, putSchema}
+module.exports = { getSchema, postSchema, deleteSchema, putSchema }
