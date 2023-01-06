@@ -57,10 +57,6 @@ const shared = {
                 "tempat_kunjungan": {
                     "type": "string"
                 },
-                "id": {
-                    "type": "number"
-                },
-
             },
             "required": []
         },
