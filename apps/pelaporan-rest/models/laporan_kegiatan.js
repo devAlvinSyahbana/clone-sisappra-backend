@@ -47,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     kegiatan__uraian_kegiatan: {
-      type: DataTypes.STRING(128),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     kegiatan__tanggal: {
@@ -63,7 +63,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     kegiatan__lokasi: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(128),
       allowNull: true
     },
     kegiatan__asal_laporan_id: {
@@ -75,11 +75,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     kegiatan__masalah: {
-      type: DataTypes.STRING(128),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     kegiatan__pemecahan_masalah: {
-      type: DataTypes.STRING(128),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     kegiatan__instansi_terkait: {
@@ -187,7 +187,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     tindak_lanjut__denda__no_validasi_bank: {
-      type: DataTypes.STRING(16),
+      type: DataTypes.STRING(64),
       allowNull: true
     },
     tindak_lanjut__rekom_citata__jenis_pelanggaran_id: {
