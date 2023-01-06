@@ -9,7 +9,7 @@ const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../../config/config.js")[env];
 
 
-module.exports = async function(server, opts) {
+module.exports = async function (server, opts) {
 
   const readCSV = ({ filePath }) => {
     let records = [];
@@ -41,7 +41,7 @@ module.exports = async function(server, opts) {
 
     const data = query.toArray();
     const dataJenisKegiatan = query.select((v) => v["JENIS KEGIATAN"]).distinct().toArray();
-    let toAdd = [], jenisKegiatanNotFound= [], perdasAvail = [], perdasNotFound = [];
+    let toAdd = [], jenisKegiatanNotFound = [], perdasAvail = [], perdasNotFound = [];
     let numOfRecordsAdded = 0, numOfNotMatch = 0;
 
     async function runImport() {
@@ -55,10 +55,12 @@ module.exports = async function(server, opts) {
           }
         });
 
-        if(perda == null) {
-          perdasNotFound.push({judul: v["PERDA"],
+        if (perda == null) {
+          perdasNotFound.push({
+            judul: v["PERDA"],
             pasal: v["PASAL"],
-            jenis_penertiban: v["JENIS PENERTIBAN"]})
+            jenis_penertiban: v["JENIS PENERTIBAN"]
+          })
         }
 
         let jenisKegiatan = await jenisKegiatanModel.findOne({
@@ -68,7 +70,7 @@ module.exports = async function(server, opts) {
           }
         });
 
-        if(jenisKegiatan == null){
+        if (jenisKegiatan == null) {
           jenisKegiatanNotFound.push(v['JENIS KEGIATAN'])
         }
 
@@ -90,7 +92,7 @@ module.exports = async function(server, opts) {
         }
       }
 
-      if(perdasNotFound.length > 0 || jenisKegiatanNotFound.length > 0) {
+      if (perdasNotFound.length > 0 || jenisKegiatanNotFound.length > 0) {
         reject([{ errorPerdas: perdasNotFound, errorJenisKegiatan: jenisKegiatanNotFound }])
         return;
       }
@@ -154,13 +156,15 @@ module.exports = async function(server, opts) {
           }
         }
         else {
-          perdasNotFound.push({judul: v["PERDA"],
+          perdasNotFound.push({
+            judul: v["PERDA"],
             pasal: v["PASAL"],
-            jenis_penertiban: v["JENIS PENERTIBAN"]})
+            jenis_penertiban: v["JENIS PENERTIBAN"]
+          })
         }
       }
 
-      if(perdasNotFound.length > 0) {
+      if (perdasNotFound.length > 0) {
         reject([{ errorPerdas: perdasNotFound }])
         return;
       }
@@ -235,7 +239,42 @@ module.exports = async function(server, opts) {
     resolve([{ rowCsv: data.length, recordsAdded: numOfRecordsAdded }]);
   };
 
-  server.post("/", { schema: postSchema, attachValidation: true }, async function(req, reply) {
+  const importMasterPenyelesaian = async ({ filePath, resolve, reject }) => {
+    const dataCsv = await readCSV({ filePath });
+    const query = Enumerable.from(dataCsv);
+    const JenisPenyelesaianModel = server.models.MasterJenisPenyelesaian;
+    let numOfRecordsAdded = 0;
+    const data = query.toArray();
+    let toAdd = [];
+
+    for (const v of data) {
+      let record = await JenisPenyelesaianModel.findOne({
+        where: {
+          nama: v["nama"],
+          ...server.dbfilters.notDeleted
+        }
+      });
+
+      if (record != null) continue;
+
+      record = {
+        nama: v["nama"],
+      };
+
+      record = server.entity.track(record).markCreated("system");
+      toAdd.push(record);
+      numOfRecordsAdded++;
+    }
+
+    if (toAdd.length > 0) {
+      const actCreated = await JenisPenyelesaianModel.bulkCreate(toAdd);
+      console.log(actCreated.values());
+    }
+
+    resolve([{ rowCsv: data.length, recordsAdded: numOfRecordsAdded }]);
+  };
+
+  server.post("/", { schema: postSchema, attachValidation: true }, async function (req, reply) {
     if (req.validationError) {
       return reply.code(400).send({ success: false, ...req.validationError });
     }
@@ -253,6 +292,9 @@ module.exports = async function(server, opts) {
       switch (entity) {
         case "MasterPerda":
           await importMasterPerda({ filePath: tempFile + "/perdav2.csv", resolve, reject });
+          break;
+        case "MasterJenisPenyelesaian":
+          await importMasterPenyelesaian({ filePath: tempFile + "/jenis_penyelesaian.csv", resolve, reject });
           break;
         case "MapPerdaJenisKegiatan":
           await importMapPerdaJenisKegiatan({

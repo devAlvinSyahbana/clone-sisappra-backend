@@ -50,7 +50,7 @@ const formImportEntity = {
     },
     "entity": {
       "type": "string",
-      "enum": ["MapPerdaJenisPenyelesaian", "MapPerdaJenisKegiatan", "MasterPerda"]
+      "enum": ["MapPerdaJenisPenyelesaian", "MapPerdaJenisKegiatan", "MasterPerda", "MasterJenisPenyelesaian"]
     }
   },
   "required": [
@@ -59,7 +59,7 @@ const formImportEntity = {
 }
 
 const postSchema = {
-  "description": "Add Jenis Usaha",
+  "description": "Add data from csv",
   tags: ["imports"],
   body: formImportEntity,
   response: {
