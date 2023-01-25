@@ -11,6 +11,8 @@
     "dev": "turbo run dev --parallel",
     "dev:masterdata": "turbo run dev --scope=masterdata-rest",
     "dev:pelaporan": "turbo run dev --scope=pelaporan-rest",
+    "prune-pelaporan": "turbo prune --scope=pelaporan-rest --docker",
+    "prune-masterdata": "turbo prune --scope=masterdata-rest --docker",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "build:pelaporan-rest": "mkdir -p dist-apps && rm -rf dist-apps/pelaporan-rest && cp -R apps/pelaporan-rest dist-apps/"
@@ -21,11 +23,12 @@
     "turbo": "latest"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
   },
   "dependencies": {
     "fastify-cron": "^1.3.1",
     "uuid": "^9.0.0"
   },
-  "packageManager": "npm@8.19.2"
+  "packageManager": "yarn@1.22.17"
 }
