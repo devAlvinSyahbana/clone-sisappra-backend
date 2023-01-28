@@ -30,7 +30,7 @@ module.exports = async function (fastify, opts) {
   fastify.register(require("@fastify/multipart"), { attachFieldsToBody: 'keyValues' })
 
   fastify.register(require("sisappra-client"), {
-    masterdataBaseUrl: 'http://localhost:3001'
+    masterdataBaseUrl: `${process.env.SISAPPRA_MASTERDATA_API_URL}`
   })
 
   fastify.register(require("sisappra-odata"))
@@ -61,7 +61,7 @@ module.exports = async function (fastify, opts) {
     hideUntagged: true,
     exposeRoute: true
   })
-  
+
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
