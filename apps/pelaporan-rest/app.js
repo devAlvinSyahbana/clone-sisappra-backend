@@ -3,12 +3,6 @@
 const path = require('path')
 const AutoLoad = require('@fastify/autoload')
 const allModels = require('./models/init-models')
-const fs = require('fs');
-const env = fs.readFileSync('.env').toString();
-const envConfig = eval(`(${env})`);
-
-const MASTERDATA_URL = envConfig.SISAPPRA_MASTERDATA_API_URL;
-
 
 // Pass --options via CLI arguments in command to enable these options.
 module.exports.options = {}
@@ -36,7 +30,7 @@ module.exports = async function (fastify, opts) {
   fastify.register(require("@fastify/multipart"), { attachFieldsToBody: 'keyValues' })
 
   fastify.register(require("sisappra-client"), {
-    masterdataBaseUrl: `${MASTERDATA_URL}`
+    masterdataBaseUrl: `${process.env.SISAPPRA_MASTERDATA_API_URL}`
   })
 
   fastify.register(require("sisappra-odata"))
