@@ -11,7 +11,7 @@ module.exports = {
             dialect: process.env.DB_DIALECT
         },
         services_internal: {
-            cdn: 'http://localhost:9090'
+            cdn: process.env.SISAPPRA_UPLOADER_API_URL
         }
     },
     test: {
@@ -24,7 +24,7 @@ module.exports = {
             dialect: process.env.DB_DIALECT
         },
         services_internal: {
-            cdn: 'http://localhost:9090'
+            cdn: process.env.SISAPPRA_UPLOADER_API_URL
         }
     },
     production: {
@@ -37,7 +37,7 @@ module.exports = {
             dialect: process.env.DB_DIALECT
         },
         services_internal: {
-            cdn: 'http://localhost:9090'
+            cdn: process.env.SISAPPRA_UPLOADER_API_URL
         }
     }
 };
