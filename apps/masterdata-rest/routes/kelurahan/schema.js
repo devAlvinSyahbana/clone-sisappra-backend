@@ -15,6 +15,9 @@ const shared = {
         kode: {
           type: "string",
         },
+        kode_kecamatan: {
+          type: "string",
+        },
         is_deleted: {
           type: "number",
         },
