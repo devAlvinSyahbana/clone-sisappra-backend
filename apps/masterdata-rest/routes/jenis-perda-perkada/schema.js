@@ -3,7 +3,7 @@
 const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
 const shared = {
     definitions: {
-        jenisPasalDto: {
+        jenisPerdaPerkadaDto: {
             "type": "object",
             "properties": {
                 "id": {
@@ -49,7 +49,30 @@ const shared = {
             "required": [
                 "id"
             ]
-        }
+        },
+        perdaPerkadaForm: {
+            "type": "object",
+            "properties": {
+                "judul": {
+                    "type": "string"
+                },
+                "pasal": {
+                    "type": "string"
+                },
+                "jenis_pelanggaran": {
+                    "type": "string"
+                },
+                "jenis_penertiban": {
+                    "type": "string"
+                },
+            },
+            "required": [
+                "judul",
+                "pasal",
+                "jenis_penertiban",
+                "jenis_pelanggaran",
+            ]
+        } 
     }
 }
 
@@ -58,7 +81,7 @@ const getSchema = {
     tags: ["jenis-perda-perkada"],
     querystring: defaultPageQueryString,
     response: {
-        200: reply200(shared.definitions.jenisPasalDto)
+        200: reply200(shared.definitions.jenisPerdaPerkadaDto)
     }
 }
 
@@ -71,24 +94,24 @@ const getComboSchema = {
             type: 'object',
             properties: {
                 'value': { type: 'number' },
-                'text': {type: 'string'}
+                'text': { type: 'string' }
             }
         })
     }
 }
 
 const postSchema = {
-    "description": "Add Jenis Pasal",
+    "description": "Add Jenis Perda Perkada",
     tags: ["jenis-perda-perkada"],
-    body: {},
+    body: shared.definitions.perdaPerkadaForm,
     response: {
-        200: reply200(shared.definitions.jenisPasalDto),
+        200: reply200(shared.definitions.jenisPerdaPerkadaDto),
         400: reply400()
     }
 }
 
 const deleteSchema = {
-    description: "Delete Jenis Pasal",
+    description: "Delete Jenis Perda Perkada",
     tags: ["jenis-perda-perkada"],
     params: {
         id: { type: "number" }
@@ -100,14 +123,14 @@ const deleteSchema = {
 }
 
 const putSchema = {
-    description: "Update Jenis Pasal",
+    description: "Update Jenis Perda Perkada",
     tags: ["jenis-perda-perkada"],
     params: {
         id: { type: "number" }
     },
-    body: {},
+    body: shared.definitions.perdaPerkadaForm,
     response: {
-        200: reply200(shared.definitions.jenisPasalDto),
+        200: reply200(shared.definitions.jenisPerdaPerkadaDto),
         400: reply400()
     }
 }
