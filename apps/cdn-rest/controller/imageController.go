@@ -3,12 +3,15 @@ package controller
 import (
 	"context"
 	"fmt"
-	"github.com/aws/aws-sdk-go-v2/feature/s3/manager"
 	"net/http"
 	"strconv"
 	"strings"
 
+	"github.com/aws/aws-sdk-go-v2/feature/s3/manager"
+
 	"GominioCdn/service"
+	helper "GominioCdn/service"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/minio/minio-go/v7"
 )
@@ -210,7 +213,7 @@ func (i image) UploadImage(c *fiber.Ctx) error {
 		})
 	}
 
-	link := "localhost:9090/" + bucket + "/" + objectName
+	link := helper.GetEnv("SISAPPRA_UPLOADER_API_URL") + "/" + bucket + "/" + objectName
 
 	var (
 		awsResult *manager.UploadOutput

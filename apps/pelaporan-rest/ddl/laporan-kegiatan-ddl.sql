@@ -20,6 +20,7 @@ CREATE TABLE laporan_kegiatan (
     kegiatan__jam_start varchar(16),
     kegiatan__jam_end varchar(16),
     kegiatan__lokasi varchar(128),
+    kegiatan__kota_id int4,
     kegiatan__asal_laporan_id int4,
     kegiatan__jenis_pengamanan_id int4,
     kegiatan__masalah varchar(255),
