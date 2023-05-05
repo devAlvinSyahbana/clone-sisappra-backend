@@ -37,7 +37,20 @@ const shared = {
                     "type": "string"
                 }
             },
-            "required": []
+            "required": [
+                "id"
+            ]
+        },
+        penertibanForm: {
+            "type": "object",
+            "properties": {
+                "nama": {
+                    "type": "string"
+                },
+            },
+            "required": [
+                "nama",
+            ]
         }
     }
 }
@@ -75,7 +88,7 @@ const getComboSchema = {
 const postSchema = {
     "description": "Add Jenis Penertiban",
     tags: ["jenis-penertiban"],
-    body: {},
+    body: shared.definitions.penertibanForm,
     response: {
         200: reply200(shared.definitions.jenisPenertibanDto),
         400: reply400()
@@ -100,7 +113,7 @@ const putSchema = {
     params: {
         id: { type: "number" }
     },
-    body: {},
+    body: shared.definitions.penertibanForm,
     response: {
         200: reply200(shared.definitions.jenisPenertibanDto),
         400: reply400()
