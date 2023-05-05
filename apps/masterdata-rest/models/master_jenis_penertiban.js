@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    kode: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     is_deleted: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -40,10 +44,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    kode: {
-      type: DataTypes.STRING,
-      allowNull: true
-    }
   }, {
     sequelize,
     tableName: 'master_jenis_penertiban',

@@ -18,6 +18,9 @@ const shared = {
                 "jenis_penyelesaian_id": {
                     "type": "number"
                 },
+                "pasal": {
+                    "type": "string"
+                },
                 "is_deleted": {
                     "type": "number"
                 },
@@ -62,26 +65,26 @@ const getJenisPenyelesaianSchema = {
     }
 }
 
-// const getComboSchema = {
-//     description: "Get Jenis Pengamanan in combobox mode",
-//     tags: ["jenis-pengamanan"],
-//     querystring: {
-//         "$filter": { type: 'string' },
-//         "$top": { type: 'number' },
-//         "$skip": { type: 'number' },
-//         "$select": { type: 'string' },
-//         "$orderby": { type: 'string' }
-//     },
-//     response: {
-//         200: reply200({
-//             type: 'object',
-//             properties: {
-//                 'value': { type: 'number' },
-//                 'text': { type: 'string' }
-//             }
-//         })
-//     }
-// }
+const getComboJenisKegiatanSchema = {
+    description: "Get Jenis Kegiatan in combobox mode",
+    tags: ["map-master-perda"],
+    querystring: {
+        "$filter": { type: 'string' },
+        "$top": { type: 'number' },
+        "$skip": { type: 'number' },
+        "$select": { type: 'string' },
+        "$orderby": { type: 'string' }
+    },
+    response: {
+        200: reply200({
+            type: 'object',
+            properties: {
+                'value': { type: 'number' },
+                'text': { type: 'string' }
+            }
+        })
+    }
+}
 
 // const postSchema = {
 //     "description": "Add Jenis Pengamanan",
@@ -118,4 +121,4 @@ const getJenisPenyelesaianSchema = {
 //     }
 // }
 
-module.exports = { getJenisKegiatanSchema, getJenisPenyelesaianSchema }
+module.exports = { getJenisKegiatanSchema, getComboJenisKegiatanSchema, getJenisPenyelesaianSchema }

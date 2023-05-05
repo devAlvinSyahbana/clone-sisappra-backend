@@ -66,6 +66,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(128),
       allowNull: true
     },
+    kegiatan__kota_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     kegiatan__asal_laporan_id: {
       type: DataTypes.INTEGER,
       allowNull: true

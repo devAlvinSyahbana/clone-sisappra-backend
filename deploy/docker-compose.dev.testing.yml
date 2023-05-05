@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  pelaporan:
+    build:
+      context: ./sisappra-backend/apps/pelaporan-rest
+      dockerfile: Dockerfile
+    image: devalvintsgitdev/sisappra-pelaporan:0.0.1
+    restart: always
+    ports:
+      - 3000
+
+  # master-data:
+  #   build:
+  #     context: ./sisappra-backend/apps/masterdata-rest
+  #     dockerfile: Dockerfile
+  #   image: devalvintsgitdev/sisappra-master-data:0.0.1
+  #   restart: always
+  #   ports:
+  #     - 3000

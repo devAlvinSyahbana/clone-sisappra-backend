@@ -1,6 +1,6 @@
 'use strict'
 
-const { getJenisKegiatanSchema, getJenisPenyelesaianSchema } = require("./schema");
+const { getJenisKegiatanSchema, getJenisPenyelesaianSchema, getComboJenisKegiatanSchema } = require("./schema");
 
 module.exports = async function (server, opts) {
     const DbSetJenisKegiatan = () => server.models.MapMasterPerdaJeniskegiatan
