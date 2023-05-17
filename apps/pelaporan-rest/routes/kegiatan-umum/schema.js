@@ -54,6 +54,9 @@ const shared = {
                 "kegiatan__lokasi": {
                     "type": "string"
                 },
+                "kegiatan__kota_id": {
+                    "type": "number"
+                },
                 "kegiatan__asal_laporan_id": {
                     "type": "number"
                 },
@@ -259,6 +262,9 @@ const shared = {
                 "kegiatan__lokasi": {
                     "type": "string"
                 },
+                "kegiatan__kota_id": {
+                    "type": "number"
+                },
                 "tindak_lanjut__administrasi__jenis_pasal_id": {
                     "type": "number"
                 },
@@ -355,6 +361,7 @@ const shared = {
                 "kegiatan__jam_start",
                 "kegiatan__jam_end",
                 "kegiatan__lokasi",
+                "kegiatan__kota_id",
                 "tindak_lanjut__administrasi__jenis_pasal_id",
                 "tindak_lanjut__administrasi__jenis_penertiban",
                 "tindak_lanjut__administrasi__jenis_pelanggaran",

@@ -3,33 +3,19 @@
 const {getSchema, postSchema, deleteSchema, putSchema, getComboSchema} = require("./schema");
 
 module.exports = async function (server, opts) {
-    const DbSet = () => server.models.MasterJenisPerdaPerkada
+    const DbSet = () => server.models.MasterJenisPenertiban
 
     server.get('/', {schema: getSchema}, async function (request, reply) {
         return await server.odata.replyPaging(request, reply, DbSet())
     })
 
-    server.get('/combobox',{ schema: getComboSchema },  async function (request, reply) {
+    server.get('/combobox', {schema: getComboSchema}, async function (request, reply) {
         let query = server.odata.query(request.query)
 
         // make columns value & text
         query.attributes = [
             [server.db.col('id'), 'value'],
-            [server.db.col('judul'), 'text']
-        ]
-
-        const data = await DbSet().findAll(query)
-
-        return reply.send({success: true, data: data})
-    })
-
-    server.get('/perda', async function (request, reply) {
-        let query = server.odata.query(request.query)
-        const {literal} = server.db
-
-        // make columns value & text
-        query.attributes = [
-            [literal('DISTINCT(judul)'), 'text']
+            [server.db.col('nama'), 'text']
         ]
 
         const data = await DbSet().findAll(query)
@@ -42,9 +28,7 @@ module.exports = async function (server, opts) {
             return reply.code(400).send({success: false, ...request.validationError})
         }
 
-        let record = {
-            ...request.body
-        }
+        let record = {}
 
         server.entity.track(record).markCreated("unknown")
 
@@ -95,7 +79,11 @@ module.exports = async function (server, opts) {
         })
 
         if (record == null)
-            return reply.status(400).send({success: false, message: `ID (${request.params.id}) not found`, statusCode: 400})
+            return reply.status(400).send({
+                success: false,
+                message: `ID (${request.params.id}) not found`,
+                statusCode: 400
+            })
 
         if (request.validationError) {
             return reply.code(400).send({success: false, ...request.validationError})
@@ -103,7 +91,7 @@ module.exports = async function (server, opts) {
 
         record.set(request.body)
 
-        server.entity.track(record).markModified(request.body.updated_by)
+        server.entity.track(record).markModified('unknown')
 
         await record.save()
 

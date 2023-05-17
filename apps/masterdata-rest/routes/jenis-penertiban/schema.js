@@ -3,29 +3,20 @@
 const {reply200, reply400, defaultPageQueryString} = require("../std.schema");
 const shared = {
     definitions: {
-        jenisPerdaPerkadaDto: {
+        jenisPenertibanDto: {
             "type": "object",
             "properties": {
                 "id": {
                     "type": "number"
                 },
-                "judul": {
+                "nama": {
                     "type": "string"
                 },
-                "pasal": {
+                "kode": {
                     "type": "string"
-                },
-                "jenis_pelanggaran": {
-                    "type": "string"
-                },
-                "jenis_penertiban": {
-                    "type": "string"
-                },
-                "enabled": {
-                    "type": "boolean"
                 },
                 "is_deleted": {
-                    "type": "boolean"
+                    "type": "number"
                 },
                 "deleted_at": {
                     "type": "string"
@@ -33,13 +24,13 @@ const shared = {
                 "deleted_by": {
                     "type": "string"
                 },
+                "created_at": {
+                    "type": "string"
+                },
                 "created_by": {
                     "type": "string"
                 },
                 "updated_by": {
-                    "type": "string"
-                },
-                "created_at": {
                     "type": "string"
                 },
                 "updated_at": {
@@ -50,69 +41,63 @@ const shared = {
                 "id"
             ]
         },
-        perdaPerkadaForm: {
+        penertibanForm: {
             "type": "object",
             "properties": {
-                "judul": {
-                    "type": "string"
-                },
-                "pasal": {
-                    "type": "string"
-                },
-                "jenis_pelanggaran": {
-                    "type": "string"
-                },
-                "jenis_penertiban": {
+                "nama": {
                     "type": "string"
                 },
             },
             "required": [
-                "judul",
-                "pasal",
-                "jenis_penertiban",
-                "jenis_pelanggaran",
+                "nama",
             ]
-        } 
+        }
     }
 }
 
 const getSchema = {
-    description: "Get Jenis Pasal",
-    tags: ["jenis-perda-perkada"],
+    description: "Get Jenis Penertiban",
+    tags: ["jenis-penertiban"],
     querystring: defaultPageQueryString,
     response: {
-        200: reply200(shared.definitions.jenisPerdaPerkadaDto)
+        200: reply200(shared.definitions.jenisPenertibanDto)
     }
 }
 
 const getComboSchema = {
-    description: "Get Jenis Pasal in combobox mode",
-    tags: ["jenis-perda-perkada"],
-    querystring: defaultPageQueryString,
+    description: "Get Jenis Penertiban in combobox mode",
+    tags: ["jenis-penertiban"],
+    querystring: {
+        "$filter": { type: 'string' },
+        "$top": { type: 'number' },
+        "$skip": { type: 'number' },
+        "$select": { type: 'string' },
+        "$orderby": { type: 'string' }
+    },
     response: {
         200: reply200({
             type: 'object',
             properties: {
                 'value': { type: 'number' },
-                'text': { type: 'string' }
+                'text': {type: 'string'}
             }
         })
     }
 }
 
 const postSchema = {
-    "description": "Add Jenis Perda Perkada",
-    tags: ["jenis-perda-perkada"],
-    body: shared.definitions.perdaPerkadaForm,
+    "description": "Add Jenis Penertiban",
+    tags: ["jenis-penertiban"],
+    body: shared.definitions.penertibanForm,
     response: {
-        200: reply200(shared.definitions.jenisPerdaPerkadaDto),
+        200: reply200(shared.definitions.jenisPenertibanDto),
         400: reply400()
     }
 }
 
 const deleteSchema = {
-    description: "Delete Jenis Perda Perkada",
-    tags: ["jenis-perda-perkada"],
+    description: "Delete Jenis Penertiban",
+    tags: ["jenis-penertiban"],
     params: {
         id: { type: "number" }
     },
@@ -123,14 +108,14 @@ const deleteSchema = {
 }
 
 const putSchema = {
-    description: "Update Jenis Perda Perkada",
-    tags: ["jenis-perda-perkada"],
+    description: "Update Jenis Penertiban",
+    tags: ["jenis-penertiban"],
     params: {
         id: { type: "number" }
     },
-    body: shared.definitions.perdaPerkadaForm,
+    body: shared.definitions.penertibanForm,
     response: {
-        200: reply200(shared.definitions.jenisPerdaPerkadaDto),
+        200: reply200(shared.definitions.jenisPenertibanDto),
         400: reply400()
     }
 }
